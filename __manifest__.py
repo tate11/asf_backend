@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "openacademy",
+    'name': "Condominium",
 
-    'summary': """Manage trainings""",
+    'summary': """Condominium APP""",
 
     'description': """
         Open Academy module for managing trainings:
@@ -11,8 +11,8 @@
             - attendees registration
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Aranda Software Company",
+    'website': "http://www.arandasf.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
