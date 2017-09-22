@@ -26,13 +26,6 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        # 'views/templates.xml',
-        'views/openacademy.xml',
-        # 'views/owners.xml',
-        # 'views/mail_template.xml',
-        'views/contact_view.xml',
-        'views/quotation_view.xml',
-        # 'views/condominium.xml',
-
+        'views/views.xml',
     ],
 }

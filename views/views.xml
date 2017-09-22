@@ -1,59 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="openacademy.list">
-      <field name="name">openacademy list</field>
-      <field name="model">openacademy.openacademy</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
+    <data>
+        
+        <record model="ir.actions.act_window" id="apartment_list_action">
+            <field name="name">Departamentos</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'type': 'apartment'}"/>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="openacademy.action_window">
-      <field name="name">openacademy window</field>
-      <field name="res_model">openacademy.openacademy</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first apartment
+                </p>
+            </field>
+        </record>
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="openacademy.action_server">
-      <field name="name">openacademy server</field>
-      <field name="model_id" ref="model_openacademy_openacademy"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
+        <!-- Top level menu: no parent -->
+        <menuitem id="main_condominium_menu" name="Condominio"/>
+        <menuitem id="condominium_menu" name="Establecimientos" parent="main_condominium_menu"/>
+        <menuitem id="apartment_menu" name="Departentos" parent="condominium_menu"
+                  action="apartment_list_action"/>
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="openacademy" id="openacademy.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="openacademy.menu_1" parent="openacademy.menu_root"/>
-    <menuitem name="Menu 2" id="openacademy.menu_2" parent="openacademy.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="openacademy.menu_1_list" parent="openacademy.menu_1"
-              action="openacademy.action_window"/>
-    <menuitem name="Server to list" id="openacademy" parent="openacademy.menu_2"
-              action="openacademy.action_server"/>
-    -->
-  </data>
+        <!-- Quotation -->
+        <record id="sale_order_form_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+            <!-- Add a header with button to the existing view -->
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="create_orders" string="Create sale orders" type="object"/>
+                </header>
+            </xpath>
+            </field>
+        </record>
+
+        <!-- Contact view   -->
+        <record id="send_mail_partner_form_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="send_mail_template" string="Send e-mail" type="object" class="oe_highlight"/>
+                    <button name="create_partner" string="Create user" type="object" class="oe_highlight"/>
+                    <button name="read_partners" string="Read partners" type="object" class="oe_highlight"/>
+                    <button name="create_sale" string="Create sale order" type="object"/>
+                </header>
+            </xpath>
+            </field>
+        </record>
+
+        <record id="apartment_partner_search_view" model="ir.ui.view" >
+            <field name="name">asf.partner.template</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <!-- <field name="description"/> -->
+                    <filter name="owners" string="Owners"
+                            domain="[('is_owner', '=', True)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="apartment_product_search_view" model="ir.ui.view" >
+            <field name="name">asf.product.template</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <filter name="apartments" string="Departamentos"
+                            domain="[('type', '=', 'apartment')]"/>
+                    <filter name="depots" string="Depósitos"
+                            domain="[('type', '=', 'depot')]"/>
+                    <filter name="parkings" string="Parking"
+                            domain="[('type', '=', 'parking')]"/>
+                    <!-- <group string="Group By">
+                        <filter name="by_apartment" string="Departamento"
+                                context="{'group_by': 'type'}"/>
+                    </group> -->
+                </search>
+            </field>
+        </record>
+        
+        <!--
+        Partners Extension
+        -->
+        <record id="view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+                <page name="sales_purchases" position="after">
+                    <page string="Ownership" name="ownership" attrs="{'invisible': [('is_owner','=',False)]}">
+                        <!-- <group> -->
+                            <!-- <label for="apartment_id"/> -->
+                            <!-- <field name="apartment_id"/> -->
+                        <!-- </group> -->
+                    </page>
+                </page>
+                <field name="category_id" position="after">
+                    <field name="is_owner"/>
+                    <field name="percent"/>
+                </field>
+            </field>
+        </record>
+      
+    </data>
 </odoo>
