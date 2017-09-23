@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="form_all_customers" model="ir.ui.view">
+            <field name="name">All apartments!!</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_all_customers" model="ir.actions.act_window">
+            <field name="name">All apss!!!</field>
+            <field name="res_model">product.template</field>
+            <field name="domain">[('type', '=', 'apartment')]</field>
+            <!-- <field name="search_view_id" ref="search_all_customers" /> -->
+        </record>
+
+        <act_window id="apartments_list_action"
+            name="Todos los departamentos"
+            res_model="product.template"
+            view_mode="tree,form"
+            domain="[('type', '=', 'apartment')]"
+            context="{'type': 'apartment'}"
+            limit="80" />
+            
+        <!-- <record id="action_all_customers_form" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="apartments_list_action" />
+            <field name="view_id" ref="form_all_customers" />
+            <field name="view_mode">form</field>
+            <field name="sequence">10</field>
+        </record> -->
+        
+        <act_window id="depots_list_action"
+            name="Todos los depósitos"
+            res_model="product.template"
+            view_mode="tree,form"
+            domain="[('type', '=', 'depot')]"
+            context="{'type': 'depot'}"
+            limit="80" />
+        
+        <act_window id="parkings_list_action"
+            name="Todos los estacionamientos"
+            res_model="product.template"
+            view_mode="tree,form"
+            domain="[('type', '=', 'parking')]"
+            context="{'type': 'parking'}"
+            limit="80" />
+
+        <!-- <record model="ir.actions.act_window" id="apartment_list_action">
+            <field name="name">Departamentos</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" eval="{'type': 'apartment'}"/>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first apartment
+                </p>
+            </field>
+        </record> -->
+
+        <record id="apartment_product_search_view" model="ir.ui.view" >
+            <field name="name">asf.product.template</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <filter name="apartments" string="Departamentos"
+                            domain="[('type', '=', 'apartment')]"/>
+                    <filter name="depots" string="Depósitos"
+                            domain="[('type', '=', 'depot')]"/>
+                    <filter name="parkings" string="Parking"
+                            domain="[('type', '=', 'parking')]"/>
+                    <!-- <group string="Group By">
+                        <filter name="by_apartment" string="Departamento"
+                                context="{'group_by': 'type'}"/>
+                    </group> -->
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
