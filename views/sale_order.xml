@@ -2,6 +2,14 @@
 <odoo>
     <data>
     
+        <act_window id="pending_list_action"
+            name="Todos los propietarios"
+            res_model="res.partner"
+            view_mode="tree,form"
+            domain="[('is_owner', '=', True)]"
+            context="{'is_owner': True}"
+            limit="80" />
+
         <!-- Quotation -->
         <record id="sale_order_form_inherit" model="ir.ui.view">
             <field name="inherit_id" ref="sale.view_order_form"/>
