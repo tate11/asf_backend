@@ -9,4 +9,5 @@ class WizardGenerateSaleOrder(model.TransientModel):
     @api.multi
     def action_wizard_generate_sale_order(self):
         print 'action generate!!!'
+        print 'action generate 2222!!!'
         return True
