@@ -8,7 +8,7 @@ class Partner(models.Model):
     name = fields.Char(required=True)
     is_owner = fields.Boolean(string='Is owner')
     
-    apartment_id = fields.Many2many('openacademy.apartment', string="Apartments")
+    # apartment_id = fields.Many2many('openacademy.apartment', string="Apartments")
     percent = fields.Float(required=True)
 
     # company_type = fields.Selection(selection_add=[('owner','Propietario')])

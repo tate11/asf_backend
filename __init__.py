@@ -2,5 +2,5 @@
 
 # from . import controllers
 from . import models
-from . import wizard.generate.sale.order
+from . import wizard
 # from . import owners

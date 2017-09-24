@@ -28,8 +28,8 @@
                     </page>
                 </page>
                 <field name="category_id" position="after">
-                    <field name="is_owner"/>
-                    <field name="percent"/>
+                    <!-- <field name="is_owner"/> -->
+                    <!-- <field name="percent"/> -->
                 </field>
             </field>
         </record>

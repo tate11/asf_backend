@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <!-- Generate Sale Order -->
+    <record id="wizard_generate_sale_order_form" model="ir.ui.view">
+        <field name="name">Wizard Generate Sale Order</field>
+        <field name="model">wizard.generate.sale.order</field>
+        <field name="arch" type="xml">
+            <form string="Wizard Generate Sale Order">
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_wizard_generate_sale_order"
+                        string="Generar" class="oe_highlight" type="object"/>
+                    <span class="or_cancel">
+                        <button special="cancel" string="Cancel" type="object" class="oe_link oe_inline"/>
+                    </span>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_generate_sale_order" model="ir.actions.act_window">
+        <field name="name">Action Wizard Generate Sale Order</field>
+        <field name="res_model">wizard.generate.sale.order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_generate_sale_order_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_wizard_genarte_sale_order"
+        name="Menu Wizard Generate Sale Order"
+        action="action_wizard_generate_sale_order"
+        parent="main_condominium_menu"/>
+    
+    </data>
+</odoo>
