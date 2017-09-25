@@ -29,6 +29,7 @@
         'views/product_template.xml',
         'views/res_partner.xml',
         'views/sale_order.xml',
+        'views/sale_order_line.xml',
         'views/condominium.xml',
         'wizard/generate_sale_order.xml'
     ],

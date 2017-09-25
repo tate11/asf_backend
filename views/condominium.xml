@@ -12,7 +12,9 @@
         <menuitem id="parking_menu" name="Estacionamientos" parent="condominium_menu"
                   action="parkings_list_action"/>
         <menuitem id="owner_menu" name="Propietarios" parent="main_condominium_menu"
-                  action="owners_list_action"/>/>
+                  action="owners_list_action"/>
+
+
       
     </data>
 </odoo>
