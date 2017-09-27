@@ -86,5 +86,17 @@
             </field>
         </record>
 
+        <record id="view_ownership_property_form" model="ir.ui.view">
+            <field name="name">res.ownership.property.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="after">
+                    <field name="asf_percent" string="Porcentaje de participación"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </odoo>

@@ -52,6 +52,9 @@ class SaleOrder(models.Model):
                 'user_id': self.user_id.id,
                 'partner_id': customer.id,
                 # 'payment_term_id': self.payment_term_id
+                'validity_date': template_order.validity_date,
+                'payment_term_id': self.partner_id.property_payment_term_id, # template_order.payment_term_id.id
+                'note': template_order.note,
             }
 
             order = self.env['sale.order'].create(new_order)
@@ -63,7 +66,7 @@ class SaleOrder(models.Model):
                 if order_line:
                     order_line[0].product_uom_qty += 1
                 else:
-                    if product.asf_distribution == 'owner':
+                    if template_order_item.distribution == 'owner':
                         amount = template_order_item.price_unit / len(customers)
                     else:
                         amount = template_order_item.price_unit * customer.percent / 100
@@ -73,6 +76,7 @@ class SaleOrder(models.Model):
                         'product_id': template_order_item.product_id.id,
                         'product_uom_qty': template_order_item.product_uom_qty,
                         # 'price_unit': template_order_item.price_unit
+                        'distribution': template_order_item.distribution,
                         'price_unit': amount
                     }
 

@@ -15,12 +15,14 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="model">sale.order</field>
             <field name="arch" type="xml">
-            <!-- Add a header with button to the existing view -->
-            <xpath expr="//sheet" position="before">
-                <header>
-                    <button name="create_orders" string="Create sale orders" type="object"/>
-                </header>
-            </xpath>
+                <!-- Add a header with button to the existing view -->
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="create_orders" string="Create sale orders" type="object"/>
+                    </header>
+                </xpath>
+                <field name="origin" attrs="{'invisible': [('state','in',('draft','sent'))]}"/>
+                <field name="state" invisible="1" />
             </field>
         </record>
 

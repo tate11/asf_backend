@@ -22,14 +22,13 @@
                 <page name="sales_purchases" position="after">
                     <page string="Ownership" name="ownership" attrs="{'invisible': [('is_owner','=',False)]}">
                         <!-- <group> -->
-                            <!-- <label for="apartment_id"/> -->
-                            <!-- <field name="apartment_id"/> -->
+                            <field name="ownership_id"/>
                         <!-- </group> -->
                     </page>
                 </page>
                 <field name="category_id" position="after">
-                    <!-- <field name="is_owner"/> -->
-                    <!-- <field name="percent"/> -->
+                    <field name="is_owner"/>
+                    <field name="percent"/>
                 </field>
             </field>
         </record>

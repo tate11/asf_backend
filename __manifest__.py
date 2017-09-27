@@ -31,6 +31,7 @@
         'views/sale_order.xml',
         'views/sale_order_line.xml',
         'views/condominium.xml',
-        'wizard/generate_sale_order.xml'
+        # 'views/demo.xml',
+        # 'wizard/generate_sale_order.xml'
     ],
 }
