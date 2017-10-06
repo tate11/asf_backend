@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="asf_payment_order" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@class='oe_structure'][1]" position="before">
+                <div class="oe_structure">
+                    <table class="table">
+                        <tr>
+                            <td align="center">MANTENIMIENTO GENERAL</td>
+                        </tr>
+                    </table>
+                </div>    
+            </xpath>
+            <xpath expr="//div[@class='col-xs-5 col-xs-offset-1']" position="replace">
+                <div class="col-xs-5 col-xs-offset-1">
+                    <table class="table">
+                        <tr><td>Phone:</td></tr>
+                        <tr><td>Contact:</td></tr>
+                        <tr><td>Web:</td></tr>
+                    </table> 
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='oe_structure'][last()]" position="after">
+                <div class="oe_structure">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <span>Modadalidad de Pago:</span>
+                                <span>Banco: </span>
+                                <span>Cta. Corriente Soles: </span>
+                                <span>A nombre de: </span>
+                            </td>
+                            <td>
+                                <span>Se considera MOROSO el primer dia del mes siguiente. Remitir el voucher de pago a: email@cia.com</span>
+                            </td>
+                        </tr>
+                    </table>                
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='oe_structure'][last()]" position="after">
+                <div class="oe_structure">
+                    <table class="table">
+                        <tr>
+                            <td>Created By</td>
+                            <td>Validated By</td>
+                            <td>Received By</td>
+                        </tr>
+                    </table>                
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

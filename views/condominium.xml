@@ -15,6 +15,13 @@
                   action="owners_list_action"/>
 
 
-      
+        <menuitem id="menu_mantainance" name="Mantenimiento" parent="main_condominium_menu"/>
+    
+        <menuitem
+            id="menu_wizard_genarte_sale_order"
+            name="Generar cuotas"
+            action="owners_list_action"
+            parent="menu_mantainance"/>
+            
     </data>
 </odoo>

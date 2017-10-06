@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record model="ir.ui.view" id="res_company_view_inherit">
+            <field name="name">res.company.view.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="after">
+                    <field name="bank_name" string="Banco"/>
+                    <field name="bank_account" string="Cuenta"/>
+                    <field name="bank_owner" string="Propietario"/>
+                </field>
+            </field>
+        </record>        
+      
+    </data>
+</odoo>

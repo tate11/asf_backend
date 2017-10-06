@@ -35,6 +35,7 @@ class SaleOrder(models.Model):
 
     @api.multi
     def create_orders(self):
+
         self.ensure_one()
 
         # order = self.id
@@ -46,15 +47,19 @@ class SaleOrder(models.Model):
         # template_order_items = self.env['sale.order.line'].search('order_id', '=', template_order.id)
         template_order_items = self.env['sale.order.line'].search([('order_id', '=', self.id)])
 
+        
+
+        # tax_ids = self._get_taxes_invoice(cursor, user, move_line, type)
+
         for customer in customers:
 
             new_order = {
                 'user_id': self.user_id.id,
                 'partner_id': customer.id,
                 # 'payment_term_id': self.payment_term_id
-                'validity_date': template_order.validity_date,
-                'payment_term_id': self.partner_id.property_payment_term_id, # template_order.payment_term_id.id
-                'note': template_order.note,
+                'validity_date': self.validity_date,
+                'payment_term_id': self.payment_term_id.id, # template_order.payment_term_id.id
+                'note': self.note,
             }
 
             order = self.env['sale.order'].create(new_order)
@@ -62,6 +67,9 @@ class SaleOrder(models.Model):
 
             for template_order_item in template_order_items:
                 product = self.env['product.template'].search([('id', '=', template_order_item.product_id.id)])
+
+                # taxes = template_order_item.product_id.taxes_id.filtered(lambda r: not order.company_id or r.company_id == order.company_id)
+
                 order_line = order.order_line.filtered(lambda line: line.product_id == template_order_item.product_id.id)
                 if order_line:
                     order_line[0].product_uom_qty += 1
@@ -71,18 +79,22 @@ class SaleOrder(models.Model):
                     else:
                         amount = template_order_item.price_unit * customer.percent / 100
 
+                    # tax_ids = taxes.ids
                     new_item = {
                         'order_id': order.id,
                         'product_id': template_order_item.product_id.id,
                         'product_uom_qty': template_order_item.product_uom_qty,
-                        # 'price_unit': template_order_item.price_unit
                         'distribution': template_order_item.distribution,
-                        'price_unit': amount
+                        'price_unit': amount,
+                        # 'tax_id': [(6, 0, tax_ids)],
                     }
 
                     order_line = self.env['sale.order.line'].create(new_item)
                     order_line._compute_tax_id()
                     # product_id_change()
+                    
+        return super(SaleOrder, self).action_cancel()
+
 # product_uom_change()
 # _compute_invoice_status()
 # _compute_amount()

@@ -31,7 +31,9 @@
         'views/sale_order.xml',
         'views/sale_order_line.xml',
         'views/condominium.xml',
+        'views/res_company.xml',
         # 'views/demo.xml',
         # 'wizard/generate_sale_order.xml'
+        'report/payment_order.xml'
     ],
 }

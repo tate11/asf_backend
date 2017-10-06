@@ -18,7 +18,7 @@
                 <!-- Add a header with button to the existing view -->
                 <xpath expr="//sheet" position="before">
                     <header>
-                        <button name="create_orders" string="Create sale orders" type="object"/>
+                        <button name="create_orders" states="draft" string="Create sale orders" type="object"/>
                     </header>
                 </xpath>
                 <!-- <field name="origin" attrs="{'invisible': [('state','in',('draft','sent'))]}"/> -->
