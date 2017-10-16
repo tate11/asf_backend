@@ -65,6 +65,10 @@ class SaleOrder(models.Model):
                 'period': self.period.id
             }
 
+            percent = 0
+            for ownership in customer.ownership_id:
+                percent = percent + ownership.asf_percent
+
             order = self.env['sale.order'].create(new_order)
             amount = 0
 
@@ -79,19 +83,23 @@ class SaleOrder(models.Model):
                 else:
                     if template_order_item.distribution == 'owner':
                         amount = template_order_item.price_unit / len(customers)
+                    elif template_order_item.distribution == 'percent':
+                        # amount = template_order_item.price_unit * customer.percent / 100
+                        amount = template_order_item.price_unit * percent / 100
                     else:
-                        amount = template_order_item.price_unit * customer.percent / 100
+                        amount = template_order_item.price_unit
 
                     water_default_item = self.env['condominium.water_default_item'].search([('name', '=', template_order_item.name)])
                     if len(water_default_item):
                         print(len(water_default_item))
 
                         water_counter = self.env['condominium.water_counter'].search(
-                            [('name', '=', customer.id)])
+                            [('name', '=', customer.id),('period','=',self.period.id)])
 
                         if len(water_counter):
                             total = water_counter.current - water_counter.old
                             template_order_item.product_uom_qty = total
+                            # amount = template_order_item.price_unit
 
                     else:
                         print('else len')

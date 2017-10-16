@@ -23,7 +23,7 @@
                     <field name="tower_id"/>
                     <field name="floor_id"/>
                     <field name="asf_area" sum="Total area m2"/>
-                    <field name="asf_percent"/>
+                    <field name="asf_percent" sum="Total % de participación"/>
                     <field name="type"/>
                 </tree>
             </field>

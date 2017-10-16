@@ -19,7 +19,8 @@
                 <xpath expr="//sheet" position="before">
                     <header>
                         <button name="create_orders" states="draft" string="Generar cuotas" type="object" 
-                            attrs="{'invisible':['|','|',('is_maintenance_fee','!=',True)]}" class="oe_highlight" />
+                            attrs="{'invisible':['|','|',('is_maintenance_fee','!=',True)]}" 
+                            confirm="Estas seguro de hacer esto?" class="oe_highlight" />
                     </header>
                 </xpath>
                 <field name="partner_id" position="after">

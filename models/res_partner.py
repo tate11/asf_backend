@@ -9,7 +9,7 @@ class Partner(models.Model):
     is_owner = fields.Boolean(string='Is owner')
     
     ownership_id = fields.Many2many('product.template', string="Propiedades")
-    percent = fields.Float(required=True)
+    # percent = fields.Float(required=True)
 
     # company_type = fields.Selection(selection_add=[('owner','Propietario')])
 
