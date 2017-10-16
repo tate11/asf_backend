@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Floor form view -->
+        <record model="ir.ui.view" id="floor_form_view">
+            <field name="name">floor.form</field>
+            <field name="model">condominium.floor</field>
+            <field name="arch" type="xml">
+                <form string="Floor Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Floor tree/list view -->
+        <record model="ir.ui.view" id="floor_tree_view">
+            <field name="name">floor.tree</field>
+            <field name="model">condominium.floor</field>
+            <field name="arch" type="xml">
+                <tree string="Floor Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="floor_list_action">
+            <field name="name">Pisos</field>
+            <field name="res_model">condominium.floor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="floor_menu" name="Pisos"
+                  parent="menu_setup"
+                  action="floor_list_action"/>
+
+    </data>
+</odoo>

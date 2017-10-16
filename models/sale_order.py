@@ -5,6 +5,10 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    is_maintenance_fee = fields.Boolean(string="Es mantenimiento")
+    period = fields.Many2one('condominium.period',
+        ondelete='cascade', string="Período")
+
     # @api.multi
     # def button_add_to_order(self):
     #     self.ensure_one()
@@ -47,8 +51,6 @@ class SaleOrder(models.Model):
         # template_order_items = self.env['sale.order.line'].search('order_id', '=', template_order.id)
         template_order_items = self.env['sale.order.line'].search([('order_id', '=', self.id)])
 
-        
-
         # tax_ids = self._get_taxes_invoice(cursor, user, move_line, type)
 
         for customer in customers:
@@ -56,10 +58,11 @@ class SaleOrder(models.Model):
             new_order = {
                 'user_id': self.user_id.id,
                 'partner_id': customer.id,
-                # 'payment_term_id': self.payment_term_id
                 'validity_date': self.validity_date,
                 'payment_term_id': self.payment_term_id.id, # template_order.payment_term_id.id
                 'note': self.note,
+                'is_maintenance_fee': True,
+                'period': self.period.id
             }
 
             order = self.env['sale.order'].create(new_order)
@@ -79,6 +82,20 @@ class SaleOrder(models.Model):
                     else:
                         amount = template_order_item.price_unit * customer.percent / 100
 
+                    water_default_item = self.env['condominium.water_default_item'].search([('name', '=', template_order_item.name)])
+                    if len(water_default_item):
+                        print(len(water_default_item))
+
+                        water_counter = self.env['condominium.water_counter'].search(
+                            [('name', '=', customer.id)])
+
+                        if len(water_counter):
+                            total = water_counter.current - water_counter.old
+                            template_order_item.product_uom_qty = total
+
+                    else:
+                        print('else len')
+
                     # tax_ids = taxes.ids
                     new_item = {
                         'order_id': order.id,
@@ -92,6 +109,10 @@ class SaleOrder(models.Model):
                     order_line = self.env['sale.order.line'].create(new_item)
                     order_line._compute_tax_id()
                     # product_id_change()
+
+            # water_counter_items = self.env['condominium.water_default_item'].search([('name', '=', self.id)])
+            # for water_counter_item in water_counter_items:
+
                     
         return super(SaleOrder, self).action_cancel()
 

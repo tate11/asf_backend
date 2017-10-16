@@ -2,6 +2,9 @@
 <odoo>
     <data>
         <template id="asf_payment_order" inherit_id="sale.report_saleorder_document">
+            
+            
+            
             <xpath expr="//div[@class='oe_structure'][1]" position="before">
                 <div class="oe_structure">
                     <table class="table">
@@ -11,8 +14,35 @@
                     </table>
                 </div>    
             </xpath>
+
             <xpath expr="//div[@class='col-xs-5 col-xs-offset-1']" position="replace">
+
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>
+
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
+                                style="max-height: 85px;" />
+                        </div>
+                        <div class="col-xs-6 text-right" style="font:15px lucida-console,sans-serif !important; background-color:#893b74 !important;" >
+                            <span style="color:#fff !important;" t-field="company.partner_id" /><br/>
+                            <span style="color:#fff !important;" t-field="company.partner_id.street" /><br/>
+                            <!-- <span style="color:#fff !important;" t-field="company.partner_id.bank_account" /><br/> -->
+                            <span style="color:#fff !important;" t-field="company.partner_id.city" /><br/>
+                            <span style="color:#fff !important;" t-field="company.partner_id.country_id" /><br/>
+                            <span style="color:#fff !important;" t-field="company.partner_id.vat" /><br/>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xs-5 col-xs-offset-1">
+
                     <table class="table">
                         <tr><td>Phone:</td></tr>
                         <tr><td>Contact:</td></tr>
@@ -22,11 +52,18 @@
             </xpath>
             <xpath expr="//div[@class='oe_structure'][last()]" position="after">
                 <div class="oe_structure">
+                    <t t-if="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id"></t>
+                    </t>
+                    <t t-if="not o or not 'company_id' in o">
+                        <t t-set="company" t-value="res_company"></t>
+                    </t>
+                    
                     <table class="table">
                         <tr>
                             <td>
                                 <span>Modadalidad de Pago:</span>
-                                <span>Banco: </span>
+                                <!-- <span>Banco: </span> <span style="color:#fff !important;" t-field="company.partner_id.bank_account" /><br/> -->
                                 <span>Cta. Corriente Soles: </span>
                                 <span>A nombre de: </span>
                             </td>

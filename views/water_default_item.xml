@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Water form view -->
+        <record model="ir.ui.view" id="water_default_item_form_view">
+            <field name="name">water_default_item.form</field>
+            <field name="model">condominium.water_default_item</field>
+            <field name="arch" type="xml">
+                <form string="Water Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Water tree/list view -->
+        <record model="ir.ui.view" id="water_default_item_tree_view">
+            <field name="name">water_default_item.tree</field>
+            <field name="model">condominium.water_default_item</field>
+            <field name="arch" type="xml">
+                <tree string="Water Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="water_default_item_list_action">
+            <field name="name">Servicio de agua</field>
+            <field name="res_model">condominium.water_default_item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="water_default_item_menu" name="Servicio de agua"
+                  parent="menu_setup"
+                  action="water_default_item_list_action"/>
+
+    </data>
+</odoo>

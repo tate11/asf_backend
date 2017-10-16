@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Period form view -->
+        <record model="ir.ui.view" id="period_form_view">
+            <field name="name">period.form</field>
+            <field name="model">condominium.period</field>
+            <field name="arch" type="xml">
+                <form string="Period Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Period tree/list view -->
+        <record model="ir.ui.view" id="period_tree_view">
+            <field name="name">period.tree</field>
+            <field name="model">condominium.period</field>
+            <field name="arch" type="xml">
+                <tree string="Period Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="period_list_action">
+            <field name="name">Períodos</field>
+            <field name="res_model">condominium.period</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="period_menu" name="Períodos"
+                  parent="menu_setup"
+                  action="period_list_action"/>
+
+    </data>
+</odoo>

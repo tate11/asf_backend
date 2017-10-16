@@ -2,7 +2,7 @@
 <odoo>
     <data>
     
-        <record id="form_all_customers" model="ir.ui.view">
+        <!-- <record id="form_all_customers" model="ir.ui.view">
             <field name="name">All apartments!!</field>
             <field name="model">product.template</field>
             <field name="arch" type="xml">
@@ -12,36 +12,51 @@
                 </group>
             </form>
             </field>
+        </record> -->
+
+        <record model="ir.ui.view" id="apartment_tree_view">
+            <field name="name">apartment.tree</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <tree string="Apartment Tree">
+                    <field name="name" string="Nombre"/>
+                    <field name="tower_id"/>
+                    <field name="floor_id"/>
+                    <field name="asf_area" sum="Total area m2"/>
+                    <field name="asf_percent"/>
+                    <field name="type"/>
+                </tree>
+            </field>
         </record>
 
-        <record id="action_all_customers" model="ir.actions.act_window">
+        <!-- <record id="action_all_customers" model="ir.actions.act_window">
             <field name="name">All apss!!!</field>
             <field name="res_model">product.template</field>
             <field name="domain">[('type', '=', 'apartment')]</field>
-            <!-- <field name="search_view_id" ref="search_all_customers" /> -->
-        </record>
+            <field name="search_view_id" ref="search_all_customers" />
+        </record> -->
 
         <act_window id="apartments_list_action"
             name="Todos los departamentos"
             res_model="product.template"
             view_mode="tree,form"
             domain="[('type', '=', 'apartment')]"
-            context="{'type': 'apartment'}"
+            context="{'default_type': 'apartment', 'default_sale_ok':False, 'default_purchase_ok':False}"
             limit="80" />
             
-        <!-- <record id="action_all_customers_form" model="ir.actions.act_window.view">
+        <record id="action_all_customers_form" model="ir.actions.act_window.view">
             <field name="act_window_id" ref="apartments_list_action" />
-            <field name="view_id" ref="form_all_customers" />
-            <field name="view_mode">form</field>
+            <!-- <field name="view_id" ref="apartment_tree_view" /> -->
+            <field name="view_mode">tree</field>
             <field name="sequence">10</field>
-        </record> -->
+        </record>
         
         <act_window id="depots_list_action"
             name="Todos los depósitos"
             res_model="product.template"
             view_mode="tree,form"
             domain="[('type', '=', 'depot')]"
-            context="{'type': 'depot'}"
+            context="{'default_type': 'depot', 'default_sale_ok':False, 'default_purchase_ok':False}"
             limit="80" />
         
         <act_window id="parkings_list_action"
@@ -49,7 +64,7 @@
             res_model="product.template"
             view_mode="tree,form"
             domain="[('type', '=', 'parking')]"
-            context="{'type': 'parking'}"
+            context="{'default_type': 'parking', 'default_sale_ok':False, 'default_purchase_ok':False}"
             limit="80" />
 
         <!-- <record model="ir.actions.act_window" id="apartment_list_action">
@@ -76,7 +91,7 @@
                             domain="[('type', '=', 'apartment')]"/>
                     <filter name="depots" string="Depósitos"
                             domain="[('type', '=', 'depot')]"/>
-                    <filter name="parkings" string="Parking"
+                    <filter name="parkings" string="Estacionamientos"
                             domain="[('type', '=', 'parking')]"/>
                     <!-- <group string="Group By">
                         <filter name="by_apartment" string="Departamento"
@@ -92,8 +107,17 @@
             <field name="priority">1</field>
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
-                <field name="standard_price" position="after">
-                    <field name="asf_percent" string="Porcentaje de participación"/>
+                <!-- <field name="name" position="attributes">
+                    <attribute name="placeholder">Número de Departamento, Depósito o Estacionamiento</attribute>
+                </field> -->
+                <field name="type" position="after">
+                    <field name="tower_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
+                    <field name="floor_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
+                    <field name="asf_area" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
+                    <!-- <field name="floor_id" attrs="{'invisible':[('type', '!=', 'parking')]}" /> -->
+                    <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}"/>
+                    <!-- <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'depot')]}" /> -->
+                    <!-- <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'parking')]}" /> -->
                 </field>
             </field>
         </record>

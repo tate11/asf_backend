@@ -18,15 +18,16 @@
                 <!-- Add a header with button to the existing view -->
                 <xpath expr="//sheet" position="before">
                     <header>
-                        <button name="create_orders" states="draft" string="Create sale orders" type="object"/>
+                        <button name="create_orders" states="draft" string="Generar cuotas" type="object" 
+                            attrs="{'invisible':['|','|',('is_maintenance_fee','!=',True)]}" class="oe_highlight" />
                     </header>
                 </xpath>
-                <!-- <field name="origin" attrs="{'invisible': [('state','in',('draft','sent'))]}"/> -->
-                <!-- <field name="state" invisible="1" /> -->
+                <field name="partner_id" position="after">
+                    <field name="is_maintenance_fee" invisible="1"/>
+                    <field name="period" attrs="{'invisible':[('is_maintenance_fee', '!=', True)]}"/>
+                </field>
             </field>
         </record>
-
-        
       
     </data>
 </odoo>

@@ -32,7 +32,12 @@
         'views/sale_order_line.xml',
         'views/condominium.xml',
         'views/res_company.xml',
-        # 'views/demo.xml',
+        'views/tower.xml',
+        'views/floor.xml',
+        'views/so.xml',
+        'views/water_counter.xml',
+        'views/period.xml',
+        'views/water_default_item.xml',
         # 'wizard/generate_sale_order.xml'
         'report/payment_order.xml'
     ],

@@ -4,7 +4,8 @@
   
         <!-- Top level menu: no parent -->
         <menuitem id="main_condominium_menu" name="Condominio"/>
-        <menuitem id="condominium_menu" name="Establecimientos" parent="main_condominium_menu"/>
+
+        <menuitem id="condominium_menu" name="Inmuebles" parent="main_condominium_menu"/>
         <menuitem id="apartment_menu" name="Departamentos" parent="condominium_menu"
                   action="apartments_list_action"/>
         <menuitem id="depot_menu" name="Depósitos" parent="condominium_menu"
@@ -17,11 +18,36 @@
 
         <menuitem id="menu_mantainance" name="Mantenimiento" parent="main_condominium_menu"/>
     
-        <menuitem
+        <!-- <menuitem
             id="menu_wizard_genarte_sale_order"
             name="Generar cuotas"
             action="owners_list_action"
-            parent="menu_mantainance"/>
-            
+            parent="menu_mantainance"/> -->
+
+        <menuitem id="menu_public_services" name="Servicios públicos" parent="main_condominium_menu"/>
+    
+        <menuitem
+            id="menu_public_services_water"
+            name="Agua"
+            action="owners_list_action"
+            parent="menu_public_services"/>
+
+        <menuitem
+            id="menu_public_services_light"
+            name="Luz"
+            action="owners_list_action"
+            parent="menu_public_services"/>
+        
+        <menuitem id="menu_public_areas" name="Áreas comunes" parent="main_condominium_menu"/>
+
+        <menuitem id="menu_setup" name="Parametrizaciones" parent="main_condominium_menu"/>
+        <!-- <menuitem
+            id="menu_setup_towers"
+            name="Torres"
+            action="owners_list_action"
+            parent="menu_setup"/>
+         -->
+
+
     </data>
 </odoo>

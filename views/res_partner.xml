@@ -6,7 +6,7 @@
             res_model="res.partner"
             view_mode="tree,form"
             domain="[('is_owner', '=', True)]"
-            context="{'is_owner': True}"
+            context="{'default_is_owner': True}"
             limit="80" />
 
         <!--
