@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
     # asf_distribution = fields.Selection([('percent', 'Por % de participación'),('owner','Por propietario')])
     # asf_type = fields.Selection([('apartment','Departamento'),('depot','Deposito'),('parking','Estacionamiento')])
 
-    type = fields.Selection(selection_add=[('apartment','Departamento'),('depot','Depósito'),('parking','Estacionamiento')])
+    type = fields.Selection(selection_add=[('apartment','Departamento'),('depot','Depósito'),('parking','Estacionamiento'),('common', 'Área común')])
     asf_percent = fields.Float(string="% de participación")
     asf_area = fields.Float(string="Área en m2")
     tower_id = fields.Many2one('condominium.tower',

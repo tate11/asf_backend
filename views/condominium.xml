@@ -12,18 +12,14 @@
                   action="depots_list_action"/>
         <menuitem id="parking_menu" name="Estacionamientos" parent="condominium_menu"
                   action="parkings_list_action"/>
+        <menuitem id="common_area_menu" name="Áreas comunes" parent="condominium_menu"
+                  action="common_areas_list_action"/>
+
         <menuitem id="owner_menu" name="Propietarios" parent="main_condominium_menu"
                   action="owners_list_action"/>
 
-
         <menuitem id="menu_mantainance" name="Mantenimiento" parent="main_condominium_menu"/>
     
-        <!-- <menuitem
-            id="menu_wizard_genarte_sale_order"
-            name="Generar cuotas"
-            action="owners_list_action"
-            parent="menu_mantainance"/> -->
-
         <menuitem id="menu_public_services" name="Servicios públicos" parent="main_condominium_menu"/>
     
         <menuitem
@@ -41,13 +37,6 @@
         <menuitem id="menu_public_areas" name="Áreas comunes" parent="main_condominium_menu"/>
 
         <menuitem id="menu_setup" name="Parametrizaciones" parent="main_condominium_menu"/>
-        <!-- <menuitem
-            id="menu_setup_towers"
-            name="Torres"
-            action="owners_list_action"
-            parent="menu_setup"/>
-         -->
-
 
     </data>
 </odoo>

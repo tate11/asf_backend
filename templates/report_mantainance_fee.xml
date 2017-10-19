@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="condominium.mantainance_fee_report_pdf"
+            name="Reporte de cuotas de mantenimiento">
+            <t t-call="report.html_container">
+                <!-- <t t-foreach="docs" t-as="o"> -->
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            
+                            <div class="header">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
+                                            style="max-height: 85px;" />
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="font:15px lucida-console,sans-serif !important; background-color:#893b74 !important;" >
+                                        <span style="color:#fff !important;" t-field="company.partner_id" /><br/>
+                                        <span style="color:#fff !important;" t-field="company.partner_id.street" /><br/>
+                                        <!-- <span style="color:#fff !important;" t-field="company.partner_id.bank_account" /><br/> -->
+                                        <span style="color:#fff !important;" t-field="company.partner_id.city" /><br/>
+                                        <span style="color:#fff !important;" t-field="company.partner_id.country_id" /><br/>
+                                        <span style="color:#fff !important;" t-field="company.partner_id.vat" /><br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_structure">
+                                <table class="table">
+                                    <tr>
+                                        <td align="center"><h3>CUOTAS DE MANTENIMIENTO</h3></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Período</th>
+                                        <th>Propietario</th>
+                                        <th># Departamento</th>
+                                        <th>% de part.</th>
+                                        <th align="right">Cuota (S/.)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sum" t-value="0.00"/>
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-set="percent" t-value="0"/>
+                                    <t t-set="apartment" t-value="301"/>
+
+                                    <tr t-foreach="docs" t-as="fee">
+                                        <t t-set="amount" t-value="fee.amount_total"/>                                
+                                        <t t-set="index" t-value="index+1"/>
+                            
+                                        <td><t t-esc="index"></t></td>
+                                        <td><t t-esc="fee.period.name"></t></td>
+                                        <td><t t-esc="fee.partner_id.name"></t></td>
+                                        <td>
+                                            <span t-foreach="fee.partner_id.ownership_id" t-as="t">
+                                                <span t-if="t.type=='apartment'"><t t-esc="t.name" /></span>
+                                            </span>
+                                        </td>
+                                        <td><t t-esc="'{0:,.2f}'.format(sum(l.asf_percent for l in fee.partner_id.ownership_id))"></t></td>
+                                        <td align="right"><t t-esc="'{0:,.2f}'.format(int(fee.amount_total))" /></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td align="right" colspan="4"><strong>Total (S/.)</strong></td>
+                                        <td><strong></strong></td>
+                                        <td align="right"><strong><t t-esc="'{0:,.2f}'.format(sum(l.amount_total for l in docs))"></t></strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </t>
+                <!-- </t> -->
+            </t>
+        </template>
+    </data>
+</openerp>

@@ -2,5 +2,7 @@
 
 # from . import controllers
 from . import models
-# from . import wizard
+from . import wizards
+from . import reports
+from . import templates
 # from . import owners

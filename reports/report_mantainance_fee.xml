@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_mantainance_fee"
+            string="Reporte de mantenimiento (0)"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            name="condominium.mantainance_fee_report_pdf"
+            file="condominium.mantainance_fee_report_pdf"
+            menu="True" 
+        />
+    </data>
+</openerp>

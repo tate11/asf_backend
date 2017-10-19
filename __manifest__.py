@@ -38,7 +38,10 @@
         'views/water_counter.xml',
         'views/period.xml',
         'views/water_default_item.xml',
-        # 'wizard/generate_sale_order.xml'
-        'report/payment_order.xml'
+        'actions/sale_order.xml',
+        'reports/report_mantainance_fee.xml',
+        'reports/payment_order.xml',
+        'templates/report_mantainance_fee.xml',
+        # 'wizards/report_mantainance_fee_wizard.xml'
     ],
 }

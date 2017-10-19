@@ -111,16 +111,20 @@
                     <attribute name="placeholder">Número de Departamento, Depósito o Estacionamiento</attribute>
                 </field> -->
                 <field name="type" position="after">
-                    <field name="tower_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
-                    <field name="floor_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
-                    <field name="asf_area" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}" />
-                    <!-- <field name="floor_id" attrs="{'invisible':[('type', '!=', 'parking')]}" /> -->
-                    <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot')]}"/>
-                    <!-- <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'depot')]}" /> -->
-                    <!-- <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'parking')]}" /> -->
+                    <field name="tower_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot'), ('type', '!=', 'common')]}" />
+                    <field name="floor_id" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot'), ('type', '!=', 'common')]}" />
+                    <field name="asf_area" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot'), ('type', '!=', 'common')]}" />
+                    <field name="asf_percent" attrs="{'invisible':[('type', '!=', 'apartment'), ('type', '!=', 'parking'), ('type', '!=', 'depot'), ('type', '!=', 'common')]}"/>
                 </field>
             </field>
         </record>
 
+        <act_window id="common_areas_list_action"
+            name="Todas las áreas comunes"
+            res_model="product.template"
+            view_mode="tree,form"
+            domain="[('type', '=', 'common')]"
+            context="{'default_type': 'common', 'default_sale_ok':False, 'default_purchase_ok':False}"
+            limit="80" />
     </data>
 </odoo>

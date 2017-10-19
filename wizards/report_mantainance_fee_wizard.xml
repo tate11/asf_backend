@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+         <record id="report_mantainance_fee_wizard_view" model="ir.ui.view">
+            <field name="name">Reporte de Alumnos con wizard</field>
+            <field name="model">condominium.report_mantainance_fee_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reporte de cuotas (2)">
+                    <group>
+                         <field name="report_name" />
+                         <field name="mantainance_fee_ids" />
+                    </group>
+                    <footer>
+                        <button string="Reporte .pdf" name="report_mantainance_fee_pdf" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cerrar" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+         
+        <record id="action_mantainance_fee_report_wizard" model="ir.actions.act_window">
+            <field name="name">Reporte de cuotas (1)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">condominium.report_mantainance_fee_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mantainance_fee_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+         
+        <menuitem
+            name="Reportes de cuotas (0)"
+            action="action_mantainance_fee_report_wizard"
+            id="menu_mantainance_fee_report_wizard"
+            parent="main_condominium_menu"/>
+
+    </data>
+</openerp>
