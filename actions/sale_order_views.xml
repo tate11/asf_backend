@@ -17,14 +17,14 @@
                 groups="sales_team.group_sale_salesman"
                 /> -->
 
-    <act_window name="Enviar recordatorio de pago"
+    <!-- <act_window name="Enviar recordatorio de pago"
                 res_model="sale.order"
                 src_model="sale.order"
                 key2="client_action_multi" 
                 view_mode="form" target="new" 
                 view_type="form"
                 id="action_payment_reminder_mass_mail" />
-    
+     -->
     <act_window name="Enviar reporte de consumo"
                 res_model="condominium.water_counter"
                 src_model="condominium.water_counter"

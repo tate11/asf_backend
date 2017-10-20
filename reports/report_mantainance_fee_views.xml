@@ -10,5 +10,14 @@
             file="condominium.mantainance_fee_report_pdf"
             menu="True" 
         />
+
+        <report 
+            id="report_sale_order"
+            string="Quotation / Order"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="sale.report_saleorder" 
+            name="sale.report_saleorder" 
+        />
     </data>
 </openerp>

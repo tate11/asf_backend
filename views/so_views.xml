@@ -46,5 +46,30 @@
                   parent="menu_mantainance"
                   action="wizard_sale_order_list_action"/>
         
+        <!--
+            MASS MAILING
+        -->
+        <act_window name="Mantainance fee Mass Mail"
+                res_model="mail.compose.message"
+                src_model="sale.order"
+                view_mode="form"
+                multi="True"
+                target="new"
+                key2="client_action_multi"
+                id="condominium.action_mantainance_fee_mass_mail"
+                context="{
+                            'default_composition_mode': 'mass_mail',
+                            'default_email_to':'{($object.email or \'\')|safe}',
+                            'default_use_template': True,
+                            'default_template_id': ref('condominium.mantainance_fee_email_template'),
+                        }"
+                />
+
+        <!--Update of email_template defined in crm_lead_data, to add ref_ir_act_window
+            allowing to have a well formed email template (context action considered as set). -->
+        <record id="email_template_opportunity_mail" model="mail.template">
+            <field name="ref_ir_act_window" ref="condominium.action_mantainance_fee_mass_mail"/>
+        </record>
+
     </data>
 </odoo>
