@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Settings form view -->
+        <record model="ir.ui.view" id="settings_form_view">
+            <field name="name">settings.form</field>
+            <field name="model">condominium.settings</field>
+            <field name="arch" type="xml">
+                <form string="Settings Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Settings tree/list view -->
+        <record model="ir.ui.view" id="settings_tree_view">
+            <field name="name">settings.tree</field>
+            <field name="model">condominium.settings</field>
+            <field name="arch" type="xml">
+                <tree string="Settings Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="settings_list_action">
+            <field name="name">Settings</field>
+            <field name="res_model">condominium.settings</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="settings_menu" name="Settings"
+                  parent="menu_setup"
+                  action="settings_list_action"/>
+
+    </data>
+</odoo>

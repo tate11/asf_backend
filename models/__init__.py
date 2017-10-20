@@ -11,5 +11,7 @@ from . import floor
 from . import water_counter
 from . import period
 from . import water_default_item
+from . import settings
+
 # from . import wizard_generate_sale_order
 
