@@ -20,8 +20,7 @@
 
         <menuitem id="menu_mantainance" name="Mantenimiento" parent="main_condominium_menu"/>
     
-        <menuitem id="menu_public_services" name="Servicios públicos" parent="main_condominium_menu"/>
-    
+        <!-- <menuitem id="menu_public_services" name="Servicios públicos" parent="main_condominium_menu"/>
         <menuitem
             id="menu_public_services_water"
             name="Agua"
@@ -33,7 +32,7 @@
             name="Luz"
             action="owners_list_action"
             parent="menu_public_services"/>
-        
+         -->
         <menuitem id="menu_public_areas" name="Áreas comunes" parent="main_condominium_menu"/>
 
         <menuitem id="menu_setup" name="Parametrizaciones" parent="main_condominium_menu"/>

@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record model="condominium.tower" id="tower_a">
+            <field name="name">A</field>
+        </record>
+        <record model="condominium.tower" id="tower_b">
+            <field name="name">B</field>
+        </record>
+        <record model="condominium.tower" id="tower_c">
+            <field name="name">C</field>
+        </record>
+    </data>
+</odoo>

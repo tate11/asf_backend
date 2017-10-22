@@ -11,6 +11,10 @@ class Partner(models.Model):
     ownership_id = fields.Many2many('product.template', string="Propiedades")
     # percent = fields.Float(required=True)
 
+    asf_to_register = fields.Date('Fecha de alta')
+    asf_unsubscribe = fields.Date('Fecha de baja')
+
+
     # company_type = fields.Selection(selection_add=[('owner','Propietario')])
 
 class res_partner(models.Model):

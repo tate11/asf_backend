@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="condominium.water_counter_list_report_pdf"
+            name="Reporte de consumo de Agua">
+            <t t-call="report.html_container">
+                <!-- <t t-foreach="docs" t-as="o"> -->
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            
+                            <div class="header">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img t-if="docs[0].company.logo" t-att-src="'data:image/png;base64,%s' % docs[0].company.logo"
+                                            style="max-height: 85px;" />
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="font:15px lucida-console,sans-serif !important; background-color:#893b74 !important;" >
+                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id" /><br/>
+                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.street" /><br/>
+                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.city" /><br/>
+                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.country_id" /><br/>
+                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.vat" /><br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_structure">
+                                <table class="table">
+                                    <tr>
+                                        <td align="center"><h3>REPORTE DE CONSUMO DE AGUA</h3></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Período</th>
+                                        <th>Propietario</th>
+                                        <th>Departamento</th>
+                                        <th>Contador anterior</th>
+                                        <th>Contador actual</th>
+                                        <th>Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="sum" t-value="0.00"/>
+                                    <t t-set="index" t-value="0"/>
+                                    <t t-set="percent" t-value="0"/>
+                                    <t t-set="apartment" t-value="301"/>
+
+                                    <tr t-foreach="docs" t-as="o">
+                                        <t t-set="index" t-value="index+1"/>
+                            
+                                        <td><t t-esc="index"></t></td>
+                                        <td><t t-esc="o.period.name"></t></td>
+                                        <td><t t-esc="o.name.name"></t></td>
+                                        <td>
+                                            <span t-foreach="o.name.ownership_id" t-as="t">
+                                                <span t-if="t.type=='apartment'"><t t-esc="t.name" /></span>
+                                            </span>
+                                        </td>
+                                        <td><t t-esc="o.old"></t></td>
+                                        <td><t t-esc="o.current"></t></td>
+                                        <td><t t-esc="o.date"></t></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                <!-- </t> -->
+            </t>
+        </template>
+    </data>
+</openerp>

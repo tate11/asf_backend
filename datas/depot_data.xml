@@ -1,0 +1,34 @@
+<odoo>
+    <data noupdate="1">
+        <record model="product.product" id="depot_101">
+            <field name="name">D01</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">depot</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">5</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="depot_102">
+            <field name="name">D02</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">depot</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">5</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="depot_103">
+            <field name="name">D03</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">depot</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">4</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+    </data>
+</odoo>

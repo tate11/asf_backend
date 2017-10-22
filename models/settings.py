@@ -2,9 +2,9 @@
 
 from odoo import api, fields, models
 
-class CONDOMINIUMSettings(models.TransientModel):
+class CondominiumConfigSettings(models.TransientModel):
 
-    _name = 'condominium.settings'
+    _name = 'condominium.config.settings'
     _inherit = ['sale.config.settings']
 
     generate_sales_team_alias = fields.Boolean("Automatically generate an email alias at the sales team creation",

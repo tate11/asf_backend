@@ -21,7 +21,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','contacts','sale','website'],
+    'depends': ['base','sale'],
 
     # always loaded
     'data': [
@@ -41,9 +41,20 @@
         # 'views/settings_views.xml',
         'actions/sale_order_views.xml',
         'reports/report_mantainance_fee_views.xml',
+        'reports/report_water_counter_views.xml',
         'reports/payment_order_views.xml',
         'templates/report_mantainance_fee_views.xml',
+        'templates/report_water_counter_list_views.xml',
+        'templates/report_water_counter_unique_views.xml',
         'templates/email_mantainance_fee_views.xml',
+        'templates/email_water_counter_views.xml',
+        'datas/tower_data.xml',
+        'datas/floor_data.xml',
+        'datas/period_data.xml',
+        'datas/apartment_data.xml',
+        'datas/depot_data.xml',
+        'datas/parking_data.xml',
+        'datas/facility_data.xml',
         # 'wizards/report_mantainance_fee_wizard.xml'
     ],
 }

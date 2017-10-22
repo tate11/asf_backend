@@ -21,20 +21,19 @@
             <field name="arch" type="xml">
                 <page name="sales_purchases" position="after">
                     <page string="Ownership" name="ownership" attrs="{'invisible': [('is_owner','=',False)]}">
-                        <!-- <group> -->
-                            <field name="ownership_id"/>
-                        <!-- </group> -->
+                        <field name="ownership_id"/>
                     </page>
                 </page>
                 <field name="category_id" position="after">
                     <field name="is_owner" invisible="1"/>
-                    <!-- <field name="percent"/> -->
+                    <field name="asf_to_register" attrs="{'invisible': [('is_owner','=',False)]}"/>
+                    <field name="asf_unsubscribe" attrs="{'invisible': [('is_owner','=',False)]}"/>
                 </field>
             </field>
         </record>
       
         <!-- Contact view   -->
-        <record id="send_mail_partner_form_inherit" model="ir.ui.view">
+        <!-- <record id="send_mail_partner_form_inherit" model="ir.ui.view">
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
@@ -47,7 +46,7 @@
                 </header>
             </xpath>
             </field>
-        </record>
+        </record> -->
 
         <record id="apartment_partner_search_view" model="ir.ui.view" >
             <field name="name">asf.partner.template</field>

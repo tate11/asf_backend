@@ -37,6 +37,37 @@
             </field>
         </record>
         
+        <record id="send_mail_water_counter_form_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="condominium.water_counter_form_view"/>
+            <field name="model">condominium.water_counter</field>
+            <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="send_mail_template" string="Send e-mail" type="object" class="oe_highlight"/>
+                </header>
+            </xpath>
+            </field>
+        </record>
+
+        <!--
+            MASS MAILING
+        -->
+        <act_window name="Enviar reporte de consumo"
+                res_model="mail.compose.message"
+                src_model="condominium.water_counter"
+                view_mode="form"
+                multi="True"
+                target="new"
+                key2="client_action_multi"
+                id="condominium.action_water_counter_mass_mail"
+                context="{
+                            'default_composition_mode': 'mass_mail',
+                            'default_email_to':'{($object.email or \'\')|safe}',
+                            'default_use_template': True,
+                            'default_template_id': ref('condominium.water_counter_email_template'),
+                        }"
+                />
+
         <record model="ir.actions.act_window" id="water_counter_list_action">
             <field name="name">Registro de contadores</field>
             <field name="res_model">condominium.water_counter</field>

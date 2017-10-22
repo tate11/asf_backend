@@ -1,0 +1,79 @@
+<odoo>
+    <data noupdate="1">
+        <record model="condominium.floor" id="floor__4">
+            <field name="name">SOTANO 4</field>
+        </record>
+        <record model="condominium.floor" id="floor__3">
+            <field name="name">SOTANO 3</field>
+        </record>
+        <record model="condominium.floor" id="floor__2">
+            <field name="name">SOTANO 2</field>
+        </record>
+        <record model="condominium.floor" id="floor__1">
+            <field name="name">SOTANO 1</field>
+        </record>
+        <record model="condominium.floor" id="floor_0">
+            <field name="name">SEMISOTANO</field>
+        </record>
+        <record model="condominium.floor" id="floor_1">
+            <field name="name">1</field>
+        </record>
+        <record model="condominium.floor" id="floor_2">
+            <field name="name">2</field>
+        </record>
+        <record model="condominium.floor" id="floor_3">
+            <field name="name">3</field>
+        </record>
+        <record model="condominium.floor" id="floor_4">
+            <field name="name">4</field>
+        </record>
+        <record model="condominium.floor" id="floor_5">
+            <field name="name">5</field>
+        </record>
+        <record model="condominium.floor" id="floor_6">
+            <field name="name">6</field>
+        </record>
+        <record model="condominium.floor" id="floor_7">
+            <field name="name">7</field>
+        </record>
+        <record model="condominium.floor" id="floor_8">
+            <field name="name">8</field>
+        </record>
+        <record model="condominium.floor" id="floor_9">
+            <field name="name">9</field>
+        </record>
+        <record model="condominium.floor" id="floor_10">
+            <field name="name">10</field>
+        </record>
+        <record model="condominium.floor" id="floor_11">
+            <field name="name">11</field>
+        </record>
+        <record model="condominium.floor" id="floor_12">
+            <field name="name">12</field>
+        </record>
+        <record model="condominium.floor" id="floor_13">
+            <field name="name">13</field>
+        </record>
+        <record model="condominium.floor" id="floor_14">
+            <field name="name">14</field>
+        </record>
+        <record model="condominium.floor" id="floor_15">
+            <field name="name">15</field>
+        </record>
+        <record model="condominium.floor" id="floor_16">
+            <field name="name">16</field>
+        </record>
+        <record model="condominium.floor" id="floor_17">
+            <field name="name">17</field>
+        </record>
+        <record model="condominium.floor" id="floor_18">
+            <field name="name">18</field>
+        </record>
+        <record model="condominium.floor" id="floor_19">
+            <field name="name">19</field>
+        </record>
+        <record model="condominium.floor" id="floor_20">
+            <field name="name">20</field>
+        </record>
+    </data>
+</odoo>

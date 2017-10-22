@@ -2,9 +2,10 @@
 <odoo>
     <data>
         <!-- Settings form view -->
-        <record id="view_condominium_config_settings" model="ir.ui.view">
-            <field name="name">settings.form</field>
-            <field name="model">condominium.settings</field>
+        <record id="view_sale_config_settings" model="ir.ui.view">
+            <field name="name">crm settings</field>
+            <field name="model">sale.config.settings</field>
+            <field name="inherit_id" ref="sales_team.view_sale_config_settings"/>
             <field name="arch" type="xml">
                 <div id="main" position="inside">
                     <group string="CRM" name="config_alias">
@@ -46,23 +47,14 @@
                 </div>
             </field>
         </record>
-
-        <!-- Settings tree/list view -->
-        <record model="ir.ui.view" id="settings_tree_view">
-            <field name="name">settings.tree</field>
-            <field name="model">condominium.settings</field>
-            <field name="arch" type="xml">
-                <tree string="Settings Tree">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
         
+
+
         <record model="ir.actions.act_window" id="settings_list_action">
             <field name="name">Settings</field>
-            <field name="res_model">condominium.settings</field>
+            <field name="res_model">condominium.config.settings</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">form</field>
         </record>
 
         <menuitem id="settings_menu" name="Settings"

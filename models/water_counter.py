@@ -13,3 +13,14 @@ class WaterCounter(models.Model):
     old = fields.Float(string='Contador anterior', required=True)
     current = fields.Float(string='Contador actual', required=True)
     date = fields.Date(string="Fecha", required=True)
+
+    # company = fields.Many2one('res.company',
+    #     ondelete='cascade', string="Empresa", required=True)
+    
+    company = fields.Many2one('res.company', 'Company', readonly=True)
+
+    def send_mail_template(self):
+        print 'Hey!!!'
+        template = self.env.ref('condominium.water_counter_email_template')
+
+        self.env['mail.template'].browse(template.id).send_mail(self.id)
