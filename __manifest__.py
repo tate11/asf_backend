@@ -21,7 +21,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale','web','web_tour'],
 
     # always loaded
     'data': [
@@ -38,6 +38,7 @@
         'views/water_counter_views.xml',
         'views/period_views.xml',
         'views/water_default_item_views.xml',
+        'views/tour/condominium_tour.xml',
         # 'views/settings_views.xml',
         'actions/sale_order_views.xml',
         'reports/report_mantainance_fee_views.xml',
@@ -48,6 +49,7 @@
         'templates/report_water_counter_unique_views.xml',
         'templates/email_mantainance_fee_views.xml',
         'templates/email_water_counter_views.xml',
+        'dashboards/condominium_dashboard_view.xml',
         'datas/tower_data.xml',
         'datas/floor_data.xml',
         'datas/period_data.xml',
@@ -55,6 +57,7 @@
         'datas/depot_data.xml',
         'datas/parking_data.xml',
         'datas/facility_data.xml',
+        'datas/dashboard.xml',
         # 'wizards/report_mantainance_fee_wizard.xml'
     ],
 }

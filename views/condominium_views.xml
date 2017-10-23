@@ -2,8 +2,16 @@
 <odoo>
     <data>
   
+        <template id="assets_backend" name="mob assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script>
+            </xpath>
+        </template>
+
         <!-- Top level menu: no parent -->
-        <menuitem id="main_condominium_menu" name="Condominio"/>
+        <menuitem id="main_condominium_menu" 
+                web_icon="condominium,static/description/icon.png"
+                name="Condominio"/>
 
         <menuitem id="condominium_menu" name="Inmuebles" parent="main_condominium_menu"/>
         <menuitem id="apartment_menu" name="Departamentos" parent="condominium_menu"

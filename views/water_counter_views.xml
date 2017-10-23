@@ -43,7 +43,8 @@
             <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="send_mail_template" string="Send e-mail" type="object" class="oe_highlight"/>
+                    <button name="send_mail_template" string="Send by Email" type="object" class="oe_highlight"/>
+                    <button name="print_template" string="Print" type="object"/>
                 </header>
             </xpath>
             </field>

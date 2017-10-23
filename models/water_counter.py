@@ -24,3 +24,8 @@ class WaterCounter(models.Model):
         template = self.env.ref('condominium.water_counter_email_template')
 
         self.env['mail.template'].browse(template.id).send_mail(self.id)
+
+    def print_template(self):
+        print "print template!"
+        # self.filtered(lambda s: s.state == 'draft').write({'state': 'sent'})
+        return self.env['report'].get_action(self, 'condominium.water_counter_unique_report_pdf')
