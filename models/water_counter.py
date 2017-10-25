@@ -29,3 +29,12 @@ class WaterCounter(models.Model):
         print "print template!"
         # self.filtered(lambda s: s.state == 'draft').write({'state': 'sent'})
         return self.env['report'].get_action(self, 'condominium.water_counter_unique_report_pdf')
+
+    @api.model
+    def hide_actions_from_actions(self):
+        if self.env.ref('condominium.report_water_counter_unique'):
+            self.env.ref('condominium.report_water_counter_unique').unlink()
+
+    @api.model
+    def regards(self):
+        print('regards!!!')

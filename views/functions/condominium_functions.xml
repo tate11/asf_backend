@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <function model="condominium.water_counter" name="hide_actions_from_actions"/>
+    </data>
+</odoo>

@@ -1,4 +1,108 @@
 <?xml version="1.0"?>
 <odoo>
-  
+        <record id="action_orders_to_invoice_salesteams" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="condominium.sale_order_view_search_inherit_sale"/>
+            <field name="domain">[('state', '=', 'sale'),('invoice_status','=','to invoice')]</field>
+            <field name="context">{
+                    'search_default_team_id': [active_id],
+                    'default_team_id': active_id,
+                }
+            </field>
+        </record>
+
+        <record id="action_quotations_salesteams" model="ir.actions.act_window">
+            <field name="name">Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="condominium.view_quotation_tree"/>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="context">{
+                    'hide_sale': True,
+                    'search_default_team_id': [active_id],
+                    'default_team_id': active_id,
+                    'show_address': 1,
+                }
+            </field>
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Create a Quotation, the first step of a new sale.
+              </p><p>
+                Your next actions should flow efficiently: confirm the Quotation
+                to a Sale Order, then create the Invoice and collect the Payment.
+              </p><p>
+                Note that once a Quotation becomes a Sale Order, it will be moved
+                from the Quotations list to the Sales Order list.
+              </p>
+            </field>
+        </record>
+
+        <!-- search by Salesteams -->
+        <record id="action_orders_salesteams" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="condominium.sale_order_view_search_inherit_sale"/>
+            <field name="domain">[('state','not in',('draft','sent','cancel'))]</field>
+            <field name="context">{
+                    'search_default_team_id': [active_id],
+                    'default_team_id': active_id,
+                }
+            </field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Create a Quotation, the first step of a new sale.
+              </p><p>
+                Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+              </p><p>
+                Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_invoice_salesteams" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="view_id" ref="account.invoice_tree"/>
+            <field name="domain">[
+                ('state', 'not in', ['draft', 'cancel']),
+                ('type', '=', 'out_invoice')]</field>
+            <field name="context">{
+                    'search_default_team_id': [active_id],
+                    'default_team_id': active_id,
+                    'default_type':'out_invoice',
+                    'type':'out_invoice',
+                    'journal_type': 'sale',
+                }
+            </field>
+            <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+        </record>
+
+        <!-- Sales Team Dashboard Views -->
+        <record id="action_quotation_form" model="ir.actions.act_window">
+            <field name="name">New Quotation</field>
+            <field name="res_model">sale.order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="context">{
+                    'search_default_team_id': [active_id],
+                    'default_team_id': active_id,
+                    'default_user_id': uid,
+            }
+            </field>
+            <field name="search_view_id" ref="sale_order_view_search_inherit_quotation"/>
+        </record>
+
 </odoo>

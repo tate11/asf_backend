@@ -26,6 +26,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        # 'views/functions/condominium_functions.xml',
         'views/product_template_views.xml',
         'views/res_partner_views.xml',
         'views/sale_order_views.xml',
@@ -39,8 +40,8 @@
         'views/period_views.xml',
         'views/water_default_item_views.xml',
         'views/tour/condominium_tour.xml',
-        # 'views/settings_views.xml',
-        'actions/sale_order_views.xml',
+        'views/dashboards/widget_view.xml',
+        # 'actions/sale_order_views.xml',
         'reports/report_mantainance_fee_views.xml',
         'reports/report_water_counter_views.xml',
         'reports/payment_order_views.xml',
@@ -49,7 +50,8 @@
         'templates/report_water_counter_unique_views.xml',
         'templates/email_mantainance_fee_views.xml',
         'templates/email_water_counter_views.xml',
-        'dashboards/condominium_dashboard_view.xml',
+        # 'dashboards/dashboard_kanban_view.xml',
+        # 'dashboards/water_counter_dashboard_view.xml',
         'datas/tower_data.xml',
         'datas/floor_data.xml',
         'datas/period_data.xml',

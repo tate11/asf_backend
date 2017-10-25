@@ -14,6 +14,11 @@ odoo.define('condominium.tour', function(require) {
         position: 'bottom',
     } 
     , {
+        trigger: 'li a[data-menu-xmlid="wizard_sale_order_menu"], .oe_secondary_menu_section[data-menu-xmlid="wizard_sale_order_menu"]',
+        content: _t("Use this menu to access mantainance fee wizard."),
+        position: "bottom"
+    }
+    , {
         trigger: ".oe_link",
         extra_trigger: '.oe_highlight',
         content:  _t("Information for second step of tour."),
