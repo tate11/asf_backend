@@ -12,15 +12,16 @@
                             <div class="header">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <img t-if="docs[0].company.logo" t-att-src="'data:image/png;base64,%s' % docs[0].company.logo"
+                                        <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' % res_company.logo"
                                             style="max-height: 85px;" />
                                     </div>
-                                    <div class="col-xs-6 text-right" style="font:15px lucida-console,sans-serif !important; background-color:#893b74 !important;" >
-                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id" /><br/>
-                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.street" /><br/>
-                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.city" /><br/>
-                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.country_id" /><br/>
-                                        <span style="color:#fff !important;" t-field="docs[0].company.partner_id.vat" /><br/>
+                                    <div class="col-xs-6 text-right">
+                                        <strong><span t-field="res_company.partner_id" /></strong><br/>
+                                        <span t-field="res_company.partner_id.street" />, <span t-field="res_company.partner_id.city" /> - <span t-field="res_company.partner_id.country_id" /><br/>
+                                        <span t-field="res_company.partner_id.vat" /><br/>
+                                        <span t-field="res_company.partner_id.website" /><br/>
+                                        <span t-field="res_company.partner_id.email" /><br/>
+                                        <span t-field="res_company.partner_id.phone" /><br/>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +40,8 @@
                                         <th>Período</th>
                                         <th>Propietario</th>
                                         <th>Departamento</th>
-                                        <th>Contador anterior</th>
-                                        <th>Contador actual</th>
+                                        <th align="right">Contador anterior</th>
+                                        <th align="right">Contador actual</th>
                                         <th>Fecha</th>
                                     </tr>
                                 </thead>
@@ -61,8 +62,8 @@
                                                 <span t-if="t.type=='apartment'"><t t-esc="t.name" /></span>
                                             </span>
                                         </td>
-                                        <td><t t-esc="o.old"></t></td>
-                                        <td><t t-esc="o.current"></t></td>
+                                        <td align="right"><t t-esc="o.old" widget="monetary"></t></td>
+                                        <td align="right"><t t-esc="o.current" widget="monetary"></t></td>
                                         <td><t t-esc="o.date"></t></td>
                                     </tr>
                                 </tbody>
