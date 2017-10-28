@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
         <record model="product.product" id="parking_101">
             <field name="name">P01</field>
             <field name="sale_ok">False</field>
@@ -26,7 +26,127 @@
             <field name="purchase_ok">False</field>
             <field name="type">parking</field>
             <field name="tower_id">3</field>
+            <field name="floor_id">5</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_201">
+            <field name="name">P04</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">1</field>
             <field name="floor_id">4</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_202">
+            <field name="name">P05</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">4</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_203">
+            <field name="name">P06</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">4</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_301">
+            <field name="name">P07</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">3</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_302">
+            <field name="name">P08</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">3</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_303">
+            <field name="name">P09</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">3</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_401">
+            <field name="name">P10</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">2</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_402">
+            <field name="name">P11</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">2</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_403">
+            <field name="name">P12</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">2</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_501">
+            <field name="name">P13</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">1</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_502">
+            <field name="name">P14</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">1</field>
+            <field name="asf_area">12</field>
+            <field name="asf_percent">2.97</field>
+        </record>
+        <record model="product.product" id="parking_503">
+            <field name="name">P15</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">parking</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">1</field>
             <field name="asf_area">12</field>
             <field name="asf_percent">2.97</field>
         </record>

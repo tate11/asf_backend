@@ -1,73 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <!-- add css / js -->
+        <template id="assets_backend" name="sales_team assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link href="/condominium/static/src/css/d3.bar.widget.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/condominium/static/src/js/d3.widget.js"></script>
+                <script type="text/javascript" src="/condominium/static/src/js/d3.bar.widget.js"></script>
+                <!-- <script type="text/javascript" src="/condominium/static/src/js/c3.min.js"></script> -->
+                <!-- <script type="text/javascript" src="/condominium/static/src/js/condominium_dashboard.js"></script> -->
+            </xpath>
+        </template>
+
         <record id="channel_dashboard_kanban_view" model="ir.ui.view">
             <field name="name">condominium.dashboard.view</field>
             <field name="model">condominium.dashboard</field>
             <field name="arch" type="xml">
-                <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban o_project_kanban " create="0">
-                    <field name="color"/>
+                <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban" create="0" js_class="sales_team_dashboard">
                     <field name="name"/>
+                    <field name="color"/>
+                    <field name="orders_count"/>
+                    <field name="quotations_count"/>
+                    <field name="orders_done_count"/>
+
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="#{kanban_color(record.color.raw_value)} ">
-                                <div class="o_project_kanban_manage">
-                                    <a class="o_kanban_manage_toggle_button" href="#">More
-                                        <i class="fa fa-caret-down"/>
-                                    </a>
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><field name="name"/></div>
+                                    </div>
+                                    <div class="o_kanban_manage_button_section">
+                                        <a class="o_kanban_manage_toggle_button" href="#">More <i class="fa fa-caret-down"/></a>
+                                    </div>
                                 </div>
-                                <div class="o_project_kanban_main" >
-                                    <div class="o_kanban_card_content o_visible">
-                                        <div class="o_kanban_primary_left" >
-                                            <div class="">
-                                                <center>
-                                                    <span>
-                                                        <t t-field="record.name.value"/>
-                                                    </span>
-                                                </center>
+                                <div class="container o_kanban_card_content o_visible">
+                                    <div class="row">
+                                        <div class="col-xs-12 o_kanban_primary_left" name="to_replace_in_sale_crm">
+                                            <div id="chart">
                                             </div>
-                                            <div>
-                                                <center>
-                                                    <button class="btn btn-primary" type="action" name="dashboard_sales_action_id" string="Quotations">Quotations</button>
-                                                    <button class="btn btn-primary" type="action" name="dashboard_sales_order_action_id" >Sales order</button>
-                                                    <h3>Custom Dashboard for Sales</h3>
-                                                </center>
-                                            </div>
+                                            <field name="quotations_count" widget="bar3d" style="width:120px; height: 90px;"
+                                                options="{'max_field': 'total'}">
+                                            Progress
+                                            </field>
+                                        </div>
+                                        <div class="col-xs-6 o_kanban_primary_right">
                                         </div>
                                     </div>
-                                    <div class="o_kanban_card_manage_pane o_invisible">
-                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                </div><div class="container o_kanban_card_manage_pane o_invisible">
+                                    <div class="row">
+                                        <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_view">
                                             <div class="o_kanban_card_manage_title">
                                                 <span>View</span>
                                             </div>
-                                            
                                         </div>
-                                        <div t-if="widget.editable" class="o_project_kanban_colorpicker" >
+                                        <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_new">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>New</span>
+                                            </div>
+                                            <div class="o_kanban_card_manage_body">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_reports">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>Reports</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div t-if="widget.editable" class="o_kanban_card_manage_settings row" groups="sales_team.group_sale_manager">
+                                        <div class="col-xs-8">
                                             <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </div>
+                                        <div class="col-xs-4 text-right">
+                                            <a type="edit">Settings</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="o_project_kanban_boxes" >
-                                    <a class="o_project_kanban_box" name="" type="action">
-                                        <span class="o_value" style="overflow:visible !important">
-                                            <!-- <t t-esc="record.quotations_count.value"/> -->
-                                        </span>
-                                        <span class="o_label" style="overflow:visible !important">Quotations</span>
-                                    </a>
-                                    <a class="o_project_kanban_box" name="" type="action">
-                                        <span class="o_value" style="overflow:visible !important">
-                                            <!-- <t t-esc="record.orders_count.value"/> -->
-                                        </span>
-                                        <span class="o_label" style="overflow:visible !important">Sales Orders</span>
-                                    </a>
-                                    <a class="o_project_kanban_box" name="" type="action">
-                                        <span class="o_value" style="overflow:visible !important">
-                                            <!-- <t t-esc="record.order_done_count.value"/> -->
-                                        </span>
-                                        <span class="o_label" style="overflow:visible !important">Done</span>
-                                    </a>
-                                </div>
                             </div>
+                            <script>
+                                <!-- start(); -->
+                            </script>
                         </t>
                     </templates>
                 </kanban>

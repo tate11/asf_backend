@@ -8,11 +8,11 @@ class CondominiumDashboard(models.Model):
     @api.one
     def _get_count(self):
         quotations_count = self.env['sale.order'].search(
-            [('sate', '=', 'draft')])
+            [('state', '=', 'draft')])
         orders_count = self.env['sale.order'].search(
-            [('sate', '=', 'sales_order')])
+            [('state', '=', 'sales_order')])
         orders_done_count = self.env['sale.order'].search(
-            [('sate', '=', 'done')])
+            [('state', '=', 'done')])
  
         self.orders_count = len(orders_count)
         self.quotations_count = len(quotations_count)
@@ -23,6 +23,9 @@ class CondominiumDashboard(models.Model):
     orders_count = fields.Integer(compute = '_get_count')
     quotations_count = fields.Integer(compute= '_get_count')
     orders_done_count = fields.Integer(compute= '_get_count')
-        
+
+    # state = fields.Boolean('State')
+    
+    @api.one
     def dashboard_sales_action_id(self):
         print 'dashboard_sales_action_id'

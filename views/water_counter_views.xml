@@ -50,6 +50,31 @@
             </field>
         </record>
 
+        <!-- Water counter graph view -->
+        <record model="ir.ui.view" id="water_counter_graph_view">
+            <field name="name">Counter</field>
+            <field name="model">condominium.water_counter</field>
+            <field name="arch" type="xml">
+                <graph string="Water counter">
+                    <field name="old" type="col"/>
+                    <field name="name" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Water counter pivot view -->
+        <record model="ir.ui.view" id="water_counter_pivot_view">
+            <field name="name">Counter</field>
+            <field name="model">condominium.water_counter</field>
+            <field name="arch" type="xml">
+                <pivot string="Water counter">
+                    <field name="old" type="col"/>
+                    <field name="name" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+
         <!--
             MASS MAILING
         -->
@@ -73,7 +98,7 @@
             <field name="name">Registro de contadores</field>
             <field name="res_model">condominium.water_counter</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
         </record>
 
         <menuitem id="water_counter_menu" name="Consumos de agua"

@@ -22,7 +22,10 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale','web','web_tour'],
-
+    'js': [
+        # '/condominium/static/src/js/condominium_dashboard.js',
+        # '/condominium/static/src/js/d3.widget.js'
+    ],
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
@@ -39,6 +42,7 @@
         'views/period_views.xml',
         'views/water_default_item_views.xml',
         'views/tour/condominium_tour.xml',
+        'views/widgets/d3_views.xml',
         # 'views/settings_views.xml',
         'actions/sale_order_views.xml',
         'reports/report_mantainance_fee_views.xml',
@@ -50,6 +54,7 @@
         'templates/email_mantainance_fee_views.xml',
         'templates/email_water_counter_views.xml',
         'dashboards/condominium_dashboard_view.xml',
+        'dashboards/water_counter_view.xml',
         'datas/tower_data.xml',
         'datas/floor_data.xml',
         'datas/period_data.xml',
@@ -57,7 +62,9 @@
         'datas/depot_data.xml',
         'datas/parking_data.xml',
         'datas/facility_data.xml',
+        'datas/owner_data.xml',
         'datas/dashboard.xml',
+        'datas/services_data.xml',
         # 'wizards/report_mantainance_fee_wizard.xml'
     ],
 }

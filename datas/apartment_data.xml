@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
         <record model="product.product" id="apartment_101">
             <field name="name">101</field>
             <field name="sale_ok">False</field>
@@ -15,7 +15,7 @@
             <field name="sale_ok">False</field>
             <field name="purchase_ok">False</field>
             <field name="type">apartment</field>
-            <field name="tower_id">1</field>
+            <field name="tower_id">2</field>
             <field name="floor_id">6</field>
             <field name="asf_area">100</field>
             <field name="asf_percent">3.97</field>
@@ -25,8 +25,188 @@
             <field name="sale_ok">False</field>
             <field name="purchase_ok">False</field>
             <field name="type">apartment</field>
-            <field name="tower_id">2</field>
+            <field name="tower_id">3</field>
             <field name="floor_id">6</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_201">
+            <field name="name">201</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">7</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_202">
+            <field name="name">202</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">7</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_203">
+            <field name="name">203</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">7</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_301">
+            <field name="name">301</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">8</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_302">
+            <field name="name">302</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">8</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_303">
+            <field name="name">303</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">8</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_401">
+            <field name="name">401</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">9</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_402">
+            <field name="name">402</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">9</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_403">
+            <field name="name">403</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">9</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_501">
+            <field name="name">501</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">10</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_502">
+            <field name="name">502</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">10</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_503">
+            <field name="name">503</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">10</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_601">
+            <field name="name">601</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">11</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_602">
+            <field name="name">602</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">11</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_603">
+            <field name="name">603</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">11</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_701">
+            <field name="name">701</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">1</field>
+            <field name="floor_id">12</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_702">
+            <field name="name">702</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">2</field>
+            <field name="floor_id">12</field>
+            <field name="asf_area">100</field>
+            <field name="asf_percent">3.97</field>
+        </record>
+        <record model="product.product" id="apartment_703">
+            <field name="name">703</field>
+            <field name="sale_ok">False</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">apartment</field>
+            <field name="tower_id">3</field>
+            <field name="floor_id">12</field>
             <field name="asf_area">100</field>
             <field name="asf_percent">3.97</field>
         </record>

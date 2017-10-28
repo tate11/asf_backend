@@ -93,6 +93,8 @@ class SaleOrder(models.Model):
                     if len(water_default_item):
                         print(len(water_default_item))
 
+                        amount = template_order_item.price_unit
+                        
                         water_counter = self.env['condominium.water_counter'].search(
                             [('name', '=', customer.id),('period','=',self.period.id)])
 
