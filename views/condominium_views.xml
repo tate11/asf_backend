@@ -4,7 +4,9 @@
   
         <template id="assets_backend" name="mob assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script>
+                <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet"/>
+                <link href="/condominium/static/src/css/condominium.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script> -->
             </xpath>
         </template>
 

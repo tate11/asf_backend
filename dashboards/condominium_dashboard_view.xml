@@ -4,11 +4,12 @@
         <!-- add css / js -->
         <template id="assets_backend" name="sales_team assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <link href="/condominium/static/src/css/d3.bar.widget.css" rel="stylesheet"/>
-                <script type="text/javascript" src="/condominium/static/src/js/d3.widget.js"></script>
+                <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet"/>
+                <link href="/condominium/static/src/css/condominium.css" rel="stylesheet"/>
+                
+                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script>
+                <script type="text/javascript" src="/condominium/static/src/js/asf.gauge.widget.js"></script>
                 <script type="text/javascript" src="/condominium/static/src/js/d3.bar.widget.js"></script>
-                <!-- <script type="text/javascript" src="/condominium/static/src/js/c3.min.js"></script> -->
-                <!-- <script type="text/javascript" src="/condominium/static/src/js/condominium_dashboard.js"></script> -->
             </xpath>
         </template>
 
@@ -39,9 +40,9 @@
                                         <div class="col-xs-12 o_kanban_primary_left" name="to_replace_in_sale_crm">
                                             <div id="chart">
                                             </div>
-                                            <field name="quotations_count" widget="bar3d" style="width:120px; height: 90px;"
-                                                options="{'max_field': 'total'}">
-                                            Progress
+                                            <field name="quotations_count" widget="asf_gauge" style="width:120px; height: 90px;"
+                                                options="{'max_field': 'total','demo':123}">
+                                                Title
                                             </field>
                                         </div>
                                         <div class="col-xs-6 o_kanban_primary_right">
