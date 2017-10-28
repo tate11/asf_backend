@@ -11,6 +11,7 @@
                             
                             <div class="header">
                                 <div class="row">
+                                    <!-- <span t-esc="o.company_id.name"/> -->
                                     <div class="col-xs-6">
                                         <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' % res_company.logo"
                                             style="max-height: 85px;" />
