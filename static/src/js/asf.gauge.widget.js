@@ -44,6 +44,11 @@ odoo.define('web_kanban_asf_gauge.widget', function (require) {
             //     label = this.options.label_field;
             // }
             var title = this.$node.html() || this.field.string;
+            if (this.$node.html().trim().length == 0)
+            {
+                title = this.field.string;
+            }
+            
             // current gauge value
             var val = this.field.raw_value;
             if (_.isArray(JSON.parse(val))) {
