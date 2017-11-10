@@ -5,12 +5,12 @@
 @gray-light:             #4E5D6C;   // #999
 @gray-lighter:           #EBEBEB; // #eee
 
-@brand-primary:         #2196F3;
+@brand-primary:         #00a09d;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
-@brand-control-panel:   #f8f8f8;
+@brand-control-panel:   #fff;
 @brand-nav-bar:         #eee;
 @brand-main-nav:        #313949; //#875A7B;
 // .navbar-default {
@@ -64,6 +64,49 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 //     color: @brand-nav-bar !important;
 // }
 
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #00a09d;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.badge {
+    border: 1px solid #00a09d;
+    margin: 1px 2px 1px 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/***
+Kanban
+***/
+.o_web_client {
+    background-color: #F9F9F9;
+}
+
+.o_kanban_view .o_kanban_record {
+    border-color: #d9d7d7;
+    box-shadow: none !important;
+
+    &:hover {
+        border-color: lighten(@brand-primary, 5%);
+    }
+}
+
+.o_kanban_view .o_kanban_record, .o_kanban_view .o_kanban_quick_create {
+    padding: 8px 8px;
+    border: 1px solid #E5E5E5;
+    background-color: white;
+}
 
 .o_control_panel {
     background-color: @brand-control-panel;
@@ -84,6 +127,16 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
                 color: darken(@brand-primary, 10%);
             }
         }
+    }
+}
+
+.btn-default {
+    color: @brand-primary;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover {
+        border-color: @brand-primary;
     }
 }
 
@@ -111,9 +164,13 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     }
 }
 
+.btn-group > .btn {
+    text-transform: capitalize;
+}
+
 .btn {
     font-family: 'Poppins'!important;
-    // text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .btn-link {
@@ -124,8 +181,23 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     }
 }
 
-a:hover {
+.o_form_view > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
     color: @brand-primary;
+    background-color: white;
+    border-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: darken(@brand-main-nav, 20%);
+        background-color: #fff;
+        border-color: transparent;    
+        // font-weight: bold;
+    }
+}
+  
+a:hover {
+    color: darken(@brand-primary, 10%);
 }
 
 .nav-tabs > li.active > a,
@@ -164,15 +236,19 @@ Tabs
 ***/
 
 .nav-tabs > li > a {
-    font-family: 'Montserrat'!important;
+    // font-family: 'Montserrat'!important;
+    color: #666666;
+    &:hover {
+        color: @brand-primary;    
+    }
 }
 
 .nav-tabs > li.active > a, 
 .nav-tabs > li.active > a:hover, 
 .nav-tabs > li.active > a:active, 
 .nav-tabs > li.active > a:focus {
-    border-top: 2px solid;
-    color: @brand-primary;
+    border-top: 1px solid;
+    color: darken(@brand-main-nav , 20%);
     // font-weight: 600;
 }
 
@@ -199,6 +275,43 @@ Breadcrumb
 /***
 Table
 ***/
+div.o_checkbox > input + span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #8f8f8f;
+    background-color: white;
+}
+div.o_checkbox > input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    cursor: pointer;
+}
+
+div.o_checkbox > input:focus + span {
+    outline: 1px solid lighten(@brand-primary, 10%);
+}
+
+div.o_checkbox > input:checked + span {
+    background-repeat: no-repeat;
+    background-image: url(/condominium/static/src/img/checked.svg);
+    background-position: center center;
+}
+
+td a {
+    color: @brand-primary;
+    &:hover {
+        color: darken(@brand-primary, 20%);
+    }
+}
+
 .o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header) {
     box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);
 }
@@ -222,7 +335,7 @@ Table
 Icons
 ***/
 .o_form_view .oe_button_box .oe_stat_button .o_button_icon {
-    color: darken(@brand-primary, 10%);
+    color: lighten(@brand-primary, 20%);
 }
 
 .header-icon {
@@ -239,4 +352,109 @@ Dropdown
 .dropdown-menu > li > a:focus {
   color: @brand-nav-bar;
   background-color: @brand-main-nav;
+}
+
+.o_search_options .o_group_by_menu li > a:hover,
+.o_search_options .o_filters_menu li > a:hover,
+.o_search_options .o_favorites_menu li > a:hover {
+    color: @brand-nav-bar;
+}
+
+// .o_search_options .o_filters_menu li > a:hover {
+//     color: @brand-nav-bar;
+// }
+
+// .o_search_options .o_favorites_menu li > a:hover {
+//     color: @brand-nav-bar;
+// }
+
+/***
+Form Breadcrumb
+***/
+
+.o_form_view > header {
+    border-bottom: 1px solid #a8a8a8;
+    background-color: #fff;
+    background-image: none;
+}
+
+.o_form_view ul.oe_form_status li,
+.o_form_view ul.oe_form_status_clickable li {
+  background-color: #fff;
+  background-image: none;
+}
+
+.o_form_view ul.oe_form_status li.oe_active,
+.o_form_view ul.oe_form_status_clickable li.oe_active {
+  background-color: #F9F9F9;
+  background-image: none;
+}
+
+.o_form_view ul.oe_form_status li.oe_active > .arrow span, 
+.o_form_view ul.oe_form_status_clickable li.oe_active > .arrow span {
+    background-color: #F9F9F9 !important;
+    background: #F9F9F9 !important;
+}
+
+.o_form_view ul.oe_form_status li.oe_active > .label,
+.o_form_view ul.oe_form_status_clickable li.oe_active > .label {
+  color: @brand-primary;
+  text-shadow: none;
+}
+
+.o_form_view ul.oe_form_status li > .arrow span,
+.o_form_view ul.oe_form_status_clickable li > .arrow span {
+  background-color: #fff;
+  background: #fff;
+}
+
+.o_form_view ul.oe_form_status li.oe_active > .arrow span,
+.o_form_view ul.oe_form_status_clickable li.oe_active > .arrow span {
+  background-color: #fff;
+  background: #fff;
+}
+  
+.o_form_view ul.oe_form_status,
+.o_form_view ul.oe_form_status_clickable {
+  text-transform: uppercase;
+}
+
+/***
+Form
+***/
+.o_form_view .o_horizontal_separator {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.o_form_view .o_group .o_td_label .o_form_label {
+    color: darken(@brand-main-nav,10%);
+}
+
+.o_form_view .o_group .o_td_label .o_form_label {
+    text-shadow: 1px 1px #e6e6e6;
+}
+
+.o_form_view.o_form_readonly .o_form_uri {
+    /* display: inline-block; */
+    color: @brand-primary;
+
+    &:hover {
+        color: darken(@brand-primary, 10%);
+    }
+}
+
+/***
+Chater
+***/
+@media (min-width: 1200px) {
+.o_form_view .oe_chatter {
+    width: 1172px;
+    max-width: 100%;
+}
+}
+
+.o_mail_thread .o_thread_message .o_thread_message_core.o_mail_note {
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #E5E5E5;
 }
