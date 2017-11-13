@@ -15,11 +15,8 @@
 @brand-nav-bar:         #eee;
 @brand-main-nav:        #313949; //#875A7B;
 @brand-body-color:      #666666;
-// .navbar-default {
-//     // background-color: #313949;
-//     // border-color: #313949;
-//     color: #eee;
-// }
+@brand-primary-dark-20: darken(@brand-primary, 20%);   // #333
+@brand-primary-dark-10: darken(@brand-primary, 30%);   // #333
 
 body {
     color: @brand-body-color !important;
@@ -65,6 +62,10 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 //     background-color: lighten(@brand-main-nav, 10%) !important;
 //     color: @brand-nav-bar !important;
 // }
+
+.img-circle {
+    border-radius: 50% !important;
+}
 
 .badge {
     display: inline-block;
@@ -167,7 +168,7 @@ Kanban
 }
 
 .btn-group > .btn {
-    text-transform: capitalize;
+    // text-transform: capitalize;
 }
 
 .btn {
@@ -224,8 +225,8 @@ Kanban
 }
 
 .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
-    background-color: darken(@brand-primary,20%);
-    border-color: darken(@brand-primary,20%);
+    background-color: @brand-primary-dark-20;
+    border-color: @brand-primary-dark-20;
     color: @brand-disabled;
 }
 
@@ -245,9 +246,8 @@ Kanban
 }
 
 a {
-    // color: @brand-primary !important;
     &:hover {
-        color: darken(@brand-primary, 10%);
+        color: @brand-primary-dark-20;
     }
 }
 
@@ -259,7 +259,7 @@ a {
 .o_form_view .o_group .o_td_label .o_form_label {
     font-weight: normal;
     margin-right: 0px;
-    color: @brand-body-color;
+    color: @brand-body-color !important;
 }
 
 .o_form_view .o_horizontal_separator {
@@ -367,7 +367,7 @@ div.o_checkbox > input:checked + span {
 td a {
     color: @brand-primary;
     &:hover {
-        color: darken(@brand-primary, 20%);
+        color: @brand-primary-dark-20;
     }
 }
 
@@ -394,7 +394,7 @@ td a {
 Icons
 ***/
 .o_form_view .oe_button_box .oe_stat_button .o_button_icon {
-    color: darken(@brand-primary, 5%);
+    color: @brand-primary-dark-20;
 }
 
 .header-icon {
@@ -424,12 +424,17 @@ Dropdown
 }
 
 .open > .dropdown-toggle.btn-primary {
-    background-color: #e6e6e6;
+    // background-color: #e6e6e6;
+    background-color: @brand-primary-dark-20;;
     border-color: @brand-primary;
 
     &:focus {
-        background-color: darken(@brand-primary, 10%);
-        border-color: darken(@brand-primary, 5%);
+        background-color: @brand-primary-dark-20;
+        border-color: @brand-primary-dark-20;
+    }
+    &:hover {
+        background-color: @brand-primary-dark-10;
+        border-color: @brand-primary-dark-10;
     }
 }
 
@@ -531,7 +536,7 @@ Form
         .o_td_label {
             border-right: none;
             .o_form_label {
-                color: darken(@brand-main-nav,10%);
+                color: @brand-primary-dark-20;
                 font-weight: bold;
             }
         }
@@ -542,7 +547,7 @@ Form
     color: @brand-primary;
 
     &:hover {
-        color: darken(@brand-primary, 10%);
+        color: @brand-primary-dark-20;
     }
 }
 
