@@ -5,14 +5,16 @@
 @gray-light:             #4E5D6C;   // #999
 @gray-lighter:           #EBEBEB; // #eee
 
-@brand-primary:         #00a09d;
+@brand-primary:         #F27902;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
+@brand-disabled:        #8c8c8c;
 @brand-control-panel:   #fff;
 @brand-nav-bar:         #eee;
 @brand-main-nav:        #313949; //#875A7B;
+@brand-body-color:      #666666;
 // .navbar-default {
 //     // background-color: #313949;
 //     // border-color: #313949;
@@ -20,7 +22,7 @@
 // }
 
 body {
-    color: #666666;
+    color: @brand-body-color !important;
 }
 
 header > .main-nav {
@@ -70,7 +72,7 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     padding: 3px 7px;
     font-size: 12px;
     font-weight: bold;
-    color: #00a09d;
+    color: @brand-primary;
     line-height: 1.42857143;
     vertical-align: middle;
     white-space: nowrap;
@@ -80,7 +82,7 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 }
 
 .badge {
-    border: 1px solid #00a09d;
+    border: 1px solid @brand-primary;
     margin: 1px 2px 1px 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -169,8 +171,48 @@ Kanban
 }
 
 .btn {
-    font-family: 'Poppins'!important;
+    // font-family: 'Poppins'!important;
     text-transform: uppercase;
+
+    &:active {
+        box-shadow: none;
+        border-color: @brand-primary;
+    }
+
+    &:hover {
+        border-color: lighten(@brand-primary,0.1);
+    }
+}
+
+.btn.active {
+    box-shadow: none;
+    border-color: @brand-primary;
+}
+
+.btn-icon {
+    color: @brand-primary;
+    background-color: white;
+    border-color: transparent;
+
+    &:hover {
+        border-color: @brand-primary;
+    }
+}
+
+.btn-icon[disabled] {
+    border-color: transparent;
+}
+
+.btn-icon:active, 
+.btn-icon.active, 
+.open > .dropdown-toggle.btn-icon {
+    // color: #4c4c4c;
+    // background-color: #e6e6e6;
+    border-color: @brand-primary;
+    box-shadow: none;
+    &:hover {
+        border-color: lighten(@brand-primary,10%);
+    }
 }
 
 .btn-link {
@@ -179,6 +221,12 @@ Kanban
     &:hover {
         color: darken(@brand-primary, 5%);
     }
+}
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+    background-color: darken(@brand-primary,20%);
+    border-color: darken(@brand-primary,20%);
+    color: @brand-disabled;
 }
 
 .o_form_view > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
@@ -195,9 +243,12 @@ Kanban
         // font-weight: bold;
     }
 }
-  
-a:hover {
-    color: darken(@brand-primary, 10%);
+
+a {
+    // color: @brand-primary !important;
+    &:hover {
+        color: darken(@brand-primary, 10%);
+    }
 }
 
 .nav-tabs > li.active > a,
@@ -208,11 +259,11 @@ a:hover {
 .o_form_view .o_group .o_td_label .o_form_label {
     font-weight: normal;
     margin-right: 0px;
-    color: #666;
+    color: @brand-body-color;
 }
 
 .o_form_view .o_horizontal_separator {
-    color: #666666;
+    color: @brand-body-color;
     font-family: 'Montserrat'!important;
 }
 
@@ -231,13 +282,21 @@ a:hover {
     border-color: @brand-primary!important;
 }
 
+.o_form_view .o_form_field.o_form_field_many2one .o_external_button {
+    color: @brand-primary;
+}
+
+.o_form_view .o_form_field_image > .o_form_image_controls > .fa.o_select_file_button {
+    background: @brand-primary;
+}
+
 /***
 Tabs
 ***/
 
 .nav-tabs > li > a {
     // font-family: 'Montserrat'!important;
-    color: #666666;
+    color: @brand-body-color;
     &:hover {
         color: @brand-primary;    
     }
@@ -335,7 +394,7 @@ td a {
 Icons
 ***/
 .o_form_view .oe_button_box .oe_stat_button .o_button_icon {
-    color: lighten(@brand-primary, 20%);
+    color: darken(@brand-primary, 5%);
 }
 
 .header-icon {
@@ -360,17 +419,27 @@ Dropdown
     color: @brand-nav-bar;
 }
 
-// .o_search_options .o_filters_menu li > a:hover {
-//     color: @brand-nav-bar;
-// }
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: @brand-primary;
+}
 
-// .o_search_options .o_favorites_menu li > a:hover {
-//     color: @brand-nav-bar;
-// }
+.open > .dropdown-toggle.btn-primary {
+    background-color: #e6e6e6;
+    border-color: @brand-primary;
+
+    &:focus {
+        background-color: darken(@brand-primary, 10%);
+        border-color: darken(@brand-primary, 5%);
+    }
+}
+
 
 /***
 Form Breadcrumb
 ***/
+.ui-autocomplete {
+    font-family: inherit;
+}
 
 .o_form_view > header {
     border-bottom: 1px solid #a8a8a8;
@@ -422,21 +491,54 @@ Form Breadcrumb
 /***
 Form
 ***/
-.o_form_view .o_horizontal_separator {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.o_form_view .o_group .o_td_label .o_form_label {
-    color: darken(@brand-main-nav,10%);
-}
-
-.o_form_view .o_group .o_td_label .o_form_label {
-    text-shadow: 1px 1px #e6e6e6;
+.o_form_view {
+    .oe_title {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 40px;
+    }
+    .oe_avatar {
+        float: right;
+        > img {
+            box-shadow: none;
+            border: 1px solid #a8a8a8;
+        }
+    }
+    .oe_button_box {
+        width: initial;
+        text-align: right;
+        height: 44px;
+        box-shadow: inset 0 -1px 0 #d9d7d7;
+        margin-top: -17px;
+        margin-left: -17px;
+        margin-right: -16px;
+        margin-bottom: 24px;
+        .oe_stat_button {
+            width: 142px !important;
+            height: 44px;
+            text-transform: capitalize;
+            .o_button_icon {
+                color: @brand-body-color;
+                font-size: 22px;
+            }
+        }
+    }
+    .o_horizontal_separator {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .o_group {
+        .o_td_label {
+            border-right: none;
+            .o_form_label {
+                color: darken(@brand-main-nav,10%);
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 .o_form_view.o_form_readonly .o_form_uri {
-    /* display: inline-block; */
     color: @brand-primary;
 
     &:hover {
@@ -454,7 +556,66 @@ Chater
 }
 }
 
-.o_mail_thread .o_thread_message .o_thread_message_core.o_mail_note {
+.o_chatter .o_mail_thread {
+    position: relative;
+}
+
+.o_mail_thread {
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4px;
+        background: #f5f6fa;
+        top: 0px;
+        bottom: 0;
+        margin-left: 38px;
+    }
+    .o_thread_date_separator {
+        margin-left: 40px;
+        border-bottom: solid #EBEBEB 1px;
+    }
+    .o_thread_message {
+        .o_thread_message_core.o_mail_note {
+            background-color: #F9F9F9;
+            border-bottom: 1px solid #E5E5E5;
+        }
+        .o_thread_message_sidebar {
+            position: relative;
+            .o_thread_message_avatar {
+                max-width: 50px;
+                border: 4px solid #f5f6fa;
+                -webkit-border-radius: 50%!important;
+                -moz-border-radius: 50%!important;
+                border-radius: 50%!important;
+            }
+        }
+    }
+}
+
+.o_mail_chat .o_mail_chat_content .o_chat_composer {
+    border-top: 1px solid #E5E5E5;
     background-color: #F9F9F9;
-    border-bottom: 1px solid #E5E5E5;
+    position: relative;
+}
+
+
+@media screen and (max-width: 1533px) and (min-width: 992px) {
+    .o_form_view .o_form_sheet_bg > .o_form_sheet {
+        padding-left: 32px;
+    }
+
+    .o_form_view .oe_button_box {
+        margin-left: -32px !important;
+        margin-right: -32px !important;
+        text-align: right;
+        float: unset;
+        max-width: initial;
+    }
+}
+
+@media screen and (max-width: 1533px) and (min-width: 992px) {
+    .o_form_view .o_form_sheet_bg > .o_form_sheet {
+        padding-right: 32px;
+    }
 }
