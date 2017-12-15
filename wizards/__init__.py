@@ -1,2 +1,2 @@
 # import generate_sale_order
-import report_mantainance_fee_wizard
+from . import report_mantainance_fee_wizard

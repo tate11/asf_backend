@@ -120,7 +120,7 @@ class res_partner(models.Model):
         for country_id, partner_ids in self.env.cr.fetchall():
             country = country_model.browse(country_id)
 
-            print  country.name
+            print(country.name)
         #     partners = self.search(
         #         [('id', 'in', tuple(partner_ids))]
         #     )

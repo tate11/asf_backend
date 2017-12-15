@@ -28,4 +28,4 @@ class CondominiumDashboard(models.Model):
     
     @api.one
     def dashboard_sales_action_id(self):
-        print 'dashboard_sales_action_id'
+        print('dashboard_sales_action_id')

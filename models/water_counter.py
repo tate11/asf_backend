@@ -20,12 +20,12 @@ class WaterCounter(models.Model):
     company = fields.Many2one('res.company', 'Company', readonly=True)
 
     def send_mail_template(self):
-        print 'Hey!!!'
+        print('Hey!!!')
         template = self.env.ref('condominium.water_counter_email_template')
 
         self.env['mail.template'].browse(template.id).send_mail(self.id)
 
     def print_template(self):
-        print "print template!"
+        print("print template!")
         # self.filtered(lambda s: s.state == 'draft').write({'state': 'sent'})
         return self.env['report'].get_action(self, 'condominium.water_counter_unique_report_pdf')
