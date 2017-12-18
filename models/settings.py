@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import odoo
 from odoo import api, fields, models
 
 class CondominiumConfigSettings(models.TransientModel):

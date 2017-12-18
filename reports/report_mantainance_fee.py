@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+import odoo
 from odoo.report import report_sxw
 from odoo.osv import osv
 
