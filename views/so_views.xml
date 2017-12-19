@@ -70,6 +70,5 @@
         <record id="email_template_opportunity_mail" model="mail.template">
             <field name="ref_ir_act_window" ref="condominium.action_mantainance_fee_mass_mail"/>
         </record>
-
     </data>
 </odoo>

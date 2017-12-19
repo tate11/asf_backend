@@ -37,6 +37,7 @@
         'views/res_company_views.xml',
         'views/tower_views.xml',
         'views/floor_views.xml',
+	'wizards/report_mantainance_fee_wizard_views.xml',
         'views/so_views.xml',
         'views/water_counter_views.xml',
         'views/period_views.xml',
@@ -65,6 +66,6 @@
         'datas/owner_data.xml',
         'datas/dashboard.xml',
         'datas/services_data.xml',
-        # 'wizards/report_mantainance_fee_wizard.xml'
+        #'wizards/report_mantainance_fee_wizard.xml'
     ],
 }
