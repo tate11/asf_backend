@@ -44,7 +44,7 @@
         'views/water_default_item_views.xml',
         'views/tour/condominium_tour.xml',
         'views/widgets/d3_views.xml',
-        # 'views/settings_views.xml',
+        'views/settings_views.xml',
         'actions/sale_order_views.xml',
         'reports/report_mantainance_fee_views.xml',
         'reports/report_water_counter_views.xml',

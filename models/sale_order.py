@@ -1,6 +1,9 @@
 # -*- encoding: utf-8 -*-
 
-from odoo import models, fields, api
+from datetime import timedelta, date, datetime
+
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError, UserError
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -36,6 +39,44 @@ class SaleOrder(models.Model):
     #
     #     self.write({'line_id': order_line.id})
     #     return {'type': 'ir.actions.client', 'tag': 'reload'}
+
+    @api.multi
+    def create_penalty_invoice(self):
+        for rec in self:
+            account_id = False
+            product = self.env.ref('openeducat_library.op_product_7')
+            if product.id:
+                account_id = product.property_account_income_id.id
+            if not account_id:
+                account_id = \
+                    product.categ_id.property_account_income_categ_id.id
+            if not account_id:
+                raise UserError(
+                    _('There is no income account defined for this \
+                    product: "%s". You may have to install a chart of \
+                    account from Accounting app, settings \
+                    menu.') % (product.name,))
+
+            invoice = self.env['account.invoice'].create({
+                'partner_id': self.student_id.partner_id.id,
+                'type': 'out_invoice',
+                'reference': False,
+                'date_invoice': fields.Date.today(),
+                'account_id':
+                self.student_id.partner_id.property_account_receivable_id.id,
+                'invoice_line_ids': [(0, 0, {
+                    'name': product.name,
+                    'account_id': account_id,
+                    'price_unit': self.penalty,
+                    'quantity': 1.0,
+                    'discount': 0.0,
+                    'uom_id': product.uom_id.id,
+                    'product_id': product.id,
+                })],
+            })
+            invoice.compute_taxes()
+            invoice.action_invoice_open()
+            self.invoice_id = invoice.id
 
     @api.multi
     def create_orders(self):

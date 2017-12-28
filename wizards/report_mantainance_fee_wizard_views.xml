@@ -8,7 +8,7 @@
                 <form string="Reporte de cuotas (2)">
                     <group>
                          <field name="report_name" />
-                         <field name="mantainance_fee_ids" />
+                         <field name="mantainance_fee_ids" />   
                     </group>
                     <footer>
                         <button string="Reporte .pdf" name="report_mantainance_fee_pdf" type="object" class="oe_highlight"/>

@@ -22,7 +22,7 @@ class ReportMantainanceFeeWizard(models.TransientModel):
                             'sale.order', 
                             string='Cuotas de mantenimiento pendientes de pago', 
                             domain="[('is_maintenance_fee', '=', 'True'),('state', '!=', 'done')]")
-
+                        
     def report_mantainance_fee_pdf(self,cr,uid,ids,context=None):
         report_data = self.browse(cr,uid,ids,context=context)
         data = {'title':report_data.report_name,'ids':ids}
