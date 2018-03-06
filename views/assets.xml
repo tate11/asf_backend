@@ -7,15 +7,8 @@
                 <link href="/condominium/static/src/fonts/proxima-nova/fonts.min.css" rel="stylesheet" type="text/css"/>
                 <link href="/condominium/static/src/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
                 <link href="/condominium/static/src/fonts/pe-icon-7-stroke/css/helper.css" rel="stylesheet" type="text/css"/>
-                <link href="/condominium/static/src/css/condominium.css" rel="stylesheet"/>
                 <link href="/condominium/static/src/css/condominium.less" rel="stylesheet" type="text/less"/>
-                
-                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script>
-                <script type="text/javascript" src="/condominium/static/src/js/asf.gauge.widget.js"></script>
-                <script type="text/javascript" src="/condominium/static/src/js/d3.bar.widget.js"></script>
             </xpath>
-        </template>
-
-        
+        </template> 
     </data>
 </odoo>

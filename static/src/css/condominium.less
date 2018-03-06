@@ -22,6 +22,7 @@
 @brand-active-item:     #3F4448;
 @brand-menu-item:       #CACACA;
 
+
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -761,4 +762,21 @@ html .o_loading {
     &:hover {
         color: @brand-control-panel;
     }
+}
+
+@brand-sheet-bacckground: #22252a;
+@brand-breadcrumb-full: #2d3035;
+
+.o_form_view {
+    .o_form_sheet_bg {
+        background: @brand-sheet-bacckground;
+    }
+}
+
+.o_breadcrumb_full {
+    background: @brand-breadcrumb-full;
+    .breadcrumb {
+        background: transparent;
+    }
+
 }
