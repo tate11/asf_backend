@@ -2,17 +2,14 @@
 <odoo>
     <data>
         <template id="assets_backend" name="sales_team assets" inherit_id="web.assets_backend">
-            <xpath expr="." position="inside">
-                <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Poppins:400,500,600,700" rel="stylesheet"/>
-                <link href="/condominium/static/src/fonts/proxima-nova/fonts.min.css" rel="stylesheet" type="text/css"/>
-                <link href="/condominium/static/src/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
-                <link href="/condominium/static/src/fonts/pe-icon-7-stroke/css/helper.css" rel="stylesheet" type="text/css"/>
-                <link href="/condominium/static/src/css/condominium.css" rel="stylesheet"/>
-                <link href="/condominium/static/src/css/condominium.less" rel="stylesheet" type="text/less"/>
-                
-                <script type="text/javascript" src="/condominium/static/src/js/condominium_tour.js"></script>
-                <script type="text/javascript" src="/condominium/static/src/js/asf.gauge.widget.js"></script>
-                <script type="text/javascript" src="/condominium/static/src/js/d3.bar.widget.js"></script>
+            <xpath expr="link[last()]" position="after">
+                <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Poppins|Nunito:400,500,600,700" rel="stylesheet"/>
+                <link href="/asf_backend/static/src/css/condominium.less" rel="stylesheet" type="text/less"/>                
+                <link href="/asf_backend/static/src/css/nanoscroller.css" rel="stylesheet"/>                
+            </xpath>
+            <xpath expr="//script[last()]" position="after">
+                <link href="/asf_backend/static/src/js/jquery.nanoscroller.min"/>
+                <!-- <link href="/asf_backend/static/src/js/dark-theme.js"/> -->
             </xpath>
         </template>
 
