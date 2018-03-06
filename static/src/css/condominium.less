@@ -1,3 +1,5 @@
+@import url("../css/materia_icons.css");
+
 @gray-base:              #000;
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
 @gray-dark:              lighten(@gray-base, 20%);   // #333
@@ -5,7 +7,7 @@
 @gray-light:             #4E5D6C;   // #999
 @gray-lighter:           #EBEBEB; // #eee
 
-@brand-primary:         #F27902;
+@brand-primary:         #00a09d; //#F27902;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -13,13 +15,47 @@
 @brand-disabled:        #8c8c8c;
 @brand-control-panel:   #fff;
 @brand-nav-bar:         #eee;
-@brand-main-nav:        #313949; //#875A7B;
+@brand-main-nav:         @brand-primary; //#313949; //#875A7B;
 @brand-body-color:      #666666;
-@brand-primary-dark-20: darken(@brand-primary, 20%);   // #333
+@brand-primary-dark-20: darken(@brand-primary, 80%);   // #333
 @brand-primary-dark-10: darken(@brand-primary, 30%);   // #333
+@brand-active-item:     #3F4448;
+@brand-menu-item:       #CACACA;
 
 body {
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-size: 15px; */
     color: @brand-body-color !important;
+}
+
+/***
+Rounded corners reset
+***/
+/* Reset rounded corners for all elements */
+div, 
+svg,          
+input,      
+select,                    
+textarea,             
+span,                          
+img,               
+table,                       
+label,  
+td,                  
+th,    
+p,          
+a, 
+button, 
+ul,    
+code,
+pre,    
+li {
+    -webkit-border-radius: 0 !important;                   
+       -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
 }
 
 header > .main-nav {
@@ -94,6 +130,98 @@ Kanban
 ***/
 .o_web_client {
     background-color: #F9F9F9;
+    > .o_main {
+        .o_sub_menu {
+            background-color: #2c3136;
+            min-width: 250px;
+            .o_sub_menu_content {
+                .oe_secondary_menu_section.active {
+                    background: @brand-active-item;
+                    transition: all .3s;
+                    border-left: 4px solid @brand-primary;
+                    .oe_menu_leaf {
+                        .oe_menu_text {
+                            color: @brand-control-panel;
+                        }
+                    }
+                }
+                .oe_secondary_menu_section {
+                    color: @brand-menu-item;
+                    text-transform: uppercase;
+
+                    position: relative;
+                    display: block;
+                    padding: 10px 10px;
+                    margin-left: 0px;
+
+                    .oe_menu_leaf {
+                        .oe_menu_text {
+                            color: @brand-menu-item;
+                            text-transform: uppercase;
+                        }    
+                    }
+                }
+                .oe_secondary_submenu {
+                    margin: 0px;
+                    > li:not(.active) {
+                        > a {
+                            color: #a5a9ad;
+                            &:hover {
+                                background-color: @brand-active-item;
+                                color: @brand-control-panel;
+                                border-color: @brand-active-item;
+                                transition: all .3s;
+                                border-left: 4px solid @brand-primary;
+                            }
+                        }
+                    }
+                    > li > a {
+                        position: relative;
+                        display: block;
+                        padding: 10px 15px;
+                        //font-size: 14px;
+                    }
+                    >.nav-stacked {
+                        > li + li {
+                            margin-top: 0px !important;
+                        }
+                    }
+                    .oe_menu_text {
+                        max-width: 100% !important;
+                    }
+                }
+                ul li.active {
+                    border-left: 4px solid @brand-primary;
+                }
+            }
+        }
+        ul li a i {
+            font-size: 21px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        ul li:nth-child(0) a i {
+            color: #558B2F;
+        }
+    }
+}
+
+.nav-stacked > li + li {
+    margin-top: 0px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+	border: 1px solid #003eff;
+	background: red;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: white;
+    background-color: @brand-active-item;
 }
 
 .o_kanban_view .o_kanban_record {
@@ -112,16 +240,15 @@ Kanban
 }
 
 .o_control_panel {
-    background-color: @brand-control-panel;
+    background-color:#F1F3F6;//@brand-control-panel;
 
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
         background-color: lighten(@brand-main-nav, 10%);
     }
-
     .breadcrumb {
-        background-color: @brand-control-panel;
+        background-color: transparent;
 
         > li > a {
             color: @brand-primary;
@@ -167,12 +294,7 @@ Kanban
     }
 }
 
-.btn-group > .btn {
-    // text-transform: capitalize;
-}
-
 .btn {
-    // font-family: 'Poppins'!important;
     text-transform: uppercase;
 
     &:active {
@@ -192,7 +314,7 @@ Kanban
 
 .btn-icon {
     color: @brand-primary;
-    background-color: white;
+    background-color: transparent;
     border-color: transparent;
 
     &:hover {
@@ -229,7 +351,7 @@ Kanban
     border-color: @brand-primary-dark-20;
     color: @brand-disabled;
 }
-
+/* 
 .o_form_view > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
     color: @brand-primary;
     background-color: white;
@@ -244,7 +366,7 @@ Kanban
         // font-weight: bold;
     }
 }
-
+ */
 a {
     &:hover {
         color: @brand-primary-dark-20;
@@ -256,17 +378,6 @@ a {
     color: @brand-primary;
 }
 
-.o_form_view .o_group .o_td_label .o_form_label {
-    font-weight: normal;
-    margin-right: 0px;
-    color: @brand-body-color !important;
-}
-
-.o_form_view .o_horizontal_separator {
-    color: @brand-body-color;
-    font-family: 'Montserrat'!important;
-}
-
 .o_form_view.o_form_editable .o_form_field_monetary > .o_form_input:focus {
     border-color: rgba(0,0,0,0.1);
     background-color: #e8e9ea;
@@ -275,27 +386,10 @@ a {
     box-shadow: none;
 }
 
-.o_form_view .o_group .o_form_field:focus,
-.o_form_view .o_form_field .o_form_input:focus,
-.o_form_view .o_group .o_form_field:hover,
-.o_form_view .o_form_field .o_form_input:hover {
-    border-color: @brand-primary!important;
-}
-
-.o_form_view .o_form_field.o_form_field_many2one .o_external_button {
-    color: @brand-primary;
-}
-
-.o_form_view .o_form_field_image > .o_form_image_controls > .fa.o_select_file_button {
-    background: @brand-primary;
-}
-
 /***
 Tabs
 ***/
-
 .nav-tabs > li > a {
-    // font-family: 'Montserrat'!important;
     color: @brand-body-color;
     &:hover {
         color: @brand-primary;    
@@ -308,7 +402,6 @@ Tabs
 .nav-tabs > li.active > a:focus {
     border-top: 1px solid;
     color: darken(@brand-main-nav , 20%);
-    // font-weight: 600;
 }
 
 .nav-tabs > li > a:hover {
@@ -322,14 +415,6 @@ Tabs
 /***
 Breadcrumb
 ***/
-
-// .o_control_panel .breadcrumb > li {
-//     font-family: 'Montserrat'!important;
-// }
-
-// .breadcrumb > .active {
-//     color: @brand-primary;
-// }
 
 /***
 Table
@@ -424,7 +509,6 @@ Dropdown
 }
 
 .open > .dropdown-toggle.btn-primary {
-    // background-color: #e6e6e6;
     background-color: @brand-primary-dark-20;;
     border-color: @brand-primary;
 
@@ -437,7 +521,6 @@ Dropdown
         border-color: @brand-primary-dark-10;
     }
 }
-
 
 /***
 Form Breadcrumb
@@ -497,6 +580,37 @@ Form Breadcrumb
 Form
 ***/
 .o_form_view {
+    > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
+        color: @brand-primary;
+        background-color: white;
+        border-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: darken(@brand-main-nav, 20%);
+            background-color: #fff;
+            border-color: transparent;    
+            // font-weight: bold;
+        }
+    }
+    .o_group .o_form_field:focus,
+    .o_form_field .o_form_input:focus,
+    .o_group .o_form_field:hover,
+    .o_form_field .o_form_input:hover {
+        border-color: @brand-primary!important;
+    }
+    .o_form_field.o_form_field_many2one .o_external_button {
+        color: @brand-primary;
+    }
+    .o_form_field_image > .o_form_image_controls > .fa.o_select_file_button {
+        background: @brand-primary;
+    }
+    .o_group .o_td_label .o_form_label {
+        font-weight: normal;
+        margin-right: 0px;
+        color: @brand-body-color !important;
+    }
     .oe_title {
         padding-left: 0 !important;
         margin-left: 0 !important;
@@ -529,8 +643,13 @@ Form
         }
     }
     .o_horizontal_separator {
+        /* font-family: 'Montserrat'!important; */
+        color: @brand-body-color;
+        text-transform: uppercase;
         font-weight: bold;
         font-size: 15px;
+        border-bottom: 1px dotted @brand-primary;
+        background: #f0eeee;
     }
     .o_group {
         .o_td_label {
@@ -622,5 +741,24 @@ Chater
 @media screen and (max-width: 1533px) and (min-width: 992px) {
     .o_form_view .o_form_sheet_bg > .o_form_sheet {
         padding-right: 32px;
+    }
+}
+
+html .o_loading {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1051;
+    top: auto;
+}
+
+.datepicker .table-condensed > tbody > tr > td.active, .datepicker .table-condensed > tbody > tr > td .active {
+    background-color: @brand-primary;
+}
+
+.ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a {
+    color: @brand-primary;
+    &:hover {
+        color: @brand-control-panel;
     }
 }
