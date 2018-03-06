@@ -76,10 +76,38 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 
 .navbar-default .navbar-nav > li > a {
     color: @brand-nav-bar;
+    background-color: @brand-nav-bar;
     &:hover {
-        color: @brand-nav-bar;
+        background-color: @brand-nav-bar;
+        color: #fff;
     }
 }
+
+.navbar-nav {
+    > li {
+        .dropdown-menu {
+            background: @brand-form-sheet;
+            color: #fff;
+        }
+    }
+    .open {
+        .dropdown-menu {
+            > li > a {
+                padding: 8px 25px;
+                color: @brand-menu-item;
+                &:hover {
+                    background-color: @brand-primary;
+                    color: #fff;
+                }
+            }
+            .divider {
+                background-color: @brand-border-line;
+            }
+        }
+    }
+
+}
+
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -128,6 +156,30 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 Kanban
 ***/
 .o_web_client {
+    nav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .navbar-inverse {
+        background: @brand-form-sheet;
+        border-color: @brand-border-line;
+        .navbar-nav > .active > a {
+            background: @brand-primary;
+            border-bottom: 2px solid @brand-primary;
+            color: #fff;
+            text-transform: uppercase;
+            &:hover {
+                color: @brand-primary;
+                background: transparent;
+            } 
+        }
+        .navbar-nav a {
+            &:hover {
+                color: @brand-primary;
+                background: transparent;
+            }
+        }
+    }
     background-color: #F9F9F9;
     > .o_main {
         background: @brand-form-sheet-bg;
@@ -172,7 +224,7 @@ Kanban
                             color: #a5a9ad;
                             &:hover {
                                 background-color: @brand-active-item;
-                                color: @brand-control-panel;
+                                color: @brand-primary;
                                 border-color: @brand-active-item;
                                 transition: all .3s;
                                 border-left: 4px solid @brand-primary;
@@ -347,6 +399,11 @@ Kanban
 
 .btn-icon[disabled] {
     border-color: transparent;
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+        border-color: @brand-border-line;
+    }
 }
 
 .btn-icon:active, 
@@ -599,10 +656,20 @@ Form Breadcrumb
   text-transform: uppercase;
 }
 
+.btn-icon:active, .btn-icon.active, .open > .dropdown-toggle.btn-icon {
+    background: @brand-primary;
+    color: #fff;
+    &:hover {
+        background: transparent;
+        color: @brand-primary;
+    }
+}
+
 /***
 Form
 ***/
 .o_form_view {
+    background-color: @brand-form-sheet;
     > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
         color: @brand-primary;
         background-color: white;
@@ -690,6 +757,9 @@ Form
             }
         }
     }
+    .o_form_field {
+        background-color: transparent;
+    }
 }
 
 .o_form_view.o_form_readonly .o_form_uri {
@@ -737,14 +807,14 @@ Chater
     }
     .o_thread_message {
         .o_thread_message_core.o_mail_note {
-            background-color: #F9F9F9;
-            border-bottom: 1px solid #E5E5E5;
+            background-color: transparent;
+            border-bottom: 1px solid @brand-border-line;
         }
         .o_thread_message_sidebar {
             position: relative;
             .o_thread_message_avatar {
                 max-width: 50px;
-                border: 4px solid #f5f6fa;
+                border: 2px solid @brand-border-line;
                 -webkit-border-radius: 50%!important;
                 -moz-border-radius: 50%!important;
                 border-radius: 50%!important;
@@ -753,10 +823,15 @@ Chater
     }
 }
 
-.o_mail_chat .o_mail_chat_content .o_chat_composer {
-    border-top: 1px solid #E5E5E5;
-    background-color: #F9F9F9;
-    position: relative;
+.o_mail_chat { 
+    .o_mail_chat_content {
+        background: transparent;
+        .o_chat_composer {
+            border-top: 1px solid #E5E5E5;
+            background-color: #F9F9F9;
+            position: relative;
+        }
+    }
 }
 
 
@@ -821,6 +896,7 @@ html .o_loading {
         .o_form_sheet {
             background: @brand-form-sheet;
             border: 1px solid @brand-form-sheet;
+            max-width: 98%;
         }
     }
     .oe_button_box {
