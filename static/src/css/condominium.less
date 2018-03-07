@@ -19,6 +19,7 @@
 @brand-primary-dark-10: darken(@brand-primary, 30%);   // #333
 @brand-active-item:     #3F4448;
 @brand-menu-item:       #CACACA;
+@brand-table-color:     #8a8d93;
 
 body {
     /* font-family: 'Montserrat', sans-serif; */
@@ -251,6 +252,41 @@ Kanban
                 }
             }
         }
+        .o_content {
+            .o_web_settings_dashboard {
+                background: transparent;
+                .o_web_settings_dashboard_col {
+                    > div {
+                        background: @brand-form-sheet;
+                        > hr {
+                            border-color: @brand-border-line;
+                        }
+                        .o_web_settings_dashboard_invitation_form {
+                            textarea {
+                                background: transparent;
+                                border-color: @brand-border-line;
+                                color: @brand-form-field;
+                                &:focus {
+                                    border-color: @brand-primary;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    a {
+                        &:hover {
+                            color: @brand-primary;
+                        }
+                    }
+                }
+            }
+            .table {
+                tr td {
+                    border-color: @brand-border-line;
+                    color: @brand-table-color;
+                }
+            }
+        }
         ul li a i {
             font-size: 21px;
             margin-right: 7px;
@@ -262,6 +298,33 @@ Kanban
     }
 }
 
+/***
+Modal
+***/
+.modal {
+    .modal-content {
+        .modal-header {
+            background: @brand-form-sheet;
+            border-bottom-color: @brand-border-line;
+            .close {
+                color: @brand-primary;
+                opacity: inherit;
+                text-shadow: 0 1px 0 @brand-primary;
+            }
+        }
+        .modal-body {
+            background: @brand-form-sheet-bg;
+            .table tfoot tr td {
+                border-top-color: @brand-border-line;
+                border-bottom-color: @brand-border-line;
+            }
+        }
+        .modal-footer {
+            background: @brand-form-sheet;
+            border-top-color: @brand-border-line;
+        }
+    }
+}
 .nav-stacked > li + li {
     margin-top: 0px;
 }
@@ -329,6 +392,18 @@ Kanban
         .o_facet_values,
         .o_facet_remove {
             color: #fff !important;
+        }
+    }
+}
+
+.ui-autocomplete {
+    background: @brand-form-sheet;
+    .ui-menu-item {
+        > a {
+            color: @brand-menu-item;
+        }
+        &:hover {
+            background: @brand-primary;
         }
     }
 }
@@ -670,18 +745,48 @@ Form
 ***/
 .o_form_view {
     background-color: @brand-form-sheet;
-    > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
-        color: @brand-primary;
-        background-color: white;
-        border-color: transparent;
+    > header {
+        > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
+            color: @brand-primary;
+            background-color: white;
+            border-color: transparent;
 
-        &:hover,
-        &:focus,
-        &:active {
-            color: darken(@brand-main-nav, 20%);
-            background-color: #fff;
-            border-color: transparent;    
-            // font-weight: bold;
+            &:hover,
+            &:focus,
+            &:active {
+                color: darken(@brand-main-nav, 20%);
+                background-color: #fff;
+                border-color: transparent;    
+                // font-weight: bold;
+            }
+        }
+        ul.oe_form_status {
+            /* text-transform: lowercase; */
+            li {
+                background: transparent;
+                > .label {
+                    text-shadow: unset;
+                }
+                > .arrow { 
+                    background: @brand-form-sheet;
+                    span {
+                        background: transparent;
+                    }
+                }
+                &:last-child {
+                    border-right: 1px solid @brand-border-line;
+                }
+            }
+            li.oe_active {
+                border: unset;
+                background: @brand-border-line;
+                > .arrow span {
+                    background: @brand-border-line !important;
+                }
+                > .label {
+                    border-left: 1px solid @brand-border-line;
+                }
+            }
         }
     }
     .o_group .o_form_field:focus,
@@ -877,7 +982,7 @@ html .o_loading {
 @brand-form-sheet-bg: #22252a;
 @brand-control-panel: #2d3035;
 @brand-form-sheet: #2d3035;
-@brand-border-line: #34373d;
+@brand-border-line: #34373d; //#444951; 
 @brand-form-field: #979a9f;
 @brand-form-input: @brand-form-field;
 
@@ -987,7 +1092,7 @@ hr {
     background-color: @brand-form-sheet;
     > thead {
         background-color: transparent;
-        color: #8a8d93;
+        color: @brand-table-color;
     }
 }
 
