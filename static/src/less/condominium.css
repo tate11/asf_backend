@@ -212,6 +212,11 @@ Kanban
   border-color: #34373d;
   color: #8a8d93;
 }
+.o_web_client > .o_main .o_content .table tbody tr:hover td {
+  color: #DB6574;
+  border-top: 1px dotted #DB6574;
+  border-bottom: 1px dotted #DB6574;
+}
 .o_web_client > .o_main ul li a i {
   font-size: 21px;
   margin-right: 7px;
@@ -223,6 +228,9 @@ Kanban
 /***
 Modal
 ***/
+.modal .modal-content {
+  background-color: #22252a;
+}
 .modal .modal-content .modal-header {
   background: #2d3035;
   border-bottom-color: #34373d;
@@ -232,12 +240,34 @@ Modal
   opacity: inherit;
   text-shadow: 0 1px 0 #DB6574;
 }
+.modal .modal-content .modal-header .modal-title {
+  color: #8a8d93;
+}
 .modal .modal-content .modal-body {
+  color: #DB6574;
   background: #22252a;
 }
 .modal .modal-content .modal-body .table tfoot tr td {
   border-top-color: #34373d;
   border-bottom-color: #34373d;
+}
+.modal .modal-content .modal-body .o_form_view {
+  background-color: #22252a;
+}
+.modal .modal-content .modal-body .o_form_view .o_form_sheet {
+  background: #22252a;
+}
+.modal .modal-content .modal-body .o_form_view .o_form_sheet .o_list_view {
+  /* .o_readonly {
+                            color: @brand-primary;
+                            border-top: 1px dotted @brand-primary;
+                            border-bottom: 1px dotted @brand-primary;
+                        } */
+}
+.modal .modal-content .modal-body .o_form_view .o_form_sheet .o_list_view tbody tr:hover td {
+  color: #DB6574;
+  border-top: 1px dotted #DB6574;
+  border-bottom: 1px dotted #DB6574;
 }
 .modal .modal-content .modal-footer {
   background: #2d3035;
@@ -795,12 +825,14 @@ Form
 }
 .o_form_view > header ul.oe_form_status {
   /* text-transform: lowercase; */
+  font-size: 12px;
 }
 .o_form_view > header ul.oe_form_status li {
   background: transparent;
 }
 .o_form_view > header ul.oe_form_status li > .label {
   text-shadow: unset;
+  color: #979a9f;
 }
 .o_form_view > header ul.oe_form_status li > .arrow {
   background: #2d3035;
@@ -956,6 +988,10 @@ Chater
   border-top: 1px solid #E5E5E5;
   background-color: #F9F9F9;
   position: relative;
+}
+.o_mail_chat .o_mail_chat_content .o_chat_composer .o_composer .o_composer_text_field {
+  background: transparent;
+  color: #fff;
 }
 .o_form_view .o_form_sheet_bg > .o_form_sheet {
   padding-left: 32px;
