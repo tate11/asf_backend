@@ -21,6 +21,14 @@
 @brand-menu-item:       #CACACA;
 @brand-table-color:     #8a8d93;
 
+@brand-form-sheet-bg:   #22252a;
+@brand-control-panel:   #2d3035;
+@brand-form-sheet:      #2d3035;
+@brand-border-line:     #34373d; //#444951; 
+@brand-form-field:      #979a9f;
+@brand-form-input:      @brand-form-field;
+@brand-modal-title:     @brand-table-color;
+
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -281,9 +289,23 @@ Kanban
                 }
             }
             .table {
-                tr td {
-                    border-color: @brand-border-line;
-                    color: @brand-table-color;
+                tr {
+                    td {
+                        border-color: @brand-border-line;
+                        color: @brand-table-color;
+                    }
+                }
+                tbody {
+                    tr {
+                        &:hover {
+                            //background: @brand-primary;
+                            td {
+                                color: @brand-primary;
+                                border-top: 1px dotted @brand-primary;
+                                border-bottom: 1px dotted @brand-primary;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -303,6 +325,7 @@ Modal
 ***/
 .modal {
     .modal-content {
+        background-color: @brand-form-sheet-bg; //transparent;
         .modal-header {
             background: @brand-form-sheet;
             border-bottom-color: @brand-border-line;
@@ -311,12 +334,18 @@ Modal
                 opacity: inherit;
                 text-shadow: 0 1px 0 @brand-primary;
             }
+            .modal-title {
+                color: @brand-modal-title;
+            }
         }
         .modal-body {
             background: @brand-form-sheet-bg;
             .table tfoot tr td {
                 border-top-color: @brand-border-line;
                 border-bottom-color: @brand-border-line;
+            }
+            .o_form_view {
+                background-color: @brand-form-sheet-bg;
             }
         }
         .modal-footer {
@@ -770,7 +799,12 @@ Form
                 > .arrow { 
                     background: @brand-form-sheet;
                     span {
-                        background: transparent;
+                        background: @brand-form-sheet;
+                    }
+                }
+                &:first-child {
+                    .label {
+                        border-left: 1px solid @brand-border-line;
                     }
                 }
                 &:last-child {
@@ -784,7 +818,7 @@ Form
                     background: @brand-border-line !important;
                 }
                 > .label {
-                    border-left: 1px solid @brand-border-line;
+                    border-left: unset;// 1px solid @brand-border-line;
                 }
             }
         }
@@ -978,13 +1012,6 @@ html .o_loading {
         color: @brand-control-panel;
     }
 }
-
-@brand-form-sheet-bg: #22252a;
-@brand-control-panel: #2d3035;
-@brand-form-sheet: #2d3035;
-@brand-border-line: #34373d; //#444951; 
-@brand-form-field: #979a9f;
-@brand-form-input: @brand-form-field;
 
 .o_form_view {
     .o_form_required.o_form_input {

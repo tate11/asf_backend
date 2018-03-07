@@ -806,7 +806,10 @@ Form
   background: #2d3035;
 }
 .o_form_view > header ul.oe_form_status li > .arrow span {
-  background: transparent;
+  background: #2d3035;
+}
+.o_form_view > header ul.oe_form_status li:first-child .label {
+  border-left: 1px solid #34373d;
 }
 .o_form_view > header ul.oe_form_status li:last-child {
   border-right: 1px solid #34373d;
@@ -819,7 +822,7 @@ Form
   background: #34373d !important;
 }
 .o_form_view > header ul.oe_form_status li.oe_active > .label {
-  border-left: 1px solid #34373d;
+  border-left: unset;
 }
 .o_form_view .o_group .o_form_field:focus,
 .o_form_view .o_form_field .o_form_input:focus,
