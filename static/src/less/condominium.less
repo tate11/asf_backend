@@ -339,6 +339,7 @@ Modal
             }
         }
         .modal-body {
+            color: @brand-primary;
             background: @brand-form-sheet-bg;
             .table tfoot tr td {
                 border-top-color: @brand-border-line;
@@ -346,6 +347,23 @@ Modal
             }
             .o_form_view {
                 background-color: @brand-form-sheet-bg;
+                .o_form_sheet {
+                    background: @brand-form-sheet-bg;
+                    .o_list_view {
+                        tbody tr:hover { 
+                            td { 
+                                color: @brand-primary;
+                                border-top: 1px dotted @brand-primary;
+                                border-bottom: 1px dotted @brand-primary;
+                            }
+                        }
+                        /* .o_readonly {
+                            color: @brand-primary;
+                            border-top: 1px dotted @brand-primary;
+                            border-bottom: 1px dotted @brand-primary;
+                        } */
+                    }
+                }
             }
         }
         .modal-footer {
@@ -791,10 +809,12 @@ Form
         }
         ul.oe_form_status {
             /* text-transform: lowercase; */
+            font-size: 12px;
             li {
                 background: transparent;
                 > .label {
                     text-shadow: unset;
+                    color: @brand-form-input;
                 }
                 > .arrow { 
                     background: @brand-form-sheet;
@@ -969,6 +989,12 @@ Chater
             border-top: 1px solid #E5E5E5;
             background-color: #F9F9F9;
             position: relative;
+            .o_composer {
+                .o_composer_text_field {
+                    background: transparent;
+                    color: #fff;
+                }
+            }
         }
     }
 }
