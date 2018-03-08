@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-         <template id="assets_backend" inherit_id="web.assets_backend" name="web_editor assets for backend">
-            <xpath expr="link[last()]" position="after">
-                <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Poppins|Nunito:400,500,600,700" rel="stylesheet"/>
-                <link href="/asf_backend/static/src/less/condominium.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/less/dark_kanban_view.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/less/dark_kanban_dashboard.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/less/dark_pivot_view.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/less/scrollbar.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/css/nanoscroller.css" rel="stylesheet"/>
-            </xpath>
-            <xpath expr="script[last()]" position="after">
-                <script type="text/javascript" src="/asf_backend/static/src/js/tour.js"/>
-                <!-- <script type="text/javascript" src="/asf_backend/static/src/js/jquery.nanoscroller.min.js"/>
-                <script type="text/javascript" src="/asf_backend/static/src/js/dark-theme.js"/> -->
-            </xpath>
-        </template>
-        
         <template id="assets_backend" name="planner assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <script type="text/javascript" src="/asf_backend/static/src/js/app-helper-backend.js"></script>

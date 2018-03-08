@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Condominium",
+    'name': "Helper",
 
     'summary': """Condominium APP""",
 
@@ -25,7 +25,6 @@
     # always loaded
     'data': [
         'views/assets.xml',
-        #'views/app-helper-templates.xml',
     ],
     'qweb': ['static/src/xml/helper-templates.xml'],
 }
