@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+<!--     <template id="webclient_bootstrap"
+              inherit_id="web.webclient_bootstrap"
+              name="AsF">
+        <xpath expr="//div[@class='navbar-header']"  position="before">
+                <button type="button" id="asf-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="material-icons">apps</i>
+                </button>
+        </xpath>
+    </template>
+ -->    
+    <!-- navigation: dark to white -->
+    <template id="menu" inherit_id="web.menu" name="Web Menu">
+      <xpath expr="//ul[1]" position="before">
+        <div>
+          <a t-att-href="'/web/?debug' if debug else '/web'">
+            <img src="/asf_backend/static/src/img/minsa-logo.png" alt="Company Logo"/>
+          </a>
+        </div>
+      </xpath>
+    </template>
+    <template id="menu" inherit_id="web.menu" name="Web Menu">
+      <xpath expr="//ul/li[1]" position="before">
+        <li>
+          <a id="asf-menu" href="#">
+            DEMO
+          </a>
+        </li>
+      </xpath>
+    </template>
+  </data>
+</odoo>
