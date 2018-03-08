@@ -379,6 +379,27 @@ Modal
                     }
                 }
             }
+            .panel-heading {
+                background-color: @brand-form-sheet-bg;
+                border: 1px solid;
+            }
+            .note-editor {
+                border: 1px solid @brand-border-line;
+                .panel-default {
+                    > .panel-heading {
+                        background: @brand-form-sheet;
+                    }
+                }
+                .note-editable {
+                    background: @brand-form-sheet-bg;
+                    color: @brand-form-input !important;
+                    border: 1px solid @brand-border-line;
+                }
+                .note-statusbar {
+                    background: @brand-form-sheet;
+                    color: @brand-form-input !important;
+                }
+            }
         }
         .modal-footer {
             background: @brand-form-sheet;
@@ -834,6 +855,7 @@ Form
                     background: @brand-form-sheet;
                     span {
                         background: @brand-form-sheet;
+                        border: 1px solid @brand-form-sheet-bg;
                     }
                 }
                 &:first-child {
@@ -850,6 +872,7 @@ Form
                 background: @brand-border-line;
                 > .arrow span {
                     background: @brand-border-line !important;
+                    border: 1px solid;
                 }
                 > .label {
                     border-left: unset;// 1px solid @brand-border-line;
