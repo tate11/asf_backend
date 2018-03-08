@@ -135,6 +135,12 @@ Kanban
 .o_web_client > .o_main .o_view_manager_content {
   background: #2d3035;
 }
+.o_web_client > .o_main .o_view_manager_content .o_graph_svg_container svg {
+  background: transparent;
+}
+.o_web_client > .o_main .o_view_manager_content .o_graph_svg_container svg .nvd3 .nv-axis line {
+  stroke: #34373d;
+}
 .o_web_client > .o_main .o_sub_menu {
   background-color: #2c3136;
   border-right: 1px solid #34373d;
@@ -243,6 +249,10 @@ Modal
 .modal .modal-content .modal-header .modal-title {
   color: #8a8d93;
 }
+.modal .modal-content .o_error_detail pre {
+  color: #DB6574;
+  background: transparent;
+}
 .modal .modal-content .modal-body {
   color: #DB6574;
   background: #22252a;
@@ -268,6 +278,25 @@ Modal
   color: #DB6574;
   border-top: 1px dotted #DB6574;
   border-bottom: 1px dotted #DB6574;
+}
+.modal .modal-content .modal-body .panel-heading {
+  background-color: #22252a;
+  border: 1px solid;
+}
+.modal .modal-content .modal-body .note-editor {
+  border: 1px solid #34373d;
+}
+.modal .modal-content .modal-body .note-editor .panel-default > .panel-heading {
+  background: #2d3035;
+}
+.modal .modal-content .modal-body .note-editor .note-editable {
+  background: #22252a;
+  color: #979a9f !important;
+  border: 1px solid #34373d;
+}
+.modal .modal-content .modal-body .note-editor .note-statusbar {
+  background: #2d3035;
+  color: #979a9f !important;
 }
 .modal .modal-content .modal-footer {
   background: #2d3035;
@@ -839,6 +868,7 @@ Form
 }
 .o_form_view > header ul.oe_form_status li > .arrow span {
   background: #2d3035;
+  border: 1px solid #22252a;
 }
 .o_form_view > header ul.oe_form_status li:first-child .label {
   border-left: 1px solid #34373d;
@@ -852,6 +882,7 @@ Form
 }
 .o_form_view > header ul.oe_form_status li.oe_active > .arrow span {
   background: #34373d !important;
+  border: 1px solid;
 }
 .o_form_view > header ul.oe_form_status li.oe_active > .label {
   border-left: unset;
