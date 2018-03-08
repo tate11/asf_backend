@@ -10,7 +10,7 @@ odoo.define('sale.asf.tour', function(require) {
         url: "/web",
     }, [tour.STEPS.MENU_MORE, {
         trigger: '.o_app[data-menu-xmlid="sales_team.menu_base_partner"], .oe_menu_toggler[data-menu-xmlid="sales_team.menu_base_partner"]',
-        content: _t('Organize your sales activities with the <b>Sales app</b>.'),
+        content: _t('Hey!!! - Organize your sales activities with the <b>Sales app</b>. Hey!!!'),
         position: 'bottom',
     }, {
         trigger: ".oe_kanban_action_button",
@@ -54,9 +54,8 @@ odoo.define('sale.asf.tour', function(require) {
         },
         id: "quotation_product_selected",
     }, {
-        trigger: ".o_form_button_save",
-        extra_trigger: ".o_sale_order",
-        content: _t("Once your quotation is ready, you can save, print or send it by email."),
+        trigger: ".o_list_button_add",
+        content: _t("Cuando hayas terminado de registrar todos los datos, puedes guardar haciendo clic aquI."),
         position: "right",
     }, {
         trigger: ".o_sale_confirm",

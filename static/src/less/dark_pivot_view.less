@@ -1,0 +1,111 @@
+@brand-form-sheet-bg:   #22252a;
+@brand-control-panel:   #2d3035;
+@brand-form-sheet:      #2d3035;
+@brand-border-line:     #34373d; //#444951; 
+@brand-form-field:      #979a9f;
+@brand-form-input:      @brand-form-field;
+@brand-modal-title:     @brand-table-color;
+
+@odoo-brand-secondary: @brand-form-sheet;
+
+.o_pivot {
+    height: 100%;
+    overflow: auto;
+
+    // Inform the user that he may click on a cell to be redirected to a list view of the
+    // items corresponding to the clicked cell
+    &.o_enable_linking {
+        .o_pivot_cell_value:hover {
+            color: @odoo-brand-optional;
+            cursor: pointer;
+        }
+    }
+
+    table.table-condensed {
+        border: unset;
+    }
+    table {
+        background-color: @brand-form-sheet-bg; //@odoo-view-background-color;
+        width: auto;  // bootstrap override
+
+        thead {
+            > tr {
+                > th {
+                    border: 1px solid @brand-border-line;
+                }
+            }
+        }
+
+        tbody {
+            > tr:hover {
+                background: transparent;
+                // border: 1px solid green;
+                > td:hover {
+                    // background: yellow;
+                    border-bottom-color: green;
+                }
+            }
+        }
+
+        th {
+            font-weight: normal;  // bootstrap override
+            background-color: @odoo-brand-secondary;
+        }
+
+        .o-pivot-header-cell() {
+            background-color: @odoo-brand-secondary;
+            cursor: pointer;
+            white-space: nowrap;
+            .user-select(none);
+            &:hover {
+                background-color: @odoo-brand-secondary;
+            }
+        }
+
+        .o_pivot_measure_row {
+            .o-pivot-header-cell;
+        }
+
+        .o_pivot_header_cell_closed {
+            .o-pivot-header-cell;
+            &::before {
+                font-family: FontAwesome;
+                content: "";
+                margin-right: 8px;
+            }
+        }
+
+        .o_pivot_header_cell_opened {
+            .o-pivot-header-cell;
+            &::before {
+                font-family: FontAwesome;
+                content: "";
+                margin-right: 8px;
+            }
+        }
+
+        .o_pivot_measure_row_sorted_asc::after {
+            .o-caret-down;
+            margin-left: 5px;
+        }
+
+        .o_pivot_measure_row_sorted_desc::after {
+            .o-caret-up;
+            margin-left: 5px;
+        }
+    }
+
+    .o_pivot_field_selection::after {
+        .o-caret-right;
+        position: absolute;
+        right: 6px;
+        top: 9px;
+    }
+}
+
+// ------------------------------------------------------------------
+// Control panel buttons
+// ------------------------------------------------------------------
+.o_pivot_measures_list {
+    .o-selected-li;
+}
