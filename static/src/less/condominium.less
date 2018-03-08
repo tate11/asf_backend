@@ -194,6 +194,14 @@ Kanban
         background: @brand-form-sheet-bg;
         .o_view_manager_content {
             background: @brand-form-sheet;
+            .o_graph_svg_container {
+                svg {
+                    background: transparent;
+                    .nvd3 .nv-axis line {
+                        stroke: @brand-border-line;
+                    }
+                }
+            }
         }
         .o_sub_menu {
             background-color: #2c3136;
@@ -336,6 +344,12 @@ Modal
             }
             .modal-title {
                 color: @brand-modal-title;
+            }
+        }
+        .o_error_detail {
+            pre {
+                color: @brand-primary;
+                background: transparent;
             }
         }
         .modal-body {
