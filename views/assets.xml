@@ -9,7 +9,6 @@
                 <link href="/asf_backend/static/src/less/dark_kanban_dashboard.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/dark_pivot_view.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/scrollbar.less" rel="stylesheet" type="text/less"/>
-                <link href="/asf_backend/static/src/css/nanoscroller.css" rel="stylesheet"/>
             </xpath>
             <xpath expr="script[last()]" position="after">
                 <!-- <script type="text/javascript" src="/asf_backend/static/src/js/tour.js"/> -->
