@@ -11,7 +11,7 @@
                 <link href="/asf_backend/static/src/less/scrollbar.less" rel="stylesheet" type="text/less"/>
             </xpath>
             <xpath expr="script[last()]" position="after">
-                <!-- <script type="text/javascript" src="/asf_backend/static/src/js/tour.js"/> -->
+                <script type="text/javascript" src="/asf_backend/static/src/js/app.js"/>
                 <!-- <script type="text/javascript" src="/asf_backend/static/src/js/jquery.nanoscroller.min.js"/>
                 <script type="text/javascript" src="/asf_backend/static/src/js/dark-theme.js"/> -->
             </xpath>

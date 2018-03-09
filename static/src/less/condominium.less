@@ -350,6 +350,7 @@ Modal
             pre {
                 color: @brand-primary;
                 background: transparent;
+                border: 1px solid @brand-border-line;
             }
         }
         .modal-body {
@@ -1235,4 +1236,16 @@ hr {
     font-weight: bold;
     border-top: 1px solid @brand-border-line;
     border-bottom: 1px solid @brand-border-line;
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .o_web_client {
+        > .o_main .o_sub_menu {
+            display: none;
+        }
+    }
 }

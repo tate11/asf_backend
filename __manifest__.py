@@ -24,6 +24,7 @@
     'js': [],
     # always loaded
     'data': [
+        'views/backend.xml',
         'views/assets.xml',
     ],
 }
