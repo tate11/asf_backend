@@ -28,7 +28,8 @@
 @brand-form-field:      #979a9f;
 @brand-form-input:      @brand-form-field;
 @brand-modal-title:     @brand-table-color;
-
+@brand-button-color-hover:      #fff;
+@brand-search-input-color:      #fff;
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -193,10 +194,11 @@ Kanban
     > .o_main {
         background: @brand-form-sheet-bg;
         .o_view_manager_content {
-            background: @brand-form-sheet;
+            background: @brand-form-sheet-bg;
+            padding: 10px;
             .o_graph_svg_container {
                 svg {
-                    background: transparent;
+                    background: @brand-form-sheet;
                     .nvd3 .nv-axis line {
                         stroke: @brand-border-line;
                     }
@@ -214,7 +216,7 @@ Kanban
                     border-left: 4px solid @brand-primary;
                     .oe_menu_leaf {
                         .oe_menu_text {
-                            color: @brand-control-panel;
+                            color: #fff;
                         }
                     }
                 }
@@ -326,6 +328,77 @@ Kanban
             color: #558B2F;
         }
     }
+    .oe_import {
+        background-color: transparent;
+        .oe_import_box {
+            background: @brand-form-sheet-bg;
+            border: 1px solid @brand-border-line;
+            p {
+                color: @brand-primary;
+            }
+        }
+    }
+}
+h4 {
+    border-top: 1px solid @brand-border-line !important;
+}
+textarea {
+    background: @brand-form-sheet-bg;
+    border: 1px solid @brand-border-line;
+    color: @brand-form-field;
+}
+a.pull-right:hover {
+    color: @brand-primary;
+}
+.btn-default.disabled, 
+.btn-default[disabled], 
+fieldset[disabled] 
+.btn-default, 
+.btn-default.disabled:hover, 
+.btn-default[disabled]:hover, 
+fieldset[disabled] 
+.btn-default:hover, 
+.btn-default.disabled:focus, 
+.btn-default[disabled]:focus, 
+fieldset[disabled] 
+.btn-default:focus, 
+.btn-default.disabled.focus, 
+.btn-default[disabled].focus, 
+fieldset[disabled] 
+.btn-default.focus, 
+.btn-default.disabled:active, 
+.btn-default[disabled]:active, 
+fieldset[disabled] 
+.btn-default:active, 
+.btn-default.disabled.active, 
+.btn-default[disabled].active, 
+fieldset[disabled] .btn-default.active {
+    background-color: @brand-border-line;
+    border-color: #777777;
+}
+
+.o_searchview {
+    background-color: #3d4853;
+    border: 1px solid @brand-form-input;
+    border-radius: 0px;
+    .o_searchview_input {
+        color: @brand-search-input-color;
+        background: transparent;
+    }
+    .o_searchview_facet {
+        background: @brand-primary;
+        color: @brand-button-color-hover;
+        .o_searchview_facet_label {
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        .o_facet_values {
+            > span {
+                font-size: 12px;
+            }
+            text-transform: uppercase;
+        }
+    }
 }
 
 /***
@@ -334,6 +407,23 @@ Modal
 .modal {
     .modal-content {
         background-color: @brand-form-sheet-bg; //transparent;
+        /* .o_searchview {
+            background-color: transparent;
+            border: 1px solid @brand-border-line;
+            border-radius: 0px;
+            .o_searchview_input {
+                color: @brand-primary;
+                background: transparent;
+            }
+            .o_searchview_facet {
+                background: @brand-primary;
+                color: @brand-button-color-hover;
+                .o_searchview_facet_label {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+            }
+        } */
         .modal-header {
             background: @brand-form-sheet;
             border-bottom-color: @brand-border-line;
@@ -356,6 +446,20 @@ Modal
         .modal-body {
             color: @brand-primary;
             background: @brand-form-sheet-bg;
+            .table {
+                padding: 10px 10px;
+                color: @brand-form-field;
+                tbody {
+                    tr:hover {
+                        td {
+                            color: @brand-primary;
+                            border-bottom: 1px dotted @brand-primary;
+                            border-top: 1px dotted @brand-primary;
+                        }
+                        
+                    }
+                }
+            }
             .table tfoot tr td {
                 border-top-color: @brand-border-line;
                 border-bottom-color: @brand-border-line;
@@ -458,10 +562,8 @@ Modal
                 color: darken(@brand-primary, 10%);
             }
         }
-
-        
     }
-    .o_searchview {
+/*     .o_searchview {
         background-color: #3d4853;
         border: 1px solid #485561;
         .o_searchview_input {
@@ -476,7 +578,7 @@ Modal
         .o_facet_remove {
             color: #fff !important;
         }
-    }
+    } */
 }
 
 .ui-autocomplete {
@@ -552,6 +654,8 @@ Modal
 
     &:hover {
         border-color: @brand-primary;
+        background-color: transparent;
+        color: @brand-button-color-hover;
     }
 }
 
@@ -627,6 +731,10 @@ a {
 /***
 Tabs
 ***/
+.tab-content.nav.nav-tabs {
+    border-left: 1px solid @brand-border-line;
+    border-right: 1px solid @brand-border-line;
+}
 .nav-tabs > li > a {
     color: @brand-body-color;
     &:hover {
@@ -730,12 +838,30 @@ Icons
 /***
 Dropdown
 ***/
+.dropdown-menu {
+    background: @brand-form-sheet;
+    > li {
+        > a {
+            color: @brand-menu-item !important;
+            &:hover,
+            &:focus {
+                color: #fff !important;
+                background-color: @brand-primary;
+            }
+        }
+    }
+    .divider {
+        background-color: @brand-border-line;       
+    }
+}
+
+/* 
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   color: @brand-nav-bar;
   background-color: @brand-main-nav;
 }
-
+ */
 .o_search_options .o_group_by_menu li > a:hover,
 .o_search_options .o_filters_menu li > a:hover,
 .o_search_options .o_favorites_menu li > a:hover {
@@ -746,17 +872,29 @@ Dropdown
     color: @brand-primary;
 }
 
-.open > .dropdown-toggle.btn-primary {
-    background-color: @brand-primary-dark-20;;
-    border-color: @brand-primary;
+.open { 
+    > .dropdown-toggle.btn-primary {
+        background-color: @brand-primary-dark-20;;
+        border-color: @brand-primary;
 
-    &:focus {
-        background-color: @brand-primary-dark-20;
-        border-color: @brand-primary-dark-20;
+        &:focus {
+            background-color: @brand-primary-dark-20;
+            border-color: @brand-primary-dark-20;
+        }
+        &:hover {
+            background-color: @brand-primary-dark-10;
+            border-color: @brand-primary-dark-10;
+        }
     }
-    &:hover {
-        background-color: @brand-primary-dark-10;
-        border-color: @brand-primary-dark-10;
+    > .dropdown-toggle.o_dropdown_toggler_btn {
+        color: @brand-primary;
+        background: transparent;
+        &:focus,
+        &:hover {
+            color: @brand-primary;
+            background: transparent;
+            border-color: @brand-primary;
+        }
     }
 }
 
@@ -765,6 +903,14 @@ Form Breadcrumb
 ***/
 .ui-autocomplete {
     font-family: inherit;
+    .ui-state-focus {
+        background: @brand-primary !important;
+    }
+    .ui-menu-item.o_m2o_dropdown_option {
+         a:hover {
+             color: @brand-button-color-hover;
+         }
+    }
 }
 
 .o_form_view > header {
@@ -983,8 +1129,15 @@ Chater
 }
 }
 
-.o_chatter .o_mail_thread {
-    position: relative;
+.o_chatter {
+    .o_mail_thread {
+        position: relative;
+    }
+    .o_chat_composer {
+        background: @brand-form-sheet-bg;
+        padding: 10px 10px;
+        border: 1px solid @brand-border-line;
+    }
 }
 
 .o_mail_thread {
@@ -993,16 +1146,30 @@ Chater
         position: absolute;
         display: block;
         width: 4px;
-        background: #f5f6fa;
+        background: @brand-border-line;
         top: 0px;
         bottom: 0;
         margin-left: 38px;
     }
     .o_thread_date_separator {
         margin-left: 40px;
-        border-bottom: solid #EBEBEB 1px;
+        border-bottom: solid @brand-border-line 1px;
+        .o_thread_date {
+            background: @brand-form-sheet;
+            color: @brand-form-field;
+        }
     }
     .o_thread_message {
+        .o_thread_message_core {
+            pre {
+                color: inherit;
+                a:hover {
+                    color: @brand-primary;
+                }
+                background: transparent;
+                border: 1px solid @brand-border-line;
+            }
+        }
         .o_thread_message_core.o_mail_note {
             background-color: transparent;
             border-bottom: 1px solid @brand-border-line;
@@ -1016,6 +1183,9 @@ Chater
                 -moz-border-radius: 50%!important;
                 border-radius: 50%!important;
             }
+        }
+        .o_mail_info {
+            color: @brand-form-field;
         }
     }
 }
@@ -1105,6 +1275,12 @@ html .o_loading {
     border-bottom: 1px solid @brand-border-line;
     .breadcrumb {
         background: transparent;
+    }
+}
+
+.table {
+    > tbody > tr > td {
+        border-top: 1px solid @brand-border-line;
     }
 }
 
@@ -1239,7 +1415,7 @@ hr {
 }
 
 /* Portrait and Landscape */
-@media only screen 
+/* @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
@@ -1249,3 +1425,4 @@ hr {
         }
     }
 }
+ */
