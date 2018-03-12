@@ -1236,8 +1236,19 @@ html .o_loading {
     top: auto;
 }
 
-.datepicker .table-condensed > tbody > tr > td.active, .datepicker .table-condensed > tbody > tr > td .active {
-    background-color: @brand-primary;
+.datepicker {
+    .table-condensed {
+        > thead {
+            background-color: @brand-primary;
+            > tr:first-child th:hover {
+                color: #000;
+                background-color: darken(@brand-primary, 10%);
+            }
+        }
+        > tbody > tr > td.active, .datepicker .table-condensed > tbody > tr > td .active {
+            background-color: @brand-primary;
+        }
+    }
 }
 
 .ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a {
@@ -1426,3 +1437,24 @@ hr {
     }
 }
  */
+
+ /***
+ SVG
+ ***/
+ svg {
+    fill: @brand-form-input;
+}
+
+.nvd3.nv-pie .nv-slice text {
+    fill: white !important;
+}
+
+.nv-legend-text {
+    fill: @brand-form-input;
+}
+
+
+// X-Axis
+.nv-y .tick.zero line { stroke: @brand-form-input; }
+// Y-Axis
+.nv-y .nv-axis g path.domain { stroke: @brand-form-input; }
