@@ -119,7 +119,6 @@ Kanban
   background: #DB6574;
   border-bottom: 2px solid #DB6574;
   color: #fff;
-  text-transform: uppercase;
 }
 .o_web_client .navbar-inverse .navbar-nav > .active > a:hover {
   color: #DB6574;
@@ -133,10 +132,11 @@ Kanban
   background: #22252a;
 }
 .o_web_client > .o_main .o_view_manager_content {
-  background: #2d3035;
+  background: #22252a;
+  padding: 10px;
 }
 .o_web_client > .o_main .o_view_manager_content .o_graph_svg_container svg {
-  background: transparent;
+  background: #2d3035;
 }
 .o_web_client > .o_main .o_view_manager_content .o_graph_svg_container svg .nvd3 .nv-axis line {
   stroke: #34373d;
@@ -241,9 +241,9 @@ Kanban
 .o_web_client .oe_import .oe_import_box p {
   color: #DB6574;
 }
-h4 {
-  border-top: 1px solid #34373d !important;
-}
+/* h4 {
+    border-top: 1px solid @brand-border-line !important;
+} */
 textarea {
   background: #22252a;
   border: 1px solid #34373d;
@@ -273,11 +273,51 @@ fieldset[disabled] .btn-default.active {
   background-color: #34373d;
   border-color: #777777;
 }
+.o_searchview {
+  background-color: #3d4853;
+  border: 1px solid #979a9f;
+  border-radius: 0px;
+}
+.o_searchview .o_searchview_input {
+  color: #fff;
+  background: transparent;
+}
+.o_searchview .o_searchview_facet {
+  background: #DB6574;
+  color: #fff;
+}
+.o_searchview .o_searchview_facet .o_searchview_facet_label {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.o_searchview .o_searchview_facet .o_facet_values {
+  text-transform: uppercase;
+}
+.o_searchview .o_searchview_facet .o_facet_values > span {
+  font-size: 12px;
+}
 /***
 Modal
 ***/
 .modal .modal-content {
   background-color: #22252a;
+  /* .o_searchview {
+            background-color: transparent;
+            border: 1px solid @brand-border-line;
+            border-radius: 0px;
+            .o_searchview_input {
+                color: @brand-primary;
+                background: transparent;
+            }
+            .o_searchview_facet {
+                background: @brand-primary;
+                color: @brand-button-color-hover;
+                .o_searchview_facet_label {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+            }
+        } */
 }
 .modal .modal-content .modal-header {
   background: #2d3035;
@@ -302,6 +342,12 @@ Modal
 }
 .modal .modal-content .modal-body .table {
   padding: 10px 10px;
+  color: #979a9f;
+}
+.modal .modal-content .modal-body .table tbody tr:hover td {
+  color: #DB6574;
+  border-bottom: 1px dotted #DB6574;
+  border-top: 1px dotted #DB6574;
 }
 .modal .modal-content .modal-body .table tfoot tr td {
   border-top-color: #34373d;
@@ -380,6 +426,22 @@ Modal
 }
 .o_control_panel {
   background-color: #F1F3F6;
+  /*     .o_searchview {
+        background-color: #3d4853;
+        border: 1px solid #485561;
+        .o_searchview_input {
+            background: transparent;
+            color: @brand-primary;
+        }
+        .o_searchview_facet {
+            background: @brand-primary;
+            border: 1px solid @brand-primary;
+        }
+        .o_facet_values,
+        .o_facet_remove {
+            color: #fff !important;
+        }
+    } */
 }
 .o_control_panel .navbar-default .navbar-nav > .active > a,
 .o_control_panel .navbar-default .navbar-nav > .active > a:hover,
@@ -394,22 +456,6 @@ Modal
 }
 .o_control_panel .breadcrumb > li > a:hover {
   color: #d13c4f;
-}
-.o_control_panel .o_searchview {
-  background-color: #3d4853;
-  border: 1px solid #485561;
-}
-.o_control_panel .o_searchview .o_searchview_input {
-  background: transparent;
-  color: #DB6574;
-}
-.o_control_panel .o_searchview .o_searchview_facet {
-  background: #DB6574;
-  border: 1px solid #DB6574;
-}
-.o_control_panel .o_searchview .o_facet_values,
-.o_control_panel .o_searchview .o_facet_remove {
-  color: #fff !important;
 }
 .ui-autocomplete {
   background: #2d3035;
@@ -604,11 +650,13 @@ div.o_checkbox > input {
 div.o_checkbox > input:focus + span {
   outline: 1px solid #e58e99;
 }
+/* 
 div.o_checkbox > input:checked + span {
-  background-repeat: no-repeat;
-  background-image: url(/condominium/static/src/img/checked.svg);
-  background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/condominium/static/src/img/checked.svg);
+    background-position: center center;
 }
+ */
 td a {
   color: #DB6574;
 }
@@ -1150,8 +1198,15 @@ html .o_loading {
   z-index: 1051;
   top: auto;
 }
+.datepicker .table-condensed > thead {
+  background-color: #DB6574;
+}
+.datepicker .table-condensed > thead > tr:first-child th:hover {
+  color: #000;
+  background-color: #d13c4f;
+}
 .datepicker .table-condensed > tbody > tr > td.active,
-.datepicker .table-condensed > tbody > tr > td .active {
+.datepicker .table-condensed .datepicker .table-condensed > tbody > tr > td .active {
   background-color: #DB6574;
 }
 .ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a {
@@ -1316,3 +1371,21 @@ hr {
     }
 }
  */
+/***
+ SVG
+ ***/
+svg {
+  fill: #979a9f;
+}
+.nvd3.nv-pie .nv-slice text {
+  fill: white !important;
+}
+.nv-legend-text {
+  fill: #979a9f;
+}
+.nv-y .tick.zero line {
+  stroke: #979a9f;
+}
+.nv-y .nv-axis g path.domain {
+  stroke: #979a9f;
+}

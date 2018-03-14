@@ -4,6 +4,7 @@
         <template id="assets_backend" inherit_id="web.assets_backend" name="web_editor assets for backend">
             <xpath expr="link[last()]" position="after">
                 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Poppins|Nunito:400,500,600,700" rel="stylesheet"/>
+                <link href="/asf_backend/static/src/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
                 <link href="/asf_backend/static/src/less/condominium.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/svg.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/dark_kanban_view.less" rel="stylesheet" type="text/less"/>
