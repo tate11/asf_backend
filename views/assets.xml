@@ -7,6 +7,7 @@
                 <link href="/asf_backend/static/src/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
                 <link href="/asf_backend/static/src/less/condominium.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/svg.less" rel="stylesheet" type="text/less"/>
+                <link href="/asf_backend/static/src/less/variables.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/dark_kanban_view.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/dark_kanban_dashboard.less" rel="stylesheet" type="text/less"/>
                 <link href="/asf_backend/static/src/less/dark_pivot_view.less" rel="stylesheet" type="text/less"/>
