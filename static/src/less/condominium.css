@@ -306,11 +306,11 @@ Modal
             border: 1px solid @brand-border-line;
             border-radius: 0px;
             .o_searchview_input {
-                color: @brand-primary;
+                color: @primary-color;
                 background: transparent;
             }
             .o_searchview_facet {
-                background: @brand-primary;
+                background: @primary-color;
                 color: @brand-button-color-hover;
                 .o_searchview_facet_label {
                     text-transform: uppercase;
@@ -361,9 +361,9 @@ Modal
 }
 .modal .modal-content .modal-body .o_form_view .o_form_sheet .o_list_view {
   /* .o_readonly {
-                            color: @brand-primary;
-                            border-top: 1px dotted @brand-primary;
-                            border-bottom: 1px dotted @brand-primary;
+                            color: @primary-color;
+                            border-top: 1px dotted @primary-color;
+                            border-bottom: 1px dotted @primary-color;
                         } */
 }
 .modal .modal-content .modal-body .o_form_view .o_form_sheet .o_list_view tbody tr:hover td {
@@ -431,11 +431,11 @@ Modal
         border: 1px solid #485561;
         .o_searchview_input {
             background: transparent;
-            color: @brand-primary;
+            color: @primary-color;
         }
         .o_searchview_facet {
-            background: @brand-primary;
-            border: 1px solid @brand-primary;
+            background: @primary-color;
+            border: 1px solid @primary-color;
         }
         .o_facet_values,
         .o_facet_remove {
@@ -567,7 +567,7 @@ fieldset[disabled] .btn-primary.active {
 }
 /* 
 .o_form_view > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
-    color: @brand-primary;
+    color: @primary-color;
     background-color: white;
     border-color: transparent;
 
