@@ -1,42 +1,59 @@
-@brand-primary:         #DB6574; //#F27902;
+@primary-color:         #DB6574; //#F27902;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 @brand-disabled:        #8c8c8c;
-@brand-control-panel:   #fff;
 @brand-nav-bar:         #eee;
-@brand-main-nav:         @brand-primary; //#313949; //#875A7B;
+@brand-main-nav:         @primary-color; //#313949; //#875A7B;
 @brand-body-color:      #666666;
-@brand-primary-dark-20: darken(@brand-primary, 80%);   // #333
-@brand-primary-dark-10: darken(@brand-primary, 30%);   // #333
+@primary-color-dark-20: darken(@primary-color, 80%);   // #333
+@primary-color-dark-10: darken(@primary-color, 30%);   // #333
 @brand-active-item:     #3F4448;
 @brand-menu-item:       #CACACA;
 @brand-table-color:     #8a8d93;
 
 @brand-form-sheet-bg:   #22252a;
-@brand-control-panel:   #2d3035;
 @brand-form-sheet:      #2d3035;
-@brand-border-line:     #34373d; //#444951; 
+@border-line-color:     #34373d; //#444951; 
 @brand-form-field:      #979a9f;
 @brand-form-input:      @brand-form-field;
 @brand-modal-title:     @brand-table-color;
 @brand-button-color-hover:      #fff;
 @brand-search-input-color:      #fff;
 
-@link-active:                   #03a9f4;
-@link-hover:                    @link-active;
+@primary-color:                 #03a9f4;
+@secondary-color:               #e91e63!important;
+@body-color:                    #a4a8bc;
+@body-secondary-color:          #5b638b!important;
+@link-active-color:             @primary-color;
+@link-hover-color:              @link-active-color;
 @menu-background-color-hover:   #151828;
 @body-background:               #151828;
+@border-line-color:             #252b46;
+@title-color:                   #ececef;
+@topbar-color:                  #1b1f32;
+@panel-color:                   @topbar-color!important;
+
+/* @box-shadow:                    0 8px 24px rgba(0,0,0,.12); */
+@dropdown-menu-item-color:                      #c9cbd4;
+@dropdown-menu-item-background-color:           @topbar-color;
+@dropdown-menu-item-background-color-color:     @topbar-color;
+@dropdown-menu-item-hover-color:                #1b1f32;
+@dropdown-menu-item-background-hover-color:     @primary-color;
 
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Proxima Nova', Georgia, sans-serif; */
     /* font-family: 'Poppins', sans-serif; */
-    font-size: 15px;
     font-family: 'Nunito', sans-serif;
-    color: @brand-body-color !important;
+    color: @body-color !important;
+    /* font-family: 'Source Sans Pro',sans-serif; */
+    font-size: calc(13px + 1*((100vw - 320px)/1280));
+    line-height: 1.74em;
+    overflow: hidden;
+    background: @body-background !important;
 }
 
 /***
@@ -75,7 +92,7 @@ header > .main-nav {
 }
 
 header > .main-nav > .container-fluid .o_sub_menu > .o_sub_menu_content > .oe_secondary_menu > li.app-name {
-    color: @brand-primary;
+    color: @primary-color;
     text-transform: uppercase;
 }
   
@@ -91,32 +108,31 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
         color: #fff;
     }
 }
-
+/* 
 .navbar-nav {
     > li {
         .dropdown-menu {
-            background: @brand-form-sheet;
-            color: #fff;
+            background: @dropdown-menu-item-background-color;
+            color: @dropdown-menu-item-color;
         }
     }
     .open {
         .dropdown-menu {
             > li > a {
                 padding: 8px 25px;
-                color: @brand-menu-item;
+                color: @dropdown-menu-item-color;
                 &:hover {
-                    background-color: @brand-primary;
-                    color: #fff;
+                    background-color: @dropdown-menu-item-background-color-color;
+                    color: @dropdown-menu-item-hover-color;
                 }
             }
             .divider {
-                background-color: @brand-border-line;
+                background-color: @border-line-color;
             }
         }
     }
-
 }
-
+ */
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -145,7 +161,7 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     padding: 3px 7px;
     font-size: 12px;
     font-weight: bold;
-    color: @brand-primary;
+    color: @primary-color;
     line-height: 1.42857143;
     vertical-align: middle;
     white-space: nowrap;
@@ -155,7 +171,7 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
 }
 
 .badge {
-    border: 1px solid @brand-primary;
+    border: 1px solid @primary-color;
     margin: 1px 2px 1px 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -171,35 +187,35 @@ Kanban
     }
     .navbar-inverse {
         background: @brand-form-sheet;
-        border-color: @brand-border-line;
+        border-color: @border-line-color;
         .navbar-nav > .active > a {
-            background: @brand-primary;
-            border-bottom: 2px solid @brand-primary;
+            background: @primary-color;
+            border-bottom: 2px solid @primary-color;
             color: #fff;
             //text-transform: uppercase;
             &:hover {
-                color: @brand-primary;
+                color: @primary-color;
                 background: transparent;
             } 
         }
         .navbar-nav a {
             &:hover {
-                color: @brand-primary;
+                color: @primary-color;
                 background: transparent;
             }
         }
     }
     background-color: #F9F9F9;
     > .o_main {
-        background: @brand-form-sheet-bg;
+        background: transparent;
         .o_view_manager_content {
-            background: @brand-form-sheet-bg;
-            padding: 10px;
+            background: transparent;
             .o_graph_svg_container {
+                padding: 10px;
                 svg {
                     background: @brand-form-sheet;
                     .nvd3 .nv-axis line {
-                        stroke: @brand-border-line;
+                        stroke: @border-line-color;
                     }
                 }
             }
@@ -212,7 +228,7 @@ Kanban
                 .oe_secondary_menu_section.active {
                     background: @brand-active-item;
                     transition: all .3s;
-                    border-left: 4px solid @brand-primary;
+                    border-left: 4px solid @primary-color;
                     .oe_menu_leaf {
                         .oe_menu_text {
                             color: #fff;
@@ -242,10 +258,10 @@ Kanban
                             color: #a5a9ad;
                             &:hover {
                                 background-color: @brand-active-item;
-                                color: @brand-primary;
+                                color: @primary-color;
                                 border-color: @brand-active-item;
                                 transition: all .3s;
-                                border-left: 4px solid @brand-primary;
+                                border-left: 4px solid @primary-color;
                             }
                         }
                     }
@@ -265,7 +281,7 @@ Kanban
                     }
                 }
                 ul li.active {
-                    border-left: 4px solid @brand-primary;
+                    border-left: 4px solid @primary-color;
                 }
             }
         }
@@ -276,15 +292,15 @@ Kanban
                     > div {
                         background: @brand-form-sheet;
                         > hr {
-                            border-color: @brand-border-line;
+                            border-color: @border-line-color;
                         }
                         .o_web_settings_dashboard_invitation_form {
                             textarea {
                                 background: transparent;
-                                border-color: @brand-border-line;
+                                border-color: @border-line-color;
                                 color: @brand-form-field;
                                 &:focus {
-                                    border-color: @brand-primary;
+                                    border-color: @primary-color;
                                     color: #fff;
                                 }
                             }
@@ -292,7 +308,7 @@ Kanban
                     }
                     a {
                         &:hover {
-                            color: @brand-primary;
+                            color: @primary-color;
                         }
                     }
                 }
@@ -300,18 +316,18 @@ Kanban
             .table {
                 tr {
                     td {
-                        border-color: @brand-border-line;
+                        border-color: @border-line-color;
                         color: @brand-table-color;
                     }
                 }
                 tbody {
                     tr {
                         &:hover {
-                            //background: @brand-primary;
+                            //background: @primary-color;
                             td {
-                                color: @brand-primary;
-                                border-top: 1px dotted @brand-primary;
-                                border-bottom: 1px dotted @brand-primary;
+                                color: @primary-color;
+                                border-top: 1px dotted @primary-color;
+                                border-bottom: 1px dotted @primary-color;
                             }
                         }
                     }
@@ -331,23 +347,23 @@ Kanban
         background-color: transparent;
         .oe_import_box {
             background: @brand-form-sheet-bg;
-            border: 1px solid @brand-border-line;
+            border: 1px solid @border-line-color;
             p {
-                color: @brand-primary;
+                color: @primary-color;
             }
         }
     }
 }
 /* h4 {
-    border-top: 1px solid @brand-border-line !important;
+    border-top: 1px solid @border-line-color !important;
 } */
 textarea {
     background: @brand-form-sheet-bg;
-    border: 1px solid @brand-border-line;
+    border: 1px solid @border-line-color;
     color: @brand-form-field;
 }
 a.pull-right:hover {
-    color: @brand-primary;
+    color: @primary-color;
 }
 .btn-default.disabled, 
 .btn-default[disabled], 
@@ -372,7 +388,7 @@ fieldset[disabled]
 .btn-default.disabled.active, 
 .btn-default[disabled].active, 
 fieldset[disabled] .btn-default.active {
-    background-color: @brand-border-line;
+    background-color: @border-line-color;
     border-color: #777777;
 }
 
@@ -385,7 +401,7 @@ fieldset[disabled] .btn-default.active {
         background: transparent;
     }
     .o_searchview_facet {
-        background: @brand-primary;
+        background: @primary-color;
         color: @brand-button-color-hover;
         .o_searchview_facet_label {
             text-transform: uppercase;
@@ -408,14 +424,14 @@ Modal
         background-color: @brand-form-sheet-bg; //transparent;
         /* .o_searchview {
             background-color: transparent;
-            border: 1px solid @brand-border-line;
+            border: 1px solid @border-line-color;
             border-radius: 0px;
             .o_searchview_input {
-                color: @brand-primary;
+                color: @primary-color;
                 background: transparent;
             }
             .o_searchview_facet {
-                background: @brand-primary;
+                background: @primary-color;
                 color: @brand-button-color-hover;
                 .o_searchview_facet_label {
                     text-transform: uppercase;
@@ -425,11 +441,11 @@ Modal
         } */
         .modal-header {
             background: @brand-form-sheet;
-            border-bottom-color: @brand-border-line;
+            border-bottom-color: @border-line-color;
             .close {
-                color: @brand-primary;
+                color: @primary-color;
                 opacity: inherit;
-                text-shadow: 0 1px 0 @brand-primary;
+                text-shadow: 0 1px 0 @primary-color;
             }
             .modal-title {
                 color: @brand-modal-title;
@@ -437,13 +453,13 @@ Modal
         }
         .o_error_detail {
             pre {
-                color: @brand-primary;
+                color: @primary-color;
                 background: transparent;
-                border: 1px solid @brand-border-line;
+                border: 1px solid @border-line-color;
             }
         }
         .modal-body {
-            color: @brand-primary;
+            color: @primary-color;
             background: @brand-form-sheet-bg;
             .table {
                 padding: 10px 10px;
@@ -451,44 +467,39 @@ Modal
                 tbody {
                     tr:hover {
                         td {
-                            color: @brand-primary;
-                            border-bottom: 1px dotted @brand-primary;
-                            border-top: 1px dotted @brand-primary;
+                            color: @primary-color;
+                            border-bottom: 1px dotted @primary-color;
+                            border-top: 1px dotted @primary-color;
                         }
                         
                     }
                 }
             }
             .table tfoot tr td {
-                border-top-color: @brand-border-line;
-                border-bottom-color: @brand-border-line;
+                border-top-color: @border-line-color;
+                border-bottom-color: @border-line-color;
             }
-            .o_form_view {
+            /* .o_form_view {
                 background-color: @brand-form-sheet-bg;
                 .o_form_sheet {
-                    background: @brand-form-sheet-bg;
+                    background: @panel-color;
                     .o_list_view {
                         tbody tr:hover { 
                             td { 
-                                color: @brand-primary;
-                                border-top: 1px dotted @brand-primary;
-                                border-bottom: 1px dotted @brand-primary;
+                                color: @primary-color;
+                                border-top: 1px dotted @primary-color;
+                                border-bottom: 1px dotted @primary-color;
                             }
                         }
-                        /* .o_readonly {
-                            color: @brand-primary;
-                            border-top: 1px dotted @brand-primary;
-                            border-bottom: 1px dotted @brand-primary;
-                        } */
                     }
                 }
-            }
+            } */
             .panel-heading {
                 background-color: @brand-form-sheet-bg;
                 border: 1px solid;
             }
             .note-editor {
-                border: 1px solid @brand-border-line;
+                border: 1px solid @border-line-color;
                 .panel-default {
                     > .panel-heading {
                         background: @brand-form-sheet;
@@ -497,7 +508,7 @@ Modal
                 .note-editable {
                     background: @brand-form-sheet-bg;
                     color: @brand-form-input !important;
-                    border: 1px solid @brand-border-line;
+                    border: 1px solid @border-line-color;
                 }
                 .note-statusbar {
                     background: @brand-form-sheet;
@@ -507,7 +518,7 @@ Modal
         }
         .modal-footer {
             background: @brand-form-sheet;
-            border-top-color: @brand-border-line;
+            border-top-color: @border-line-color;
         }
     }
 }
@@ -533,19 +544,22 @@ Modal
     border-color: #d9d7d7;
     box-shadow: none !important;
     &:hover {
-        border-color: lighten(@brand-primary, 5%);
+        border-color: lighten(@primary-color, 5%);
     }
 }
 
 .o_kanban_view .o_kanban_record, .o_kanban_view .o_kanban_quick_create {
     padding: 8px 8px;
-    border: 1px solid @brand-border-line;
+    border: 1px solid @border-line-color;
     background-color: transparent !important;
 }
 
 .o_control_panel {
-    background-color:#F1F3F6;//@brand-control-panel;
-
+    background-color: @panel-color;
+    border-bottom: 1px solid @border-line-color;
+    .breadcrumb {
+        background: transparent;
+    }
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
@@ -555,29 +569,13 @@ Modal
         background-color: transparent;
 
         > li > a {
-            color: @brand-primary;
+            color: @primary-color;
 
             &:hover {
-                color: darken(@brand-primary, 10%);
+                color: darken(@primary-color, 10%);
             }
         }
     }
-/*     .o_searchview {
-        background-color: #3d4853;
-        border: 1px solid #485561;
-        .o_searchview_input {
-            background: transparent;
-            color: @brand-primary;
-        }
-        .o_searchview_facet {
-            background: @brand-primary;
-            border: 1px solid @brand-primary;
-        }
-        .o_facet_values,
-        .o_facet_remove {
-            color: #fff !important;
-        }
-    } */
 }
 
 .ui-autocomplete {
@@ -587,44 +585,44 @@ Modal
             color: @brand-menu-item;
         }
         &:hover {
-            background: @brand-primary;
+            background: @primary-color;
         }
     }
 }
 
 .btn-default {
-    color: @brand-primary;
+    color: @primary-color;
     background-color: transparent;
     border-color: transparent;
 
     &:hover {
-        border-color: @brand-primary;
-        background: @brand-border-line;
+        border-color: @primary-color;
+        background: @border-line-color;
         color: #fff;
     }
 }
 
 .btn-primary {
     color: white;
-    background-color: @brand-primary;
-    border-color: @brand-primary;
+    background-color: @primary-color;
+    border-color: @primary-color;
 
     &:hover {
         // color: #202020;
-        background-color: lighten(@brand-primary, 2.5%);
-        border-color: lighten(@brand-primary, 2.5%);    
+        background-color: lighten(@primary-color, 2.5%);
+        border-color: lighten(@primary-color, 2.5%);    
     }
 
     &:focus {
         color: #202020;
-        background-color: lighten(@brand-primary, 3%);;
-        border-color: lighten(@brand-primary, 3%);    
+        background-color: lighten(@primary-color, 3%);;
+        border-color: lighten(@primary-color, 3%);    
     }
 
     &:active {
         // color: #202020;
-        background-color: lighten(@brand-primary, 3.5%) !important;
-        border-color: lighten(@brand-primary, 3.5%) !important;
+        background-color: lighten(@primary-color, 3.5%) !important;
+        border-color: lighten(@primary-color, 3.5%) !important;
     }
 }
 
@@ -633,26 +631,26 @@ Modal
 
     &:active {
         box-shadow: none;
-        border-color: @brand-primary;
+        border-color: @primary-color;
     }
 
     &:hover {
-        border-color: lighten(@brand-primary,0.1);
+        border-color: lighten(@primary-color,0.1);
     }
 }
 
 .btn.active {
     box-shadow: none;
-    border-color: @brand-primary;
+    border-color: @primary-color;
 }
 
 .btn-icon {
-    color: @brand-primary;
+    color: @primary-color;
     background-color: transparent;
     border-color: transparent;
 
     &:hover {
-        border-color: @brand-primary;
+        border-color: @primary-color;
         background-color: transparent;
         color: @brand-button-color-hover;
     }
@@ -663,7 +661,7 @@ Modal
     background-color: transparent;
     &:hover {
         background-color: transparent;
-        border-color: @brand-border-line;
+        border-color: @border-line-color;
     }
 }
 
@@ -672,29 +670,29 @@ Modal
 .open > .dropdown-toggle.btn-icon {
     // color: #4c4c4c;
     // background-color: #e6e6e6;
-    border-color: @brand-primary;
+    border-color: @primary-color;
     box-shadow: none;
     &:hover {
-        border-color: lighten(@brand-primary,10%);
+        border-color: lighten(@primary-color,10%);
     }
 }
 
 .btn-link {
-    color: @brand-primary;
+    color: @primary-color;
 
     &:hover {
-        color: darken(@brand-primary, 5%);
+        color: darken(@primary-color, 5%);
     }
 }
 
 .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
-    background-color: @brand-primary-dark-20;
-    border-color: @brand-primary-dark-20;
+    background-color: @primary-color-dark-20;
+    border-color: @primary-color-dark-20;
     color: @brand-disabled;
 }
 /* 
 .o_form_view > header > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
-    color: @brand-primary;
+    color: @primary-color;
     background-color: white;
     border-color: transparent;
 
@@ -710,13 +708,13 @@ Modal
  */
 a {
     &:hover {
-        color: @brand-primary-dark-20;
+        color: @primary-color-dark-20;
     }
 }
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus {
-    color: @brand-primary;
+    color: @primary-color;
 }
 
 .o_form_view.o_form_editable .o_form_field_monetary > .o_form_input:focus {
@@ -730,14 +728,17 @@ a {
 /***
 Tabs
 ***/
+.tab-content > .active {
+    padding: 0 10px;
+}
 .tab-content.nav.nav-tabs {
-    border-left: 1px solid @brand-border-line;
-    border-right: 1px solid @brand-border-line;
+    border-left: 1px solid @border-line-color;
+    border-right: 1px solid @border-line-color;
 }
 .nav-tabs > li > a {
     color: @brand-body-color;
     &:hover {
-        color: @brand-primary;    
+        color: @primary-color;    
     }
 }
 
@@ -785,7 +786,7 @@ div.o_checkbox > input {
 }
 
 div.o_checkbox > input:focus + span {
-    outline: 1px solid lighten(@brand-primary, 10%);
+    outline: 1px solid lighten(@primary-color, 10%);
 }
 /* 
 div.o_checkbox > input:checked + span {
@@ -795,9 +796,9 @@ div.o_checkbox > input:checked + span {
 }
  */
 td a {
-    color: @brand-primary;
+    color: @primary-color;
     &:hover {
-        color: @brand-primary-dark-20;
+        color: @primary-color-dark-20;
     }
 }
 
@@ -824,7 +825,7 @@ td a {
 Icons
 ***/
 .o_form_view .oe_button_box .oe_stat_button .o_button_icon {
-    color: @brand-primary-dark-20;
+    color: @primary-color-dark-20;
 }
 
 .header-icon {
@@ -838,19 +839,20 @@ Icons
 Dropdown
 ***/
 .dropdown-menu {
-    background: @brand-form-sheet;
+    background: @dropdown-menu-item-background-color;
     > li {
         > a {
-            color: @brand-menu-item !important;
+            color: @dropdown-menu-item-color !important;
             &:hover,
             &:focus {
-                color: #fff !important;
-                background-color: @brand-primary;
+                color: @dropdown-menu-item-hover-color !important;
+                background-color: @dropdown-menu-item-background-hover-color !important;
+                transition: all 280ms ease-in-out 0ms;
             }
         }
     }
     .divider {
-        background-color: @brand-border-line;       
+        background-color: @border-line-color;       
     }
 }
 
@@ -868,31 +870,31 @@ Dropdown
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: @brand-primary;
+    color: @primary-color;
 }
 
 .open { 
     > .dropdown-toggle.btn-primary {
-        background-color: @brand-primary-dark-20;;
-        border-color: @brand-primary;
+        background-color: @primary-color-dark-20;;
+        border-color: @primary-color;
 
         &:focus {
-            background-color: @brand-primary-dark-20;
-            border-color: @brand-primary-dark-20;
+            background-color: @primary-color-dark-20;
+            border-color: @primary-color-dark-20;
         }
         &:hover {
-            background-color: @brand-primary-dark-10;
-            border-color: @brand-primary-dark-10;
+            background-color: @primary-color-dark-10;
+            border-color: @primary-color-dark-10;
         }
     }
     > .dropdown-toggle.o_dropdown_toggler_btn {
-        color: @brand-primary;
+        color: @primary-color;
         background: transparent;
         &:focus,
         &:hover {
-            color: @brand-primary;
+            color: @primary-color;
             background: transparent;
-            border-color: @brand-primary;
+            border-color: @primary-color;
         }
     }
 }
@@ -903,7 +905,7 @@ Form Breadcrumb
 .ui-autocomplete {
     font-family: inherit;
     .ui-state-focus {
-        background: @brand-primary !important;
+        background: @primary-color !important;
     }
     .ui-menu-item.o_m2o_dropdown_option {
          a:hover {
@@ -938,7 +940,7 @@ Form Breadcrumb
 
 .o_form_view ul.oe_form_status li.oe_active > .label,
 .o_form_view ul.oe_form_status_clickable li.oe_active > .label {
-  color: @brand-primary;
+  color: @primary-color;
   text-shadow: none;
 }
 
@@ -960,11 +962,11 @@ Form Breadcrumb
 }
 
 .btn-icon:active, .btn-icon.active, .open > .dropdown-toggle.btn-icon {
-    background: @brand-primary;
+    background: @primary-color;
     color: #fff;
     &:hover {
         background: transparent;
-        color: @brand-primary;
+        color: @primary-color;
     }
 }
 
@@ -975,7 +977,7 @@ Form
     background-color: @brand-form-sheet;
     > header {
         > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
-            color: @brand-primary;
+            color: @primary-color;
             background-color: white;
             border-color: transparent;
 
@@ -1006,22 +1008,22 @@ Form
                 }
                 &:first-child {
                     .label {
-                        border-left: 1px solid @brand-border-line;
+                        border-left: 1px solid @border-line-color;
                     }
                 }
                 &:last-child {
-                    border-right: 1px solid @brand-border-line;
+                    border-right: 1px solid @border-line-color;
                 }
             }
             li.oe_active {
                 border: unset;
-                background: @brand-border-line;
+                background: @border-line-color;
                 > .arrow span {
-                    background: @brand-border-line !important;
+                    background: @border-line-color !important;
                     border: 1px solid;
                 }
                 > .label {
-                    border-left: unset;// 1px solid @brand-border-line;
+                    border-left: unset;// 1px solid @border-line-color;
                 }
             }
         }
@@ -1030,18 +1032,18 @@ Form
     .o_form_field .o_form_input:focus,
     .o_group .o_form_field:hover,
     .o_form_field .o_form_input:hover {
-        border-color: @brand-primary!important;
+        border-color: @primary-color!important;
     }
     .o_form_field.o_form_field_many2one .o_external_button {
-        color: @brand-primary;
+        color: @primary-color;
     }
     .o_form_field_image > .o_form_image_controls > .fa.o_select_file_button {
-        background: @brand-primary;
+        background: @primary-color;
     }
     .o_group .o_td_label .o_form_label {
         font-weight: normal;
         margin-right: 0px;
-        color: @brand-body-color !important;
+        /* color: @brand-body-color !important; */
     }
     .oe_title {
         padding-left: 0 !important;
@@ -1069,7 +1071,7 @@ Form
             height: 44px;
             text-transform: capitalize;
             background: transparent;
-            border: 1px solid @brand-border-line;
+            border: 1px solid @border-line-color;
             &:hover {
                 background: @brand-active-item;
                 .oe_stat_text {
@@ -1087,14 +1089,14 @@ Form
         text-transform: uppercase;
         font-weight: bold;
         font-size: 15px;
-        border-bottom: 1px dotted @brand-primary;
+        border-bottom: 1px dotted @primary-color;
         background: transparent;
     }
     .o_group {
         .o_td_label {
             border-right: none;
             .o_form_label {
-                color: #777;
+                /* color: #777; */
                 font-size: inherit;
             }
         }
@@ -1105,16 +1107,16 @@ Form
 }
 
 .o_form_view.o_form_readonly .o_form_uri {
-    color: @brand-primary;
+    color: @primary-color;
 
     &:hover {
-        color: @brand-primary-dark-20;
+        color: @primary-color-dark-20;
     }
 }
 
 .o_form_view .o_form_field .o_form_input {
     background: transparent;
-    border: 1px solid @brand-border-line;
+    border: 1px solid @border-line-color;
     color: #777;
 }
 
@@ -1135,7 +1137,7 @@ Chater
     .o_chat_composer {
         background: @brand-form-sheet-bg;
         padding: 10px 10px;
-        border: 1px solid @brand-border-line;
+        border: 1px solid @border-line-color;
     }
 }
 
@@ -1145,17 +1147,17 @@ Chater
         position: absolute;
         display: block;
         width: 4px;
-        background: @brand-border-line;
+        background: @border-line-color;
         top: 0px;
         bottom: 0;
         margin-left: 38px;
     }
     .o_thread_date_separator {
         margin-left: 40px;
-        border-bottom: solid @brand-border-line 1px;
+        border-bottom: solid @border-line-color 1px;
         .o_thread_date {
             background: @brand-form-sheet;
-            color: @brand-form-field;
+            color: @title-color;
         }
     }
     .o_thread_message {
@@ -1163,28 +1165,32 @@ Chater
             pre {
                 color: inherit;
                 a:hover {
-                    color: @brand-primary;
+                    color: @primary-color;
                 }
                 background: transparent;
-                border: 1px solid @brand-border-line;
+                border: 1px solid @border-line-color;
             }
         }
         .o_thread_message_core.o_mail_note {
             background-color: transparent;
-            border-bottom: 1px solid @brand-border-line;
+            border-bottom: 1px solid @border-line-color;
         }
         .o_thread_message_sidebar {
             position: relative;
             .o_thread_message_avatar {
                 max-width: 50px;
-                border: 2px solid @brand-border-line;
+                border: 2px solid @border-line-color;
                 -webkit-border-radius: 50%!important;
                 -moz-border-radius: 50%!important;
                 border-radius: 50%!important;
             }
         }
         .o_mail_info {
-            color: @brand-form-field;
+            color: @title-color !important;
+            > strong {
+                color: @primary-color;
+                font-weight: normal;
+            }
         }
     }
 }
@@ -1238,70 +1244,72 @@ html .o_loading {
 .datepicker {
     .table-condensed {
         > thead {
-            background-color: @brand-primary;
+            background-color: @primary-color;
             > tr:first-child th:hover {
                 color: #000;
-                background-color: darken(@brand-primary, 10%);
+                background-color: darken(@primary-color, 10%);
             }
         }
         > tbody > tr > td.active, .datepicker .table-condensed > tbody > tr > td .active {
-            background-color: @brand-primary;
+            background-color: @primary-color;
         }
     }
 }
 
 .ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a {
-    color: @brand-primary;
+    color: @primary-color;
     &:hover {
-        color: @brand-control-panel;
+        color: @panel-color;
     }
 }
 
 .o_form_view {
+    background-color: transparent;
     .o_form_required.o_form_input {
         background: transparent;
-        border-bottom: 1px solid @brand-primary;
-        border-top: 1px solid @brand-border-line;
-        border-left: 1px solid @brand-border-line;
-        border-right: 1px solid @brand-border-line;
-        color: @brand-primary;
+        border-bottom: 1px solid @primary-color;
+        border-top: 1px solid @border-line-color;
+        border-left: 1px solid @border-line-color;
+        border-right: 1px solid @border-line-color;
+        color: @primary-color;
     }
     .o_form_sheet_bg {
-        background: @brand-form-sheet-bg;
-        border-bottom: 1px solid @brand-border-line;
+        background: transparent;
+        border-bottom: 1px solid @border-line-color;
         .o_form_sheet {
-            background: @brand-form-sheet;
+            background: @panel-color;
             border: 1px solid @brand-form-sheet;
             max-width: 98%;
+            .o_list_view {
+                tbody tr:hover { 
+                    td { 
+                        color: @primary-color;
+                        border-top: 1px dotted @primary-color;
+                        border-bottom: 1px dotted @primary-color;
+                    }
+                }
+            }
         }
     }
     .oe_button_box {
-        box-shadow: inset 0 -1px 0 @brand-border-line;
-    }
-}
-
-.o_control_panel {
-    background-color: @brand-form-sheet;
-    border-bottom: 1px solid @brand-border-line;
-    .breadcrumb {
-        background: transparent;
+        box-shadow: inset 0 -1px 0 @border-line-color;
     }
 }
 
 .table {
     > tbody > tr > td {
-        border-top: 1px solid @brand-border-line;
+        border-top: 1px solid @border-line-color;
     }
 }
 
 .o_form_view {
     > header {
-        background: @brand-form-sheet;
-        border: 1px solid @brand-border-line;
+        background: @panel-color;
+        border: 1px solid @border-line-color;
         > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
             background-color: transparent;
             &:hover {
-                border: 1px solid @brand-primary;
+                border: 1px solid @primary-color;
                 color: #fff;
                 background-color: transparent;
             }
@@ -1309,28 +1317,28 @@ html .o_loading {
     }
     .table {
         > tbody > tr > td {
-            border-top: 1px solid @brand-border-line;
+            border-top: 1px solid @border-line-color;
         }
     }
     .nav-tabs {
-        border-bottom: 1px solid @brand-border-line;
+        border-bottom: 1px solid @border-line-color;
         > li.active > a {
             background-color: transparent;
-            color: @brand-primary;
-            border-left: 1px solid @brand-border-line;
-            border-right: 1px solid @brand-border-line;
-            border-bottom: 1px solid @brand-form-sheet;
+            color: @primary-color;
+            border-left: 1px solid @border-line-color;
+            border-right: 1px solid @border-line-color;
+            border-bottom: 1px solid @panel-color;
         }
     }
     .o_form_textarea {
         background: transparent;
         color: @brand-form-field;
         padding: .375rem .75rem;
-        border: 1px solid @brand-border-line;
+        border: 1px solid @border-line-color;
         &:focus {
             color: @brand-form-field;
             background-color: transparent;
-            border-color: @brand-primary;
+            border-color: @primary-color;
             outline: none;
             -webkit-box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
             box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
@@ -1340,7 +1348,7 @@ html .o_loading {
         .o_form_textarea,
         .o_form_input,
         .o_form_field {
-            border: 1px solid @brand-border-line;
+            border: 1px solid @border-line-color;
             background: transparent;
             border-radius: 0px;
             color: @brand-form-field;
@@ -1351,7 +1359,7 @@ html .o_loading {
         .o_form_field:focus {
             color: @brand-form-field;
             background-color: transparent;
-            border-color: @brand-primary;
+            border-color: @primary-color;
             outline: none;
             -webkit-box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
             box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
@@ -1359,14 +1367,14 @@ html .o_loading {
     }
     ul.oe_form_status li.oe_active {
         background-color: transparent;
-        border: 1px solid @brand-border-line;
+        border: 1px solid @border-line-color;
     }
 }
 hr {
-    border-top: 1px solid @brand-border-line;
+    border-top: 1px solid @border-line-color;
 }
 .o_list_view {
-    background-color: @brand-form-sheet;
+    background-color: transparent;
     > thead {
         background-color: transparent;
         color: @brand-table-color;
@@ -1384,7 +1392,8 @@ hr {
   
   .table td,
   .table th {
-    border-color: #343a40;
+    border: 1px solid;
+    border-color: #252b46;
   }
   
   .table thead th {
@@ -1420,8 +1429,8 @@ hr {
     color: #4c4c4c;
     background-color: transparent;
     font-weight: bold;
-    border-top: 1px solid @brand-border-line;
-    border-bottom: 1px solid @brand-border-line;
+    border-top: 1px solid @border-line-color;
+    border-bottom: 1px solid @border-line-color;
 }
 
 /* Portrait and Landscape */
