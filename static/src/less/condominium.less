@@ -42,6 +42,32 @@
 @dropdown-menu-item-hover-color:                #1b1f32;
 @dropdown-menu-item-background-hover-color:     @primary-color;
 
+@navbar-inverse-background:                     @topbar-color;
+@o_sub_menu:                                    @topbar-color;
+@o_main_backround:                              transparent;
+@view_manager_content:                          transparent;
+@pivot-table-background-color-color:            transparent;
+
+@nav-pills-active-color:                        @primary-color;
+@nav-pills-active-background-color:             #151828;
+@breadcrumb-active-color:                       @body-color;
+@breadcrumb-font-size:                          inherit;
+
+@modal-header-background:                       #151828;
+@modal-title-color:                            @primary-color;
+@modal-body-background:                         #151828;
+@modal-body-color:                              @body-color;
+@modal-footer-background:                       #151828;
+@modal-footer-color:                            @body-color;
+
+@graph_svg_container:                           @panel-color;
+
+@pivot-table-th-background-color-color:         @panel-color;
+@pivot-table-th-opened-background-color-color:  @panel-color;
+@pivot-table-th-closed-background-color-color:  @panel-color;
+@pivot-table-th-measure-background-color-color: @panel-color;
+
+@input-background-color:                        #979a9f;
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -186,7 +212,7 @@ Kanban
         padding-bottom: 20px;
     }
     .navbar-inverse {
-        background: @brand-form-sheet;
+        background: @navbar-inverse-background;
         border-color: @border-line-color;
         .navbar-nav > .active > a {
             background: @primary-color;
@@ -207,21 +233,41 @@ Kanban
     }
     background-color: #F9F9F9;
     > .o_main {
-        background: transparent;
+        background: @o_main_backround;
         .o_view_manager_content {
-            background: transparent;
+            background: @view_manager_content;
             .o_graph_svg_container {
                 padding: 10px;
                 svg {
-                    background: @brand-form-sheet;
+                    background: @graph_svg_container;
                     .nvd3 .nv-axis line {
                         stroke: @border-line-color;
                     }
                 }
             }
+            .o_pivot {
+                padding: 10px;
+                > table {
+                    background-color: @pivot-table-background-color-color;
+                    border: 1px solid @border-line-color;
+                    th {
+                        background-color: @pivot-table-th-background-color-color;
+                    }
+                    .o_pivot_header_cell_opened {
+                        background-color: @pivot-table-th-opened-background-color-color;
+                    }
+                    .o_pivot_header_cell_closed {
+                        background-color: @pivot-table-th-closed-background-color-color;
+                    }
+                    .o_pivot_measure_row {
+                        background-color: @pivot-table-th-measure-background-color-color;
+                        color: @primary-color;
+                    }
+                }
+            }
         }
         .o_sub_menu {
-            background-color: #2c3136;
+            background-color: @o_sub_menu;
             border-right: 1px solid #34373d;
             min-width: 280px;
             .o_sub_menu_content {
@@ -290,7 +336,7 @@ Kanban
                 background: transparent;
                 .o_web_settings_dashboard_col {
                     > div {
-                        background: @brand-form-sheet;
+                        background: @panel-color;
                         > hr {
                             border-color: @border-line-color;
                         }
@@ -307,6 +353,7 @@ Kanban
                         }
                     }
                     a {
+                        // color: @secondary-color;
                         &:hover {
                             color: @primary-color;
                         }
@@ -440,7 +487,7 @@ Modal
             }
         } */
         .modal-header {
-            background: @brand-form-sheet;
+            background: @modal-header-background;
             border-bottom-color: @border-line-color;
             .close {
                 color: @primary-color;
@@ -448,7 +495,7 @@ Modal
                 text-shadow: 0 1px 0 @primary-color;
             }
             .modal-title {
-                color: @brand-modal-title;
+                color: @modal-title-color;
             }
         }
         .o_error_detail {
@@ -460,7 +507,7 @@ Modal
         }
         .modal-body {
             color: @primary-color;
-            background: @brand-form-sheet-bg;
+            background: @modal-body-background;
             .table {
                 padding: 10px 10px;
                 color: @brand-form-field;
@@ -479,21 +526,6 @@ Modal
                 border-top-color: @border-line-color;
                 border-bottom-color: @border-line-color;
             }
-            /* .o_form_view {
-                background-color: @brand-form-sheet-bg;
-                .o_form_sheet {
-                    background: @panel-color;
-                    .o_list_view {
-                        tbody tr:hover { 
-                            td { 
-                                color: @primary-color;
-                                border-top: 1px dotted @primary-color;
-                                border-bottom: 1px dotted @primary-color;
-                            }
-                        }
-                    }
-                }
-            } */
             .panel-heading {
                 background-color: @brand-form-sheet-bg;
                 border: 1px solid;
@@ -517,7 +549,7 @@ Modal
             }
         }
         .modal-footer {
-            background: @brand-form-sheet;
+            background: @modal-footer-background;
             border-top-color: @border-line-color;
         }
     }
@@ -536,8 +568,9 @@ Modal
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color: white;
-    background-color: @brand-active-item;
+    color: @nav-pills-active-color;
+    background-color: @nav-pills-active-background-color;
+    transition: all 280ms ease-in-out 0ms;
 }
 
 .o_kanban_view .o_kanban_record {
@@ -557,9 +590,6 @@ Modal
 .o_control_panel {
     background-color: @panel-color;
     border-bottom: 1px solid @border-line-color;
-    .breadcrumb {
-        background: transparent;
-    }
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
@@ -567,13 +597,19 @@ Modal
     }
     .breadcrumb {
         background-color: transparent;
-
+        background: transparent;
         > li > a {
             color: @primary-color;
-
+            text-transform: uppercase;
+            font-size: @breadcrumb-font-size;
             &:hover {
                 color: darken(@primary-color, 10%);
             }
+        }
+        > .active {
+            color: @breadcrumb-active-color;
+            text-transform: uppercase;
+            font-size: @breadcrumb-font-size;
         }
     }
 }
@@ -1043,7 +1079,7 @@ Form
     .o_group .o_td_label .o_form_label {
         font-weight: normal;
         margin-right: 0px;
-        /* color: @brand-body-color !important; */
+        color: @body-color !important;
     }
     .oe_title {
         padding-left: 0 !important;
@@ -1097,6 +1133,7 @@ Form
             border-right: none;
             .o_form_label {
                 /* color: #777; */
+                color: inherit;
                 font-size: inherit;
             }
         }
@@ -1410,12 +1447,33 @@ hr {
   }
   
   .table-striped tbody tr:nth-of-type(odd):hover {
-    background-color: #26292d;
+    background-color: transparent;
+  }
+
+  .table-striped tbody tr:nth-child(odd) {
+    background: rgba(37,43,70,.3);
   }
   
-  .table-bordered td,
+  /* .table-bordered td,
   .table-bordered th {
     border-color: #343a40;
+  } */
+
+  .table-hover {
+      > tbody {
+          > tr:hover {
+              background-color: rgba(37,43,70,.3);
+          }
+      }
+  }
+  .table-bordered {
+      > thead {
+          > tr {
+              > th {
+                  border: 1px solid @border-line-color;
+              }
+          }
+      }
   }
 
   @media (max-width: 991px) {
@@ -1450,7 +1508,7 @@ hr {
  SVG
  ***/
  svg {
-    fill: @brand-form-input;
+    fill: @title-color;
 }
 
 .nvd3.nv-pie .nv-slice text {
@@ -1466,3 +1524,103 @@ hr {
 .nv-y .tick.zero line { stroke: @brand-form-input; }
 // Y-Axis
 .nv-y .nv-axis g path.domain { stroke: @brand-form-input; }
+
+
+
+/***
+Form controls
+***/
+div.o_checkbox > input,
+div.o_radio_item > input {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+div.o_checkbox > input + label,
+div.o_radio_item > input + label {
+  margin-left: 15px;
+}
+
+div.o_checkbox > input::before,
+div.o_radio_item > input::before {
+  margin-right: 10px;
+  content: '';
+  display: inline-block;
+  -webkit-transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px);
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  background: @input-background-color;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+div.o_checkbox > input::after,
+div.o_radio_item > input::after {
+  content: '\f00d';
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  display: block;
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  font-size: inherit;
+  opacity: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: #fff;
+}
+
+div.o_checkbox > input:checked::before,
+div.o_radio_item > input:checked::before {
+  background: @primary-color;
+}
+
+div.o_checkbox > input:checked::after,
+div.o_radio_item > input:checked::after {
+  opacity: 1;
+}
+
+div.o_checkbox > input[type="radio"]:disabled ~ span {
+  color:yellowgreen;
+}
+
+div.o_radio_item > input::before {
+  border-radius: 50%;
+  -webkit-transform: translate(-3px, -3px);
+  transform: translate(-3px, -3px);
+}
+
+div.o_radio_item > input::after {
+  width: 6px;
+  height: 6px;
+  line-height: 6px;
+  text-align: center;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  content: '';
+}
+
+div.o_radio_item > input:checked::after {
+  background: #fff;
+}
+
+select {
+  background: @brand-form-sheet !important;
+  background-image: none;
+}
+
