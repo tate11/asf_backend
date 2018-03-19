@@ -650,13 +650,6 @@ div.o_checkbox > input {
 div.o_checkbox > input:focus + span {
   outline: 1px solid #e58e99;
 }
-/* 
-div.o_checkbox > input:checked + span {
-    background-repeat: no-repeat;
-    background-image: url(/condominium/static/src/img/checked.svg);
-    background-position: center center;
-}
- */
 td a {
   color: #DB6574;
 }

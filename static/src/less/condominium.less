@@ -68,6 +68,18 @@
 @pivot-table-th-measure-background-color-color: @panel-color;
 
 @input-background-color:                        #979a9f;
+@form-required-background:                      @border-line-color;         
+@select-background-color:                       @panel-color;
+
+@tooltip-inner-background-color-color:          @panel-color;
+@tooltip-inner-color:                           @primary-color;
+@tooltip-string-background-color:               @panel-color;
+@tooltip-string-color:                          @title-color;
+@box-shadow:                                    0 0 0 0.2rem @primary-color;
+
+@btn-default-active-background-color:           transparent;
+@btn-active-background-color:                   transparent;
+
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -435,7 +447,7 @@ fieldset[disabled]
 .btn-default.disabled.active, 
 .btn-default[disabled].active, 
 fieldset[disabled] .btn-default.active {
-    background-color: @border-line-color;
+    background-color: @btn-default-active-background-color;
     border-color: #777777;
 }
 
@@ -678,6 +690,8 @@ Modal
 .btn.active {
     box-shadow: none;
     border-color: @primary-color;
+    background: @btn-active-background-color;
+    color: @primary-color;
 }
 
 .btn-icon {
@@ -805,8 +819,8 @@ div.o_checkbox > input + span {
     display: block;
     width: 15px;
     height: 15px;
-    border: 1px solid #8f8f8f;
-    background-color: white;
+    border: 1px solid @border-line-color;
+    background-color: @primary-color;
 }
 div.o_checkbox > input {
     width: 20px;
@@ -824,13 +838,6 @@ div.o_checkbox > input {
 div.o_checkbox > input:focus + span {
     outline: 1px solid lighten(@primary-color, 10%);
 }
-/* 
-div.o_checkbox > input:checked + span {
-    background-repeat: no-repeat;
-    background-image: url(/condominium/static/src/img/checked.svg);
-    background-position: center center;
-}
- */
 td a {
     color: @primary-color;
     &:hover {
@@ -1006,6 +1013,14 @@ Form Breadcrumb
     }
 }
 
+.o_form_field_many2one.o_form_field,
+.o_form_field_many2one.o_form_field.o_form_required,
+.o_datepicker.o_form_field_date.o_form_field,
+.o_datepicker.o_form_field_date.o_form_field.o_form_required {
+    padding: 0px !important;
+    border: 1px !important;
+}
+
 /***
 Form
 ***/
@@ -1036,9 +1051,9 @@ Form
                     color: @brand-form-input;
                 }
                 > .arrow { 
-                    background: @brand-form-sheet;
+                    background: @panel-color;
                     span {
-                        background: @brand-form-sheet;
+                        background: @panel-color;
                         border: 1px solid @brand-form-sheet-bg;
                     }
                 }
@@ -1140,6 +1155,11 @@ Form
     }
     .o_form_field {
         background-color: transparent;
+        .o_form_field.o_view_manager_content, 
+        .o_form_view .o_form_field_one2many.o_form_field:hover, 
+        .o_form_view .o_form_field_many2many.o_form_field:hover {
+            border-color: red !important;
+        }
     }
 }
 
@@ -1276,6 +1296,8 @@ html .o_loading {
     right: 0;
     z-index: 1051;
     top: auto;
+    background: @primary-color;
+    color: @nav-pills-active-background-color;
 }
 
 .datepicker {
@@ -1303,8 +1325,8 @@ html .o_loading {
 .o_form_view {
     background-color: transparent;
     .o_form_required.o_form_input {
-        background: transparent;
-        border-bottom: 1px solid @primary-color;
+        /* background: @form-required-background !important; */
+        border-bottom: 1px solid @primary-color !important;
         border-top: 1px solid @border-line-color;
         border-left: 1px solid @border-line-color;
         border-right: 1px solid @border-line-color;
@@ -1316,7 +1338,7 @@ html .o_loading {
         .o_form_sheet {
             background: @panel-color;
             border: 1px solid @brand-form-sheet;
-            max-width: 98%;
+            // max-width: 98%;
             .o_list_view {
                 tbody tr:hover { 
                     td { 
@@ -1377,8 +1399,8 @@ html .o_loading {
             background-color: transparent;
             border-color: @primary-color;
             outline: none;
-            -webkit-box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
-            box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
+            -webkit-box-shadow: 0 0 0 0.2rem @box-shadow;
+            box-shadow: 0 0 0 0.2rem @box-shadow;
         }
     }
     .o_group {
@@ -1398,8 +1420,8 @@ html .o_loading {
             background-color: transparent;
             border-color: @primary-color;
             outline: none;
-            -webkit-box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
-            box-shadow: 0 0 0 0.2rem rgba(219,101,116,0.25);
+            -webkit-box-shadow: 0 0 0 0.2rem @box-shadow;
+            box-shadow: 0 0 0 0.2rem @box-shadow;
         }
     }
     ul.oe_form_status li.oe_active {
@@ -1616,11 +1638,86 @@ div.o_radio_item > input::after {
 }
 
 div.o_radio_item > input:checked::after {
-  background: #fff;
+  background: @primary-color;
 }
 
 select {
-  background: @brand-form-sheet !important;
+  background: @select-background-color !important;
   background-image: none;
 }
 
+
+/***
+Tooltip
+***/
+.tooltip {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+
+    .tooltip-inner {
+        max-width: 300px; // fallback for browsers which do not support "vw" unit
+        max-width: 100vw;
+        background-color: @tooltip-inner-background-color-color;
+        color: @tooltip-inner-color;
+        border-radius: @border-radius-base;
+        box-shadow: 0px 0px 1px 1px @odoo-brand-secondary;
+
+        padding: 5px;
+
+        text-align: left;
+
+        .oe_tooltip_string {
+            background-color: @tooltip-string-background-color;
+            color: @tooltip-string-color;
+            font-weight: bold;
+            padding: 5px;
+        }
+        .oe_tooltip_help {
+            white-space: pre-line;
+            padding: 5px 5px 0;
+        }
+        .oe_tooltip_technical {
+            padding: 0;
+            margin: 5px 0 5px 20px;
+            list-style-type: circle;
+
+            .oe_tooltip_technical_title {
+                font-weight: bold;
+                color: @primary-color;
+            }
+        }
+    }
+
+    .tooltip-arrow {
+        -moz-transform: scale(0.9999);
+    }
+    &.top, &.top-left, &.top-right {
+        .tooltip-arrow {
+            border-top-color: @odoo-tooltip-arrow-color!important;
+        }
+    }
+    &.bottom, &.bottom-left, &.bottom-right {
+        .tooltip-arrow {
+            border-bottom-color: @odoo-tooltip-arrow-color!important;
+        }
+    }
+    &.left .tooltip-arrow {
+        border-left-color: @odoo-tooltip-arrow-color!important;
+    }
+    &.right .tooltip-arrow {
+        border-right-color: @odoo-tooltip-arrow-color!important;
+    }
+}
+
+.o_pivot table .o_pivot_header_cell_closed::before {
+    font-family: FontAwesome;
+    content: "\f358";
+    margin-right: 8px;
+}
+
+.o_pivot table .o_pivot_header_cell_opened::before {
+    font-family: FontAwesome;
+    content: "\f35b";
+    margin-right: 8px;
+}
