@@ -80,6 +80,9 @@
 @btn-default-active-background-color:           transparent;
 @btn-active-background-color:                   transparent;
 
+@header-border-color:                           none;
+@header-border-bottom-color:                    @border-line-color;
+
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -958,7 +961,7 @@ Form Breadcrumb
 }
 
 .o_form_view > header {
-    border-bottom: 1px solid #a8a8a8;
+    border-bottom: 1px solid @header-border-bottom-color !important;
     background-color: #fff;
     background-image: none;
 }
@@ -1019,6 +1022,7 @@ Form Breadcrumb
 .o_datepicker.o_form_field_date.o_form_field.o_form_required {
     padding: 0px !important;
     border: 1px !important;
+    border-bottom: 1px solid @primary-color !important;
 }
 
 /***
@@ -1364,7 +1368,7 @@ html .o_loading {
 .o_form_view {
     > header {
         background: @panel-color;
-        border: 1px solid @border-line-color;
+        border: 1px solid @header-border-color;
         > button:not(.btn-primary):not(.btn-link):not(.oe_highlight) {
             background-color: transparent;
             &:hover {
