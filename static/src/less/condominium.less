@@ -68,7 +68,10 @@
 @pivot-table-th-closed-background-color-color:  @panel-color;
 @pivot-table-th-measure-background-color-color: @panel-color;
 
-@input-background-color:                        #979a9f;
+@input-background-color:                        transparent;
+@input-color:                                   @body-color;
+@transition:                                    all 0.3s ease-out;
+@input-transition:                              @transition;
 @form-required-background:                      @border-line-color;         
 @select-background-color:                       @panel-color;
 
@@ -87,6 +90,10 @@
 @btn-default-background-color-color:            @border-line-color;
 @searchview-selection-focus:                    @link-active-color;
 
+@calendar-widget-background-color-color:        transparent;
+@calendar-sidebar-widget-header-background-color-color: @panel-color;
+@calendar-sidebar-widget-content-background-color:      transparent;
+@calendar-active-a-color:                       #1b1f32;
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -280,6 +287,78 @@ Kanban
                     }
                     .o_pivot_measure_row {
                         background-color: @pivot-table-th-measure-background-color-color;
+                        color: @primary-color;
+                    }
+                }
+            }
+            .o_calendar_container {
+                .o_calendar_view {
+                    .o_calendar_widget {
+                        background-color: @calendar-widget-background-color-color;
+                        .fc-week-number,
+                        .fc-widget-header {
+                            background-color: @panel-color;
+                            border: 1px solid @border-line-color;
+                            .fc-agenda-divider-inner {
+                                background: @body-background;
+                            }
+                        }
+                        .fc-widget-content {
+                            border: 1px dotted @border-line-color;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+            .o_calendar_sidebar_container {
+                .ui-datepicker {
+                    border: 1px solid @border-line-color !important;
+                    table {
+                        td {
+                            padding: 0 2px 2px 0;
+                            background-color: @panel-color;
+                            border: 1px solid @border-line-color;
+                            a {
+                                background-color: @body-background;
+                                color: @body-color;
+                                &:active,
+                                &:hover {
+                                    background-color: @primary-color;
+                                    color: @calendar-active-a-color;
+                                    transition: @transition;
+                                }
+                            }
+                        }
+                        .ui-state-active {
+                            background-color: @primary-color !important;
+                            color: @calendar-active-a-color;
+                        }
+                    }
+                }
+                .o_calendar_filter {
+                    background: @panel-color;
+                    border-top: 1px solid @border-line-color;
+                }
+                .o_calendar_sidebar {
+                    .ui-widget-header {
+                        background-color: @calendar-sidebar-widget-header-background-color-color;
+                        border: 1px solid @border-line-color;
+                        color: inherit;
+                        .ui-datepicker-next,
+                        .ui-datepicker-prev {
+                            color: @body-color;
+                            &:hover {
+                                color: @primary-color;
+                            }
+                        }
+                    }
+                    .ui-widget-content {
+                        background: @calendar-sidebar-widget-content-background-color;
+                        color: @primary-color;
+                    }
+                }
+                .o_calendar_sidebar_toggler {
+                    &:hover {
                         color: @primary-color;
                     }
                 }
@@ -585,6 +664,16 @@ Modal
                 .note-statusbar {
                     background: @brand-form-sheet;
                     color: @brand-form-input !important;
+                }
+            }
+            input {
+                background: @input-background-color;
+                border: 1px solid @border-line-color;
+                color: @input-color;
+                &:focus,
+                &:hover {
+                    transition: @input-transition;
+                    border-color: @primary-color !important;
                 }
             }
         }
@@ -1767,12 +1856,12 @@ Tooltip
 
 .o_pivot table .o_pivot_header_cell_closed::before {
     font-family: FontAwesome;
-    content: "\f358";
+    content: "\f078";
     margin-right: 8px;
 }
 
 .o_pivot table .o_pivot_header_cell_opened::before {
     font-family: FontAwesome;
-    content: "\f35b";
+    content: "\f077";
     margin-right: 8px;
 }
