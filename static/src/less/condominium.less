@@ -34,6 +34,7 @@
 @title-color:                   #ececef;
 @topbar-color:                  #1b1f32;
 @panel-color:                   @topbar-color!important;
+@form-input-hover-color:        @body-secondary-color;
 
 /* @box-shadow:                    0 8px 24px rgba(0,0,0,.12); */
 @dropdown-menu-item-color:                      #c9cbd4;
@@ -1022,7 +1023,7 @@ Form Breadcrumb
 .o_datepicker.o_form_field_date.o_form_field.o_form_required {
     padding: 0px !important;
     border: 1px !important;
-    border-bottom: 1px solid @primary-color !important;
+//    border-bottom: 1px solid @primary-color !important;
 }
 
 /***
@@ -1058,7 +1059,7 @@ Form
                     background: @panel-color;
                     span {
                         background: @panel-color;
-                        border: 1px solid @brand-form-sheet-bg;
+                        border: 1px solid @primary-color;
                     }
                 }
                 &:first-child {
@@ -1079,15 +1080,23 @@ Form
                 }
                 > .label {
                     border-left: unset;// 1px solid @border-line-color;
+                    border-top: 0.5px solid @primary-color !important;
+                    border-bottom: 0.5px solid @primary-color !important;
                 }
             }
         }
     }
+    .o_group .o_form_field:active,
+    .o_form_field .o_form_input:active,
     .o_group .o_form_field:focus,
-    .o_form_field .o_form_input:focus,
+    .o_form_field .o_form_input:focus {
+        border-color: @primary-color;
+        transition: all .3s ease-in-out;
+    }
     .o_group .o_form_field:hover,
     .o_form_field .o_form_input:hover {
-        border-color: @primary-color!important;
+        border-color: @primary-color;
+        transition: all .3s ease-out;
     }
     .o_form_field.o_form_field_many2one .o_external_button {
         color: @primary-color;
@@ -1334,7 +1343,8 @@ html .o_loading {
         border-top: 1px solid @border-line-color;
         border-left: 1px solid @border-line-color;
         border-right: 1px solid @border-line-color;
-        color: @primary-color;
+        color: @title-color !important;
+        background: @form-required-background !important;
     }
     .o_form_sheet_bg {
         background: transparent;
