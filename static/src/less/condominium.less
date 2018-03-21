@@ -84,6 +84,9 @@
 @header-border-color:                           none;
 @header-border-bottom-color:                    @border-line-color;
 
+@btn-default-background-color-color:            @border-line-color;
+@searchview-selection-focus:                    @link-active-color;
+
 body {
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Roboto', sans-serif; */
@@ -459,13 +462,33 @@ fieldset[disabled] .btn-default.active {
     background-color: #3d4853;
     border: 1px solid @brand-form-input;
     border-radius: 0px;
+    .o_searchview_autocomplete {
+        li.o-selection-focus {
+            background-color: @searchview-selection-focus;
+        }
+    }
+
     .o_searchview_input {
         color: @brand-search-input-color;
         background: transparent;
     }
     .o_searchview_facet {
-        background: @primary-color;
-        color: @brand-button-color-hover;
+        background: @border-line-color;
+        color: @primary-color;
+        border: 1px solid;
+        &:hover {
+            background: @panel-color;
+            /* .o_searchview_facet_label {
+                &:hover {
+                    background-color: @panel-color;
+                }
+            } */
+        }
+        .o_facet_remove {
+            &:hover {
+                color: @primary-color;
+            }
+        }
         .o_searchview_facet_label {
             text-transform: uppercase;
             font-size: 12px;
@@ -473,6 +496,7 @@ fieldset[disabled] .btn-default.active {
         .o_facet_values {
             > span {
                 font-size: 12px;
+                color: @title-color;
             }
             text-transform: uppercase;
         }
@@ -646,10 +670,16 @@ Modal
     color: @primary-color;
     background-color: transparent;
     border-color: transparent;
-
+    &:active {
+        background-color: @btn-default-background-color-color !important;
+        border-color: @border-line-color !important;
+        color: @primary-color !important;
+    }
+    &:focus,
     &:hover {
         border-color: @primary-color;
         background: @border-line-color;
+        background-color: transparent;
         color: #fff;
     }
 }
@@ -1086,8 +1116,17 @@ Form
             }
         }
     }
+<<<<<<< HEAD
     .o_group .o_form_field:active,
     .o_form_field .o_form_input:active,
+=======
+    .o_datepicker_input:focus,
+    .o_form_input_dropdown:focus {
+        > input {
+            border-bottom: unset !important;
+        }
+    }
+>>>>>>> 6190f89bf65c533ad0369dfd6a0f0dbd976b2b76
     .o_group .o_form_field:focus,
     .o_form_field .o_form_input:focus {
         border-color: @primary-color;
@@ -1095,8 +1134,12 @@ Form
     }
     .o_group .o_form_field:hover,
     .o_form_field .o_form_input:hover {
+<<<<<<< HEAD
         border-color: @primary-color;
         transition: all .3s ease-out;
+=======
+        border-color: @primary-color !important;
+>>>>>>> 6190f89bf65c533ad0369dfd6a0f0dbd976b2b76
     }
     .o_form_field.o_form_field_many2one .o_external_button {
         color: @primary-color;
