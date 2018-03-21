@@ -1106,27 +1106,28 @@ Form
                 background: @border-line-color;
                 > .arrow span {
                     background: @border-line-color !important;
-                    border: 1px solid;
+                    border: 1.5px solid @primary-color;
                 }
                 > .label {
-                    border-left: unset;// 1px solid @border-line-color;
+                    /* border-left: 0.5px solid @primary-color !important;
                     border-top: 0.5px solid @primary-color !important;
-                    border-bottom: 0.5px solid @primary-color !important;
+                    border-bottom: 0.5px solid @primary-color !important; */
+                    border: 1px solid @primary-color !important;
                 }
+            }
+            li > .arrow span {
+                z-index: 1;
             }
         }
     }
-<<<<<<< HEAD
     .o_group .o_form_field:active,
     .o_form_field .o_form_input:active,
-=======
     .o_datepicker_input:focus,
     .o_form_input_dropdown:focus {
         > input {
             border-bottom: unset !important;
         }
     }
->>>>>>> 6190f89bf65c533ad0369dfd6a0f0dbd976b2b76
     .o_group .o_form_field:focus,
     .o_form_field .o_form_input:focus {
         border-color: @primary-color;
@@ -1134,12 +1135,9 @@ Form
     }
     .o_group .o_form_field:hover,
     .o_form_field .o_form_input:hover {
-<<<<<<< HEAD
         border-color: @primary-color;
         transition: all .3s ease-out;
-=======
         border-color: @primary-color !important;
->>>>>>> 6190f89bf65c533ad0369dfd6a0f0dbd976b2b76
     }
     .o_form_field.o_form_field_many2one .o_external_button {
         color: @primary-color;
