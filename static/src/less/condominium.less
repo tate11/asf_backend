@@ -1183,10 +1183,6 @@ Form Breadcrumb
 /***
 Form
 ***/
-.o_form_view {
-    
-}
-
 .o_form_view.o_form_readonly .o_form_uri {
     color: @primary-color;
 
@@ -1352,6 +1348,13 @@ html .o_loading {
 
 .o_form_view {
     background-color: transparent;
+    .o_kanban_view .o_kanban_record, .o_kanban_view .o_kanban_quick_create {
+        background-color: @body-background-color !important;
+        .oe_kanban_details {
+            color: @modal-body-color;
+        }
+    }
+    
     .o_form_required.o_form_input {
         /* background: @form-required-background !important; */
         border-bottom: 1px solid @primary-color !important;
