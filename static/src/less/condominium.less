@@ -280,10 +280,22 @@ Kanban
                 background: transparent;
             } 
         }
-        .navbar-nav a {
-            &:hover {
-                color: @primary-color;
-                background: transparent;
+        .navbar-nav {
+            > .open {
+                > a {
+                    background-color: @border-line-color;
+                    color: @primary-color;
+                    &:hover {
+                        color: @primary-color;
+                        //background: transparent;
+                    }
+                }
+            }
+            a {
+                &:hover {
+                    color: @primary-color;
+                    //background: transparent;
+                }
             }
         }
     }
