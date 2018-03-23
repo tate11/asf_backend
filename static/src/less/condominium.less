@@ -1,112 +1,106 @@
-/* @primary-color:         #DB6574; //#F27902;
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+@blue:                          #03a9f4; //#37cfdc;
+@sea:                           #379392;
+@violet:                        #a3498b; //#9055a2;
+@green:                         #429244;
+@red:                           #ff3f3f;
+@pink:                          #db6574;
 
-@panel-background-color:         @primary-color; //#313949; //#875A7B;
-@body-color:      #666666;
-
-
-@panel-background-color:      #2d3035;
-@border-line-color:     #34373d; //#444951; 
-@brand-modal-title:     @table-td-color;
- */
-@primary-color:                 #03a9f4;
+@primary-color:                 @blue;
 @secondary-color:               #e91e63!important;
 @body-color:                    #a4a8bc;
 @body-secondary-color:          #5b638b!important;
 @link-active-color:             @primary-color;
 @link-hover-color:              @link-active-color;
-@body-background-color:         #141727;
-@border-line-color:             #252b46;
+@body-background-color:         #22252a; //#141727;
+
 @title-color:                   #ececef;
-@topbar-color:                  #1b1f32;
 @panel-background-color:        @topbar-color!important;
 @form-input-hover-color:        @body-secondary-color;
 
-@field-color:                   #979a9f;
-@table-td-color:                #8a8d93;
+@border-line-color:             #34373d; //#252b46;
+//@border-line-color:             lighten(@panel-background-color,10%);
+@active-background-color:       @border-line-color; //#151828;
+@active-background-color-color: @active-background-color;
+@active-a-color:                @body-background-color;
+@disabled-color:                #8c8c8c;
+@topbar-color:                  #2d3035; //#1b1f32;
+
+@field-color:                                   #979a9f;
+@table-td-color:                                #8a8d93;
+@table-tr-background-color-color:               darken(@panel-background-color,3%);
 @form-sheet-background:         @body-background-color;
 @form-input-color:              @field-color;
-@searchview-input-color:        #fff;
-@button-hover-color:            #fff;
+@searchview-input-color:        @title-color;
+@button-hover-color:            @title-color;
 @primary-color-dark-20:         darken(@primary-color, 80%);
 @primary-color-dark-10:         darken(@primary-color, 30%);
-@navbar-a-color:                #eee;
-@menu-a-color:       #CACACA;
+@navbar-a-color:                @title-color;
+@menu-a-color:                  @title-color;
 
+@dropdown-menu-item-color:      #c9cbd4;
+@dropdown-menu-item-background-color:                   @topbar-color;
+@dropdown-menu-item-background-color-color:             @topbar-color;
+@dropdown-menu-item-hover-color:                        @body-background-color;
+@dropdown-menu-item-background-hover-color:             @primary-color;
 
-/* @box-shadow:                    0 8px 24px rgba(0,0,0,.12); */
-@dropdown-menu-item-color:                      #c9cbd4;
-@dropdown-menu-item-background-color:           @topbar-color;
-@dropdown-menu-item-background-color-color:     @topbar-color;
-@dropdown-menu-item-hover-color:                #141727;
-@dropdown-menu-item-background-hover-color:     @primary-color;
+@navbar-inverse-background:                             @topbar-color;
+@o_sub_menu:                                            @topbar-color;
+@o_main_backround:                                      transparent;
+@view_manager_content:                                  @topbar-color;
+@pivot-table-background-color-color:                    transparent;
 
-@navbar-inverse-background:                     @topbar-color;
-@o_sub_menu:                                    @topbar-color;
-@o_main_backround:                              transparent;
-@view_manager_content:                          transparent;
-@pivot-table-background-color-color:            transparent;
+@nav-pills-active-color:                                @primary-color;
+@nav-pills-active-background-color:                     @active-background-color;
+@breadcrumb-active-color:                               @title-color;
+@breadcrumb-font-size:                                  inherit;
 
-@nav-pills-active-color:                        @primary-color;
-@nav-pills-active-background-color:             #151828;
-@breadcrumb-active-color:                       @body-color;
-@breadcrumb-font-size:                          inherit;
+@modal-header-background:                               @panel-background-color;
+@modal-title-color:                                     @primary-color;
+@modal-body-background:                                 @body-background-color;// @active-background-color;
+@modal-body-color:                                      @body-color;
+@modal-footer-background:                               @panel-background-color;
+@modal-footer-color:                                    @body-color;
 
-@modal-header-background:                       @panel-background-color;
-@modal-title-color:                             @primary-color;
-@modal-body-background:                         @body-background-color;// #151828;
-@modal-body-color:                              @body-color;
-@modal-footer-background:                       @panel-background-color;
-@modal-footer-color:                            @body-color;
+@graph_svg_container:                                   @panel-background-color;
 
-@graph_svg_container:                           @panel-background-color;
+@pivot-table-th-background-color-color:                 @panel-background-color;
+@pivot-table-th-opened-background-color-color:          @panel-background-color;
+@pivot-table-th-closed-background-color-color:          @panel-background-color;
+@pivot-table-th-measure-background-color-color:         @panel-background-color;
 
-@pivot-table-th-background-color-color:         @panel-background-color;
-@pivot-table-th-opened-background-color-color:  @panel-background-color;
-@pivot-table-th-closed-background-color-color:  @panel-background-color;
-@pivot-table-th-measure-background-color-color: @panel-background-color;
+@input-background-color:                                transparent;
+@input-color:                                           @body-color;
+@transition:                                            all 0.3s ease-out;
+@input-transition:                                      @transition;
+@form-required-background:                              @border-line-color;         
+@select-background-color:                               @panel-background-color;
 
-@input-background-color:                        transparent;
-@input-color:                                   @body-color;
-@transition:                                    all 0.3s ease-out;
-@input-transition:                              @transition;
-@form-required-background:                      @border-line-color;         
-@select-background-color:                       @panel-background-color;
+@tooltip-inner-background-color-color:                  @panel-background-color;
+@tooltip-inner-color:                                   @primary-color;
+@tooltip-string-background-color:                       @panel-background-color;
+@tooltip-string-color:                                  @title-color;
+@box-shadow:                                            0 0 0 0.2rem @primary-color;
 
-@tooltip-inner-background-color-color:          @panel-background-color;
-@tooltip-inner-color:                           @primary-color;
-@tooltip-string-background-color:               @panel-background-color;
-@tooltip-string-color:                          @title-color;
-@box-shadow:                                    0 0 0 0.2rem @primary-color;
+@btn-default-active-background-color:                   transparent;
+@btn-active-background-color:                           transparent;
+@oe_stat-button-hover-background-color:                 @menu-background-color-hover;
+@btn-default-background-color-color:                    @border-line-color;
 
-@btn-default-active-background-color:           transparent;
-@btn-active-background-color:                   transparent;
-@oe_stat-button-hover-background-color:         @menu-background-color-hover;
-@btn-default-background-color-color:            @border-line-color;
+@header-border-color:                                   none;
+@header-border-bottom-color:                            @border-line-color;
 
-@header-border-color:                           none;
-@header-border-bottom-color:                    @border-line-color;
+@searchview-selection-focus:                            @link-active-color;
 
-@searchview-selection-focus:                    @link-active-color;
-
-@calendar-widget-background-color-color:        transparent;
+@calendar-widget-background-color-color:                transparent;
 @calendar-sidebar-widget-header-background-color-color: @panel-background-color;
 @calendar-sidebar-widget-content-background-color:      transparent;
-@calendar-active-a-color:                       #141727;
-@calendar-filter-background-color:              transparent;
+@calendar-active-a-color:                               @body-background-color;
+@calendar-filter-background-color:                      transparent;
 
-@menu-background-color-hover:                           #151828;
-@secondary-menu-section-active-background-color:        #151828;
-@secondary-submenu-active-hover-background-color-color: #151828;
-@secondary-submenu-not-active-hover-border-color:       #151828;
-
-@active-background-color:                               #151828;
-@active-background-color-color:                         @active-background-color;
-@active-a-color:                                        #141727;
-@disabled-color:                                        #8c8c8c;
+@menu-background-color-hover:                           @active-background-color;
+@secondary-menu-section-active-background-color:        @active-background-color;
+@secondary-submenu-active-hover-background-color-color: @active-background-color;
+@secondary-submenu-not-active-hover-border-color:       @active-background-color;
 
 body {
     /* font-family: 'Montserrat', sans-serif; */
@@ -171,7 +165,7 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     background-color: @navbar-a-color;
     &:hover {
         background-color: @navbar-a-color;
-        color: #fff;
+        color: @title-color;
     }
 }
 /* 
@@ -279,7 +273,7 @@ Kanban
         .navbar-nav > .active > a {
             background: @primary-color;
             border-bottom: 2px solid @primary-color;
-            color: #fff;
+            color: @title-color;
             //text-transform: uppercase;
             &:hover {
                 color: @primary-color;
@@ -415,7 +409,7 @@ Kanban
                     border-left: 4px solid @primary-color;
                     .oe_menu_leaf {
                         .oe_menu_text {
-                            color: #fff;
+                            color: @title-color;
                         }
                     }
                 }
@@ -485,7 +479,7 @@ Kanban
                                 color: @field-color;
                                 &:focus {
                                     border-color: @primary-color;
-                                    color: #fff;
+                                    color: @title-color;
                                 }
                             }
                         }
@@ -502,7 +496,7 @@ Kanban
                 tr {
                     td {
                         border-color: @border-line-color;
-                        color: @table-td-color;
+                        color: @table-td-color !important;
                     }
                 }
                 tbody {
@@ -654,6 +648,15 @@ Modal
         .modal-body {
             color: @primary-color;
             background: transparent;
+            .oe_form_box_info {
+                background-color: @secondary-color;
+                color: @title-color;
+            }
+            .o_kanban_view .o_kanban_record, .o_kanban_view .o_kanban_quick_create {
+                .oe_kanban_details {
+                    color: @title-color;
+                }
+            }
             .o_form_sheet {
                 background: @modal-body-background !important;
                 .nav-tabs {
@@ -728,7 +731,7 @@ Modal
 	border: 1px solid #003eff;
 	background: red;
 	font-weight: normal;
-	color: #ffffff;
+	color: @title-color;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -804,7 +807,7 @@ Modal
         border-color: @primary-color;
         background: @border-line-color;
         background-color: transparent;
-        color: #fff;
+        color: @title-color;
     }
 }
 
@@ -993,7 +996,7 @@ td a {
     padding: 10px 4px !important;
 }
 
-.o_list_view{border-collapse: initial;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty){padding-right: 13px;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 29px !important;} .o_list_view > thead > tr > :empty, .o_list_view > tbody > tr > :empty, .o_list_view > tfoot > tr > :empty{padding: 0;} .o_list_view > thead > tr > :empty::after, .o_list_view > tbody > tr > :empty::after, .o_list_view > tfoot > tr > :empty::after{display: none;} .o_list_view > thead > tr > *, .o_list_view > tfoot > tr > *{padding-top: 8px; padding-bottom: 8px;} .o_list_view > thead{background-color: white;border: none;} .o_list_view > thead > tr:first-child > th{border: none;} .o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view tfoot > tr > td{border-top: 2px solid #d9d7d7;} .o_list_view .o_progressbar_cell .o_progressbar{display: table-row;} .o_list_view .o_progressbar_cell .o_progressbar > div{width: 100%; display: table-cell;} .o_list_view .o_progressbar_cell .o_progressbar .o_progressbar_value{width: 45px; min-width: 45px;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header{background-color: #F9F9F9; box-shadow: inset 0 2px 0 #ffffff;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content{color: #777777;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open{font-weight: bold; color: #2f3136;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody + tbody > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view.o_list_view_grouped.table-striped > tbody + tbody > tr:not(.o_group_header):nth-of-type(odd){background-color: white;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier){border-right: 1px solid #E5E5E5;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding-right: 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty){padding: 14px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr:not(.o_list_view_grouped) > td{padding: 7px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > :not(:empty){padding: 12px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty){padding-right: 15px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 31px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:first-child{padding-left: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:last-child{padding-right: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 7px 6px 7px 7px;} @media (min-width: 1200px){.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > :not(:empty){padding: 17px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr:not(.o_list_view_grouped) > td{padding: 8px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > :not(:empty){padding: 15px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty){padding-right: 18px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 34px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:first-child{padding-left: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:last-child{padding-right: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 8px 7px 8px 8px;}} 
+.o_list_view{border-collapse: initial;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty){padding-right: 13px;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 29px !important;} .o_list_view > thead > tr > :empty, .o_list_view > tbody > tr > :empty, .o_list_view > tfoot > tr > :empty{padding: 0;} .o_list_view > thead > tr > :empty::after, .o_list_view > tbody > tr > :empty::after, .o_list_view > tfoot > tr > :empty::after{display: none;} .o_list_view > thead > tr > *, .o_list_view > tfoot > tr > *{padding-top: 8px; padding-bottom: 8px;} .o_list_view > thead{background-color: white;border: none;} .o_list_view > thead > tr:first-child > th{border: none;} .o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view tfoot > tr > td{border-top: 2px solid #d9d7d7;} .o_list_view .o_progressbar_cell .o_progressbar{display: table-row;} .o_list_view .o_progressbar_cell .o_progressbar > div{width: 100%; display: table-cell;} .o_list_view .o_progressbar_cell .o_progressbar .o_progressbar_value{width: 45px; min-width: 45px;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header{background-color: #F9F9F9; box-shadow: inset 0 2px 0 @title-color;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content{color: #777777;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open{font-weight: bold; color: #2f3136;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody + tbody > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view.o_list_view_grouped.table-striped > tbody + tbody > tr:not(.o_group_header):nth-of-type(odd){background-color: white;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier){border-right: 1px solid #E5E5E5;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding-right: 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty){padding: 14px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr:not(.o_list_view_grouped) > td{padding: 7px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > :not(:empty){padding: 12px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty){padding-right: 15px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 31px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:first-child{padding-left: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:last-child{padding-right: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 7px 6px 7px 7px;} @media (min-width: 1200px){.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > :not(:empty){padding: 17px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr:not(.o_list_view_grouped) > td{padding: 8px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > :not(:empty){padding: 15px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty){padding-right: 18px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 34px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:first-child{padding-left: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:last-child{padding-right: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 8px 7px 8px 8px;}} 
 
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #F9F9F9;
@@ -1118,7 +1121,7 @@ Form Breadcrumb
 
 .o_form_view ul.oe_form_status li,
 .o_form_view ul.oe_form_status_clickable li {
-  background-color: #fff;
+  background-color: @title-color;
   background-image: none;
 }
 
@@ -1142,14 +1145,14 @@ Form Breadcrumb
 
 .o_form_view ul.oe_form_status li > .arrow span,
 .o_form_view ul.oe_form_status_clickable li > .arrow span {
-  background-color: #fff;
-  background: #fff;
+  background-color: @title-color;
+  background: @title-color;
 }
 
 .o_form_view ul.oe_form_status li.oe_active > .arrow span,
 .o_form_view ul.oe_form_status_clickable li.oe_active > .arrow span {
-  background-color: #fff;
-  background: #fff;
+  background-color: @title-color;
+  background: @title-color;
 }
   
 .o_form_view ul.oe_form_status,
@@ -1159,7 +1162,7 @@ Form Breadcrumb
 
 .btn-icon:active, .btn-icon.active, .open > .dropdown-toggle.btn-icon {
     background: @primary-color;
-    color: #fff;
+    color: @title-color;
     &:hover {
         background: transparent;
         color: @primary-color;
@@ -1282,7 +1285,7 @@ Chater
             .o_composer {
                 .o_composer_text_field {
                     background: transparent;
-                    color: #fff;
+                    color: @title-color;
                 }
             }
         }
@@ -1354,7 +1357,6 @@ html .o_loading {
             color: @modal-body-color;
         }
     }
-    
     .o_form_required.o_form_input {
         /* background: @form-required-background !important; */
         border-bottom: 1px solid @primary-color !important;
@@ -1513,7 +1515,7 @@ html .o_loading {
             &:hover {
                 background: @oe_stat-button-hover-background-color;
                 .oe_stat_text {
-                    color: #fff;
+                    color: @title-color;
                 }
             }
             .o_button_icon {
@@ -1614,7 +1616,7 @@ hr {
     background-color: transparent;
     > thead {
         background-color: transparent;
-        color: @table-td-color;
+        color: @title-color;
     }
 }
 
@@ -1630,7 +1632,7 @@ hr {
   .table td,
   .table th {
     border: 1px solid;
-    border-color: #252b46;
+    border-color: @border-line-color;
   }
   
   .table thead th {
@@ -1643,7 +1645,7 @@ hr {
   }
   
   .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #282b2f;
+    background-color: @table-tr-background-color-color;
   }
   
   .table-striped tbody tr:nth-of-type(odd):hover {
@@ -1767,7 +1769,7 @@ div.o_radio_item > input::after {
   opacity: 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  color: #fff;
+  color: @title-color;
 }
 
 div.o_checkbox > input:checked::before,
