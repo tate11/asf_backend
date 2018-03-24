@@ -44,6 +44,7 @@
 @dropdown-menu-item-background-hover-color:             @primary-color;
 
 @navbar-inverse-background:                             @topbar-color;
+@navbar-nav-active-color:                               @body-background-color;
 @o_sub_menu:                                            @topbar-color;
 @o_main_backround:                                      transparent;
 @view_manager_content:                                  @topbar-color;
@@ -81,11 +82,14 @@
 @tooltip-string-color:                                  @title-color;
 @box-shadow:                                            0 0 0 0.2rem @primary-color;
 
+@btn-primary-color:                                     #fff;
+@btn-icon-active-color:                                 @body-background-color;
 @btn-default-active-background-color:                   transparent;
 @btn-active-background-color:                           transparent;
 @oe_stat-button-hover-background-color:                 @menu-background-color-hover;
 @btn-default-background-color-color:                    @border-line-color;
-
+@btn-default-disabled-background-color-color:           @border-line-color;
+@btn-default-disabled-border-color:                     @body-background-color;
 @header-border-color:                                   none;
 @header-border-bottom-color:                            @border-line-color;
 
@@ -290,8 +294,7 @@ Kanban
             > .active {
                 > a {
                     background: @primary-color;
-                    // border-bottom: 2px solid @primary-color;
-                    color: @active-a-color;
+                    color: @navbar-nav-active-color;
                     &:hover {
                         color: @active-a-color;
                         // background: transparent;
@@ -564,32 +567,6 @@ textarea {
 a.pull-right:hover {
     color: @primary-color;
 }
-.btn-default.disabled, 
-.btn-default[disabled], 
-fieldset[disabled] 
-.btn-default, 
-.btn-default.disabled:hover, 
-.btn-default[disabled]:hover, 
-fieldset[disabled] 
-.btn-default:hover, 
-.btn-default.disabled:focus, 
-.btn-default[disabled]:focus, 
-fieldset[disabled] 
-.btn-default:focus, 
-.btn-default.disabled.focus, 
-.btn-default[disabled].focus, 
-fieldset[disabled] 
-.btn-default.focus, 
-.btn-default.disabled:active, 
-.btn-default[disabled]:active, 
-fieldset[disabled] 
-.btn-default:active, 
-.btn-default.disabled.active, 
-.btn-default[disabled].active, 
-fieldset[disabled] .btn-default.active {
-    background-color: @btn-default-active-background-color;
-    border-color: #777777;
-}
 
 .o_searchview {
     background-color: #3d4853;
@@ -810,13 +787,23 @@ Modal
 }
 
 .btn-default {
+    &:disabled {
+        background-color: @btn-default-disabled-background-color-color;
+        border-color: @btn-default-disabled-border-color;
+    }
     color: @primary-color;
     background-color: transparent;
     border-color: transparent;
+    &.active,
     &:active {
         background-color: @btn-default-background-color-color !important;
-        border-color: @border-line-color !important;
+        border-color: @primary-color !important;
         color: @primary-color !important;
+        &:hover,
+        &.hover {
+            background-color: transparent;
+            border-color: @primary-color;
+        }
     }
     &:focus,
     &:hover {
@@ -827,23 +814,65 @@ Modal
     }
 }
 
+fieldset {
+    &:disabled {
+        // .btn-default {
+        //     > .active {
+        //         background-color: @btn-default-active-background-color;
+        //         border-color: yellow;
+        //     }
+        // }
+        .btn-primary {
+            color: @disabled-color;
+            background-color: @primary-color-dark-20;
+            border-color: @primary-color-dark-20;
+            &:hover,
+            &:focus,
+            &.focus,
+            &:active,
+            &.active {
+                background-color: @primary-color-dark-20;
+                border-color: @primary-color-dark-20;
+                color: @disabled-color;
+            }
+        }
+
+    }
+}
+
 .btn-primary {
-    color: white;
+    color: @btn-primary-color;
     background-color: @primary-color;
     border-color: @primary-color;
-
+    > &:disabled,
+    > &.disabled {
+        &:active,
+        &.active {
+            background-color: @primary-color-dark-20;
+            border-color: @primary-color-dark-20;
+            color: @disabled-color;
+        }
+        &:focus {
+            background-color: @primary-color-dark-20;
+            border-color: @primary-color-dark-20;
+            color: @disabled-color;
+        }
+        &:hover {
+            background-color: @primary-color-dark-20;
+            border-color: @primary-color-dark-20;
+            color: @disabled-color;
+        }
+    }
     &:hover {
         // color: #202020;
         background-color: lighten(@primary-color, 2.5%);
         border-color: lighten(@primary-color, 2.5%);    
     }
-
     &:focus {
         color: #202020;
         background-color: lighten(@primary-color, 3%);;
         border-color: lighten(@primary-color, 3%);    
     }
-
     &:active {
         // color: #202020;
         background-color: lighten(@primary-color, 3.5%) !important;
@@ -871,36 +900,49 @@ Modal
     color: @primary-color;
 }
 
+.open > .dropdown-toggle.btn-icon {
+    background: @primary-color;
+    color: @title-color;
+    border-color: @primary-color;
+    box-shadow: none;
+
+    &:hover {
+        border-color: lighten(@primary-color,10%);
+        background: transparent;
+        color: @primary-color;
+    }
+}
+
 .btn-icon {
     color: @primary-color;
     background-color: transparent;
     border-color: transparent;
-
+    &:disabled {
+        border-color: transparent;
+        background-color: transparent;
+        &:hover {
+            background-color: transparent;
+            border-color: @border-line-color;
+        }
+    }    
+    &.active {
+        background: @primary-color;
+        color: @btn-icon-active-color;
+        border-color: @primary-color;
+        box-shadow: none;
+        &:focus,
+        &:hover {
+            border-color: lighten(@primary-color,10%);
+            background: transparent;
+            color: @primary-color;
+        }
+    }
+    &.focus,
+    &:focus,
     &:hover {
         border-color: @primary-color;
         background-color: transparent;
         color: @button-hover-color;
-    }
-}
-
-.btn-icon[disabled] {
-    border-color: transparent;
-    background-color: transparent;
-    &:hover {
-        background-color: transparent;
-        border-color: @border-line-color;
-    }
-}
-
-.btn-icon:active, 
-.btn-icon.active, 
-.open > .dropdown-toggle.btn-icon {
-    // color: #4c4c4c;
-    // background-color: #e6e6e6;
-    border-color: @primary-color;
-    box-shadow: none;
-    &:hover {
-        border-color: lighten(@primary-color,10%);
     }
 }
 
@@ -910,12 +952,6 @@ Modal
     &:hover {
         color: darken(@primary-color, 5%);
     }
-}
-
-.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
-    background-color: @primary-color-dark-20;
-    border-color: @primary-color-dark-20;
-    color: @disabled-color;
 }
 
 a {
@@ -1181,15 +1217,6 @@ Form Breadcrumb
 .o_form_view ul.oe_form_status,
 .o_form_view ul.oe_form_status_clickable {
   text-transform: uppercase;
-}
-
-.btn-icon:active, .btn-icon.active, .open > .dropdown-toggle.btn-icon {
-    background: @primary-color;
-    color: @title-color;
-    &:hover {
-        background: transparent;
-        color: @primary-color;
-    }
 }
 
 .o_form_field_many2one.o_form_field,
