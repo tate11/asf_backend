@@ -7,26 +7,26 @@
 
 @primary-color:                 @blue;
 @secondary-color:               #e91e63!important;
-@body-color:                    #a4a8bc;
-@body-secondary-color:          #5b638b!important;
+@topbar-color:                  #2d3035; //#1b1f32;
+@body-color:                    lighten(@panel-background-color,65%);
+@body-secondary-color:          lighten(@panel-background-color,4%);
 @link-active-color:             @primary-color;
 @link-hover-color:              @link-active-color;
-@body-background-color:         darken(@panel-background-color,5%); //#22252a; //#141727;
+@body-background-color:         darken(@panel-background-color,5%);
 
-@title-color:                   #ececef;
+@title-color:                   lighten(@panel-background-color,60%);
 @panel-background-color:        @topbar-color!important;
 @form-input-hover-color:        @body-secondary-color;
 
-@border-line-color:             #34373d; //#252b46;
-//@border-line-color:             lighten(@panel-background-color,10%);
-@active-background-color:       @border-line-color; //#151828;
+@border-line-color:             lighten(@panel-background-color,5%);
+@active-background-color:       @border-line-color;
 @active-background-color-color: @active-background-color;
 @active-a-color:                @body-background-color;
-@disabled-color:                #8c8c8c;
-@topbar-color:                  #2d3035; //#1b1f32;
+@disabled-color:                darken(@panel-background-color,12%);
 
-@field-color:                                   #979a9f;
-@table-td-color:                                #8a8d93;
+
+@field-color:                       lighten(@panel-background-color,55%);
+@table-td-color:                    inherit; //lighten(@panel-background-color,28%); //#8a8d93;
 @table-tr-background-color-color:               darken(@panel-background-color,3%);
 @form-sheet-background:         @body-background-color;
 @form-input-color:              @field-color;
@@ -304,8 +304,15 @@ Kanban
         background: @o_main_backround;
         .o_view_manager_content {
             background: @view_manager_content;
-            .o_graph_svg_container {
+            > div > header > div {
                 padding: 10px;
+                background: @body-background-color;
+            }
+            .table {
+                background-color: @panel-background-color;
+            }
+            .o_graph_svg_container {
+                // padding: 10px;
                 svg {
                     background: @graph_svg_container;
                     .nvd3 .nv-axis line {
@@ -314,7 +321,7 @@ Kanban
                 }
             }
             .o_pivot {
-                padding: 10px;
+                // padding: 10px;
                 > table {
                     background-color: @pivot-table-background-color-color;
                     border: 1px solid @border-line-color;
@@ -537,7 +544,7 @@ Kanban
     .oe_import {
         background-color: transparent;
         .oe_import_box {
-            background: @form-sheet-background;
+            background: @panel-background-color;
             border: 1px solid @border-line-color;
             p {
                 color: @primary-color;
@@ -659,7 +666,7 @@ Modal
         }
         .modal-body {
             color: @primary-color;
-            background: transparent;
+            background: @modal-body-background;
             .oe_form_box_info {
                 background-color: @secondary-color;
                 color: @title-color;
@@ -772,7 +779,7 @@ Modal
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
-        background-color: lighten(@panel-background-color, 10%);
+        background-color: red;//lighten(@panel-background-color, 90%);
     }
     .breadcrumb {
         background-color: transparent;
@@ -1008,8 +1015,15 @@ td a {
     padding: 10px 4px !important;
 }
 
-.o_list_view{border-collapse: initial;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty){padding-right: 13px;} .o_list_view > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 29px !important;} .o_list_view > thead > tr > :empty, .o_list_view > tbody > tr > :empty, .o_list_view > tfoot > tr > :empty{padding: 0;} .o_list_view > thead > tr > :empty::after, .o_list_view > tbody > tr > :empty::after, .o_list_view > tfoot > tr > :empty::after{display: none;} .o_list_view > thead > tr > *, .o_list_view > tfoot > tr > *{padding-top: 8px; padding-bottom: 8px;} .o_list_view > thead{background-color: white;border: none;} .o_list_view > thead > tr:first-child > th{border: none;} .o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view tfoot > tr > td{border-top: 2px solid #d9d7d7;} .o_list_view .o_progressbar_cell .o_progressbar{display: table-row;} .o_list_view .o_progressbar_cell .o_progressbar > div{width: 100%; display: table-cell;} .o_list_view .o_progressbar_cell .o_progressbar .o_progressbar_value{width: 45px; min-width: 45px;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header{background-color: #F9F9F9; box-shadow: inset 0 2px 0 @title-color;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content{color: #777777;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open{font-weight: bold; color: #2f3136;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody + tbody > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view.o_list_view_grouped.table-striped > tbody + tbody > tr:not(.o_group_header):nth-of-type(odd){background-color: white;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier){border-right: 1px solid #E5E5E5;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding-right: 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty){padding: 14px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr:not(.o_list_view_grouped) > td{padding: 7px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > :not(:empty){padding: 12px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty){padding-right: 15px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 31px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:first-child{padding-left: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:last-child{padding-right: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 7px 6px 7px 7px;} @media (min-width: 1200px){.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > :not(:empty){padding: 17px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr:not(.o_list_view_grouped) > td{padding: 8px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > :not(:empty){padding: 15px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty){padding-right: 18px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 34px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:first-child{padding-left: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:last-child{padding-right: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 8px 7px 8px 8px;}} 
+/* .o_list_view {border-collapse: initial;} 
+.o_list_view > thead > tr > th.o_column_sortable:not(:empty){padding-right: 13px;} 
+.o_list_view > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 29px !important;} 
+.o_list_view > thead > tr > :empty, 
+.o_list_view > tbody > tr > :empty, 
+.o_list_view > tfoot > tr > :empty{padding: 0;} 
 
+.o_list_view > thead > tr > :empty::after, .o_list_view > tbody > tr > :empty::after, .o_list_view > tfoot > tr > :empty::after{display: none;} .o_list_view > thead > tr > *, .o_list_view > tfoot > tr > *{padding-top: 8px; padding-bottom: 8px;} .o_list_view > thead{background-color: white;border: none;} .o_list_view > thead > tr:first-child > th{border: none;} .o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view tfoot > tr > td{border-top: 2px solid #d9d7d7;} .o_list_view .o_progressbar_cell .o_progressbar{display: table-row;} .o_list_view .o_progressbar_cell .o_progressbar > div{width: 100%; display: table-cell;} .o_list_view .o_progressbar_cell .o_progressbar .o_progressbar_value{width: 45px; min-width: 45px;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header{background-color: #F9F9F9; box-shadow: inset 0 2px 0 @title-color;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content{color: #777777;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open{font-weight: bold; color: #2f3136;} .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:hover, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open:focus, .o_list_view.o_list_view_grouped > tbody > tr.o_group_header.o_group_has_content.o_group_open.focus{color: #875A7B;} .o_list_view.o_list_view_grouped > tbody + tbody > tr:first-child:not(.o_group_header){box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);} .o_list_view.o_list_view_grouped.table-striped > tbody + tbody > tr:not(.o_group_header):nth-of-type(odd){background-color: white;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier){border-right: 1px solid #E5E5E5;} .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding-right: 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty){padding: 14px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr:not(.o_list_view_grouped) > td{padding: 7px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > :not(:empty){padding: 12px 4px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty){padding-right: 15px;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 31px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:first-child{padding-left: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *:last-child{padding-right: 16px !important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;} .o_view_manager_content > div > .table-responsive > .o_list_view.table .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 7px 6px 7px 7px;} @media (min-width: 1200px){.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > :not(:empty){padding: 17px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr:not(.o_list_view_grouped) > td{padding: 8px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > th, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr.o_group_header > td{padding-top: 1px; padding-bottom: 1px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > :not(:empty){padding: 15px 4px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty){padding-right: 18px;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > th.o_column_sortable:not(:empty):last-child{padding-right: 34px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:first-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:first-child{padding-left: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *:last-child, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *:last-child{padding-right: 16px !important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > thead > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tbody > tr > *.o_list_record_selector, .o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) > tfoot > tr > *.o_list_record_selector{padding-right: 5px!important;}.o_view_manager_content > div > .table-responsive > .o_list_view.table:not(.o_list_view_grouped) .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input{padding: 8px 7px 8px 8px;}} 
+ */
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #F9F9F9;
 }
@@ -1133,7 +1147,7 @@ Form Breadcrumb
 
 .o_form_view ul.oe_form_status li,
 .o_form_view ul.oe_form_status_clickable li {
-  background-color: @title-color;
+//   background-color: @title-color;
   background-image: none;
 }
 
@@ -1222,6 +1236,14 @@ Chater
 }
 }
 
+.o_chat_window {
+    background-color: @body-background-color;
+    border: 1px solid @border-line-color;
+    .o_chat_header {
+        background-color: @panel-background-color;
+    }
+}
+
 .o_chatter {
     .o_mail_thread {
         position: relative;
@@ -1230,6 +1252,9 @@ Chater
         background: @form-sheet-background;
         padding: 10px 10px;
         border: 1px solid @border-line-color;
+    }
+    .o_composer_input {
+        background: @panel-background-color;
     }
 }
 
@@ -1248,8 +1273,9 @@ Chater
         margin-left: 40px;
         border-bottom: solid @border-line-color 1px;
         .o_thread_date {
-            background: @panel-background-color;
-            color: @title-color;
+            background: @border-line-color;
+            padding: 5px 20px;
+            // color: @title-color;
         }
     }
     .o_thread_message {
@@ -1332,7 +1358,7 @@ html .o_loading {
     z-index: 1051;
     top: auto;
     background: @primary-color;
-    color: @nav-pills-active-background-color;
+    color: #000;
 }
 
 .datepicker {
@@ -1348,8 +1374,16 @@ html .o_loading {
                 background-color: @panel-background-color;
             }
         }
-        > tbody > tr > td.active, .datepicker .table-condensed > tbody > tr > td .active {
-            background-color: @primary-color;
+        > tbody > {
+            tr > {
+                td.active {
+                    background-color: @primary-color;
+                }
+                td.today:before {
+                    background-color: transparent;
+                    border-bottom-color: @title-color;
+                }
+            }
         }
     }
 }
@@ -1361,6 +1395,9 @@ html .o_loading {
     }
 }
 
+.o_form_view.o_form_nosheet {
+    background: @body-background-color !important;
+}
 .o_form_view {
     background-color: transparent;
     .o_kanban_view .o_kanban_record, .o_kanban_view .o_kanban_quick_create {
@@ -1488,6 +1525,10 @@ html .o_loading {
     }
     .o_form_field.o_form_field_many2one .o_external_button {
         color: @primary-color;
+    }
+    .o_form_field.o_form_field_many2one .o_external_button:hover {
+        background: transparent !important;
+        color: @secondary-color;
     }
     .o_form_field_image > .o_form_image_controls > .fa.o_select_file_button {
         background: @primary-color;
@@ -1908,4 +1949,72 @@ Tooltip
 
 .o_list_view.o_list_view_grouped.table-striped > tbody + tbody > tr:not(.o_group_header):nth-of-type(odd) {
     background-color: @panel-background-color;
+}
+
+.o_followers {
+    .o_followers_actions {
+        .o_followers_follow_button.o_followers_following {
+            .o_followers_following {
+                color: @primary-color;
+            }
+        }
+    }
+}
+
+.o_mail_navbar_item {
+    .o_mail_navbar_dropdown {
+        .o_mail_navbar_dropdown_top {
+            .o_filter_button:hover,
+            .o_filter_button.o_selected {
+                color: @primary-color;
+            }
+            border-bottom: 1px solid @border-line-color;
+        }
+        .o_mail_navbar_dropdown_channels {
+            .o_mail_channel_preview:hover {
+                background-color: @body-background-color;
+            }
+        }
+    }
+}
+
+/***
+Scrollbar
+***/
+.modal-body,
+.o_view_manager_content,
+.o_sub_menu_content,
+.o_mail_thread,
+.o_pivot
+{
+	overflow-y: scroll;
+}
+.modal-body::-webkit-scrollbar-track,
+.o_view_manager_content::-webkit-scrollbar-track,
+.o_sub_menu_content::-webkit-scrollbar-track,
+.o_mail_thread::-webkit-scrollbar-track,
+.o_pivot::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: @panel-background-color;
+}
+.modal-body::-webkit-scrollbar,
+.o_view_manager_content::-webkit-scrollbar,
+.o_sub_menu_content::-webkit-scrollbar,
+.o_mail_thread::-webkit-scrollbar,
+.o_pivot::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: transparent;
+}
+.modal-body::-webkit-scrollbar-thumb,
+.o_view_manager_content::-webkit-scrollbar-thumb,
+.o_sub_menu_content::-webkit-scrollbar-thumb,
+.o_mail_thread::-webkit-scrollbar-thumb,
+.o_pivot::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: @border-line-color;
 }
