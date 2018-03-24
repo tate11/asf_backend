@@ -7,7 +7,7 @@
 
 @primary-color:                 @blue;
 @secondary-color:               #e91e63!important;
-@topbar-color:                  #2d3035; //#1b1f32;
+@topbar-color:                  #1b1f32; //#2d3035;
 @body-color:                    lighten(@panel-background-color,65%);
 @body-secondary-color:          lighten(@panel-background-color,4%);
 @link-active-color:             @primary-color;
@@ -21,7 +21,7 @@
 @border-line-color:             lighten(@panel-background-color,5%);
 @active-background-color:       @border-line-color;
 @active-background-color-color: @active-background-color;
-@active-a-color:                @body-background-color;
+@active-a-color:                lighten(@primary-color,60%);
 @disabled-color:                darken(@panel-background-color,12%);
 
 
@@ -147,10 +147,6 @@ header > .main-nav {
     background-color: @panel-background-color;
 }
 
-.navbar-default {
-    border-color: @panel-background-color;
-}
-
 header > .main-nav > .container-fluid .o_sub_menu > .o_sub_menu_content > .oe_secondary_menu > li.app-name {
     color: @primary-color;
     text-transform: uppercase;
@@ -160,14 +156,6 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     color: #f8f8f8;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: @navbar-a-color;
-    background-color: @navbar-a-color;
-    &:hover {
-        background-color: @navbar-a-color;
-        color: @title-color;
-    }
-}
 /* 
 .navbar-nav {
     > li {
@@ -215,21 +203,30 @@ header > .main-nav > .container-fluid > .navbar-header .navbar-toggle {
     left: 8px;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-    color: @navbar-a-color !important;
-    background-color: lighten(@panel-background-color, 10%) !important;
-}
-
-// .navbar-default .navbar-nav > .open > a,
-// .navbar-default .navbar-nav > .open > a:hover,
-// .navbar-default .navbar-nav > .open > a:focus {
-//     background-color: lighten(@panel-background-color, 10%) !important;
-//     color: @navbar-a-color !important;
+// .navbar-default {
+//     border-color: @panel-background-color;
+//     .navbar-nav {
+//         > li {
+//             > a {
+//                 color: @active-a-color;
+//                 background-color: @navbar-a-color;
+//                 &:hover {
+//                     background-color: @navbar-a-color;
+//                     color: @title-color;
+//                 }
+//             }
+//         }
+//         > .open,
+//         > .active {
+//             > a {
+//                 &:focus,
+//                 &:hover {
+//                     color: @navbar-a-color !important;
+//                     background-color: lighten(@panel-background-color, 10%) !important;
+//                 }
+//             }
+//         }
+//     }
 // }
 
 .img-circle {
@@ -270,36 +267,40 @@ Kanban
         background: @navbar-inverse-background;
         border-color: transparent;
         box-shadow: 0 2px 6px rgba(0,0,0,.12);
-        .navbar-nav > .active > a {
-            background: @primary-color;
-            border-bottom: 2px solid @primary-color;
-            color: @title-color;
-            //text-transform: uppercase;
-            &:hover {
-                color: @primary-color;
-                background: transparent;
-            } 
-        }
         .navbar-nav {
+            > li {
+                > a {
+                    color: @active-a-color;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: @primary-color;
+                        transition: @transition;
+                    }
+                }
+            }
             > .open {
                 > a {
                     background-color: @border-line-color;
                     color: @primary-color;
                     &:hover {
                         color: @primary-color;
-                        //background: transparent;
                     }
                 }
             }
-            a {
-                &:hover {
-                    color: @primary-color;
-                    //background: transparent;
+            > .active {
+                > a {
+                    background: @primary-color;
+                    // border-bottom: 2px solid @primary-color;
+                    color: @active-a-color;
+                    &:hover {
+                        color: @active-a-color;
+                        // background: transparent;
+                        transition: none;
+                    }             
                 }
             }
         }
     }
-    background-color: #F9F9F9;
     > .o_main {
         background: @o_main_backround;
         .o_view_manager_content {
@@ -776,11 +777,7 @@ Modal
 .o_control_panel {
     background-color: @panel-background-color;
     border-bottom: 1px solid @border-line-color;
-    .navbar-default .navbar-nav > .active > a,
-    .navbar-default .navbar-nav > .active > a:hover,
-    .navbar-default .navbar-nav > .active > a:focus {
-        background-color: red;//lighten(@panel-background-color, 90%);
-    }
+    
     .breadcrumb {
         background-color: transparent;
         background: transparent;
