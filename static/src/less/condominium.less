@@ -31,6 +31,7 @@
 @form-sheet-background:         @body-background-color;
 @form-input-color:              @field-color;
 @searchview-input-color:        @title-color;
+@search-options-hover-color:    @topbar-color;
 @button-hover-color:            @title-color;
 @primary-color-dark-20:         darken(@primary-color, 80%);
 @primary-color-dark-10:         darken(@primary-color, 30%);
@@ -48,7 +49,7 @@
 @navbar-nav-active-color:                               @body-background-color;
 @o_sub_menu:                                            @topbar-color;
 @o_main_backround:                                      transparent;
-@view_manager_content:                                  @topbar-color;
+@view_manager_content:                                  transparent; //@body-background-color; //@topbar-color;
 @pivot-table-background-color-color:                    transparent;
 
 @nav-pills-active-color:                                @primary-color;
@@ -108,13 +109,9 @@
 @secondary-submenu-not-active-hover-border-color:       @active-background-color;
 
 body {
-    /* font-family: 'Montserrat', sans-serif; */
-    /* font-family: 'Roboto', sans-serif; */
-    /* font-family: 'Proxima Nova', Georgia, sans-serif; */
-    /* font-family: 'Poppins', sans-serif; */
     font-family: 'Nunito', sans-serif;
     color: @body-color !important;
-    /* font-family: 'Source Sans Pro',sans-serif; */
+    // font-family: 'Source Sans Pro',sans-serif;
     font-size: calc(13px + 1*((100vw - 320px)/1280));
     line-height: 1.74em;
     overflow: hidden;
@@ -272,7 +269,7 @@ Kanban
     > .o_main {
         background: @o_main_backround;
         .o_view_manager_content {
-            background: @view_manager_content;
+            background: @view_manager_content !important;
             > div > header > div {
                 padding: 10px;
                 background: @body-background-color;
@@ -492,9 +489,9 @@ Kanban
                         &:hover {
                             //background: @primary-color;
                             td {
-                                color: @primary-color;
-                                border-top: 1px dotted @primary-color;
-                                border-bottom: 1px dotted @primary-color;
+                                color: @primary-color !important;
+                                border-top: 1px dotted @primary-color !important;
+                                border-bottom: 1px dotted @primary-color !important;
                             }
                         }
                     }
@@ -548,11 +545,9 @@ a.pull-right:hover {
             background-color: @searchview-selection-focus;
             a {
                 color: @active-a-color !important;
-                transition: @transition;
             }
         }
     }
-
     .o_searchview_input {
         color: @searchview-input-color;
         background: transparent;
@@ -717,11 +712,15 @@ Modal
     }
 }
 
+blockquote {
+    border-left: 5px solid @border-line-color;
+}
+
 .o_kanban_view {
     .o_kanban_record {
         border-color: @border-line-color;
         box-shadow: none !important;
-        background-color: @body-background-color !important;
+        background-color: @panel-background-color !important;
         &:hover {
             border-color: lighten(@primary-color, 5%);
         }
@@ -729,22 +728,12 @@ Modal
     .o_kanban_quick_create {
         padding: 8px 8px;
         border: 1px solid @border-line-color;
-        background-color: @body-background-color !important;
+        background-color: @panel-background-color !important;
         .oe_kanban_details {
             color: @modal-body-color;
         }
     }
 }
-// .o_kanban_view {
-    //     .o_kanban_record, 
-    //     .o_kanban_quick_create {
-    //         background-color: @body-background-color !important;
-    //         .oe_kanban_details {
-    //             color: @modal-body-color;
-    //         }
-    //     }
-    // }
-
 
 .o_control_panel {
     background-color: @panel-background-color;
@@ -773,9 +762,16 @@ Modal
     background: @panel-background-color;
     font-family: inherit;
     .ui-state-focus {
-        > a {
+        a {
             background-color: @primary-color !important;
+            color: @secondary-color !important;
         }
+        // &.o_m2o_dropdown_option > a {
+        //     color: @secondary-color;
+        //     &:hover {
+        //         color: @topbar-color;
+        //     }
+        // }
     }
     .ui-menu-item {
         > a {
@@ -783,17 +779,15 @@ Modal
         }
         &:hover {
             background: @primary-color;
-        }
-        &.o_m2o_dropdown_option > a {
-            color: @primary-color;
-            &:hover {
-                color: @panel-background-color;
-                // color: @active-a-color;
+            > a {
+                color: @topbar-color !important;
             }
         }
-        &.ui-state-focus > a,
-        &.ui-state-focus.o_m2o_dropdown_option > a {
-            color: @active-a-color;
+        &.o_m2o_dropdown_option > a {
+            color: @secondary-color;
+            // &:hover {
+            //     color: @active-a-color;
+            // }
         }
     }
 }
@@ -942,16 +936,40 @@ fieldset {
     }
 }
 
-.open > .dropdown-toggle.btn-icon {
-    background: @primary-color;
-    color: @title-color;
-    border-color: @primary-color;
-    box-shadow: none;
-
-    &:hover {
-        border-color: lighten(@primary-color,10%);
-        background: transparent;
-        color: @primary-color;
+.open {
+    > .dropdown-toggle {
+        &.btn-primary {
+            background-color: @primary-color-dark-10;;
+            border-color: @primary-color;
+            &:focus,
+            &:hover {
+                background-color: @border-line-color;
+                color: @primary-color;
+                border-color: @primary-color;
+            }
+        }
+        &.o_dropdown_toggler_btn {
+            color: @primary-color;
+            background: transparent;
+            &:focus,
+            &:hover {
+                color: @primary-color;
+                background: transparent;
+                border-color: @primary-color;
+            }
+        }
+        &.btn-icon {
+            background: @primary-color;
+            color: @title-color;
+            border-color: @primary-color;
+            box-shadow: none;
+        
+            &:hover {
+                border-color: lighten(@primary-color,10%);
+                background: transparent;
+                color: @primary-color;
+            }
+        }
     }
 }
 
@@ -961,15 +979,15 @@ a {
     }
 }
 
-.o_form_view.o_form_editable 
-.o_form_field_monetary > 
-.o_form_input:focus {
-    border-color: rgba(0,0,0,0.1);
-    background-color: #e8e9ea;
-    outline: 0!important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+// .o_form_view.o_form_editable 
+// .o_form_field_monetary > 
+// .o_form_input:focus {
+//     border-color: rgba(0,0,0,0.1);
+//     background-color: #e8e9ea;
+//     outline: 0!important;
+//     -webkit-box-shadow: none;
+//     box-shadow: none;
+// }
 
 /***
 Tabs
@@ -999,30 +1017,6 @@ Tabs
         }
     }
 }
-
-// .nav-tabs {
-//     > li {
-//         > a {
-//             color: @body-color;
-//             &:hover {
-//                 color: @primary-color;
-//                 border-color: transparent;
-//             }
-//         }
-//     }
-// }
-
-// .nav {
-//     > li {
-//         > a:focus {
-//             background-color: transparent;
-//         }
-//     }
-// }
-
-/***
-Breadcrumb
-***/
 
 /***
 Table
@@ -1057,22 +1051,25 @@ td a {
     }
 }
 
-.o_list_view tbody:first-of-type > tr:first-child:not(.o_group_header) {
-    box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);
-}
+// .o_list_view {
+//     > thead {
+//         background-color: white;
+//         border: none;
+//     }
+//     tbody:first-of-type {
+//         > tr:first-child:not(.o_group_header) {
+//             box-shadow: inset 0px 5px 10px -4px rgba(0, 0, 0, 0.1);
+//         }
+//     }
+// }
 
-.o_list_view > thead {
-    background-color: white;
-    border: none;
-}
+// .o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty) {
+//     padding: 10px 4px !important;
+// }
 
-.o_view_manager_content > div > .table-responsive > .o_list_view.table > thead > tr > :not(:empty) {
-    padding: 10px 4px !important;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #F9F9F9;
-}
+// .table-striped > tbody > tr:nth-of-type(odd) {
+//     background-color: #F9F9F9;
+// }
 
 /***
 Form control
@@ -1087,9 +1084,6 @@ Form control
 /***
 Icons
 ***/
-.o_form_view .oe_button_box .oe_stat_button .o_button_icon {
-    color: @primary-color-dark-20;
-}
 
 .header-icon {
     font-size: 45px;
@@ -1103,6 +1097,13 @@ Dropdown
 ***/
 .dropdown-menu {
     background: @dropdown-menu-item-background-color;
+    > .active {
+        > a,
+        > a:hover,
+        > a:focus {
+            color: @primary-color;
+        }
+    }
     > li {
         > a {
             color: @dropdown-menu-item-color !important;
@@ -1125,7 +1126,7 @@ Dropdown
     .o_filters_menu {
         li {
             > a:hover {
-                color: @navbar-a-color;
+                color: @search-options-hover-color !important;
             }
         }
         li.selected {
@@ -1146,44 +1147,9 @@ Dropdown
     }
 }
 
-
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: @primary-color;
-}
-
-.open { 
-    > .dropdown-toggle.btn-primary {
-        background-color: @primary-color-dark-20;;
-        border-color: @primary-color;
-
-        &:focus {
-            background-color: @primary-color-dark-20;
-            border-color: @primary-color-dark-20;
-        }
-        &:hover {
-            background-color: @primary-color-dark-10;
-            border-color: @primary-color-dark-10;
-        }
-    }
-    > .dropdown-toggle.o_dropdown_toggler_btn {
-        color: @primary-color;
-        background: transparent;
-        &:focus,
-        &:hover {
-            color: @primary-color;
-            background: transparent;
-            border-color: @primary-color;
-        }
-    }
-}
-
 /***
 Form Breadcrumb
 ***/
-
-.ui-menu-item.ui-state-focus > a,
-.ui-menu-item.ui-state-focus.o_m2o_dropdown_option > a
-
 
 .o_form_field_many2one.o_form_field,
 .o_form_field_many2one.o_form_field.o_form_required,
@@ -1194,10 +1160,24 @@ Form Breadcrumb
 //    border-bottom: 1px solid @primary-color !important;
 }
 
-.o_datepicker.o_form_field_date.o_form_field.o_form_required {
-    border-bottom: 1px solid @primary-color !important;
-    background: @border-line-color !important;
-}
+// .o_form_field_many2one {
+//     &.o_form_field {
+//         padding: 0px !important;
+//         border: 1px !important;
+//     }
+// }
+// .o_datepicker {
+//     &.o_form_field_date {
+//         &.o_form_field {
+//             border-bottom: 1px solid @primary-color !important;
+//             background: @border-line-color !important;
+//             &.o_form_required {
+//                 border-bottom: 1px solid @primary-color !important;
+//                 background: @border-line-color !important;
+//             }
+//         }
+//     }
+// }
 
 /***
 Form
@@ -1758,7 +1738,7 @@ hr {
 }
 
 .nvd3.nv-pie .nv-slice text {
-    fill: white !important;
+    fill: @title-color !important;
 }
 
 .nv-legend-text {
