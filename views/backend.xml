@@ -22,7 +22,7 @@
         </div>
       </xpath>
     </template>
-    <template id="menu" inherit_id="web.menu" name="Web Menu">
+    <!-- <template id="menu" inherit_id="web.menu" name="Web Menu">
       <xpath expr="//ul/li[1]" position="before">
         <li>
           <a id="asf-menu" href="#">
@@ -30,6 +30,6 @@
           </a>
         </li>
       </xpath>
-    </template>
+    </template> -->
   </data>
 </odoo>
