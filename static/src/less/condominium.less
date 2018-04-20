@@ -999,7 +999,8 @@ Tabs
     &.nav {
         > li {
             > a:focus {
-                background-color: transparent;
+                    background-color: transparent;
+                }
             }
         }
         &.nav-tabs {
@@ -1592,18 +1593,52 @@ html .o_loading {
             border-top: 1px solid @border-line-color;
         }
     }
+    &.nav {
+        > li {
+            > a {
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    background-color: @secondary-color !important;
+                }
+            }
+        }
+    }
     .nav-tabs {
         border-bottom: 1px solid @border-line-color;
-        > li.active > a,
-        > li.active > a:hover, 
-        > li.active > a:active, 
-        > li.active > a:focus {
-            border-top: 1px solid;
-            background-color: transparent;
-            color: @primary-color !important;
-            border-left: 1px solid @border-line-color;
-            border-right: 1px solid @border-line-color;
-            border-bottom: 1px solid @panel-background-color;
+        > li {
+            > a {
+                &:focus,
+                &:hover {
+                    border-color: @border-line-color @border-line-color @panel-background-color !important;
+                    background-color: transparent !important;
+                    color: @primary-color;
+                }
+                &:focus {
+                    border-color: @primary-color @border-line-color @panel-background-color !important;
+                }
+            }
+            &.active {
+                > a {
+                    border-top: 1px solid;
+                    background-color: transparent;
+                    color: @primary-color !important;
+                    border-left: 1px solid @border-line-color;
+                    border-right: 1px solid @border-line-color;
+                    border-bottom: 1px solid @panel-background-color;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        border-top: 1px solid @primary-color !important;
+                        background-color: transparent;
+                        color: @primary-color !important;
+                        border-left: 1px solid @border-line-color;
+                        border-right: 1px solid @border-line-color;
+                        border-bottom: 1px solid @panel-background-color;
+                    }
+
+                }
+            }
         }
     }
     .o_form_textarea {
